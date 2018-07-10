@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Class;
+package Class.Home;
 
 /**
  *
- * @author Spartan Lakmal
+ * @author Uthpala Jayawardena
  */
-public class SensorMonitor {
+public class Home {
     
 }
