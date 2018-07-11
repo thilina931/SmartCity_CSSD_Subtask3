@@ -5,17 +5,48 @@
  */
 package Interface;
 
+import Class.Serialization.Serialization;
+import Class.user.SendEmail;
+import Class.user.SetOfRandomCode;
+import Class.user.SetOfUsers;
+import Class.user.User;
+import Class.user.randomCode;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Thilina
  */
 public class ForgetPassword extends javax.swing.JFrame {
 
+    
+    public static SetOfUsers searchUsers = new SetOfUsers();
+    public static final String FILE_NAME_Users = "DataFiles/Users.txt";
+
+    public static SetOfRandomCode searchCode = new SetOfRandomCode();
+    public static final String FILE_NAME_RandomCodes = "DataFiles/RandomCodes.txt";
+
     /**
      * Creates new form Forget_Password
      */
     public ForgetPassword() {
         initComponents();
+        try {
+            for (User member : Serialization.deserializeUsers()) {
+                searchUsers.addUser(member);
+                member.print();
+            }
+
+            for (randomCode code : Serialization.deserializeRandomCode()) {
+                searchCode.addCode(code);
+                code.print();
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }
 
     /**
@@ -27,22 +58,284 @@ public class ForgetPassword extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtsenderEmail = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtVerificationCode1 = new javax.swing.JTextField();
+        btnancSave = new javax.swing.JButton();
+        btnancSave1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel10.setText("Enter Email Address                 :");
+
+        txtsenderEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtsenderEmailActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Enter Verification Code            :");
+
+        btnancSave.setText("Send");
+        btnancSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnancSaveMouseClicked(evt);
+            }
+        });
+
+        btnancSave1.setText("OK");
+        btnancSave1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnancSave1MouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("We have send a verification code to your email.....");
+
+        jLabel9.setText("Resend Code");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(186, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtsenderEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                            .addComponent(txtVerificationCode1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnancSave1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnancSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(174, 174, 174))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(jLabel2)
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtsenderEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnancSave))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtVerificationCode1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnancSave1))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel9)
+                .addContainerGap(125, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtsenderEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtsenderEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtsenderEmailActionPerformed
+
+    private void btnancSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnancSaveMouseClicked
+        // TODO add your handling code here:
+         if (txtsenderEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please provide the email address...", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            String status = "";
+
+            for (User user : searchUsers) {
+                if (user.getUsername().equals(txtsenderEmail.getText())) {
+                    status = "true";
+                    break;
+                } else {
+                    status = "false";
+                }
+            }
+
+            if (status == "true") {
+                String stat = sendMessage(txtsenderEmail.getText());
+                if (stat == "success") {
+                    JOptionPane.showMessageDialog(this, "Varification Code has been send to your email...\n"
+                            + " Please type the code below to reset your password ", "Next Step", JOptionPane.INFORMATION_MESSAGE);
+                    searchCode.removeAll(searchCode);
+                    try {
+                        for (randomCode code : Serialization.deserializeRandomCode()) {
+                            searchCode.addCode(code);
+                            code.print();
+                        }
+                    } catch (IOException | ClassNotFoundException ex) {
+                        Logger.getLogger(ForgetPassword.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Seems to be a internet connection error.. try again later... ", "Error", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Please Register to the system...", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
+        
+        
+    }//GEN-LAST:event_btnancSaveMouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        
+        if (txtsenderEmail.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please provide the email address...", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            String status = "";
+
+            for (User user : searchUsers) {
+                if (user.getUsername().equals(txtsenderEmail.getText())) {
+                    status = "true";
+                    break;
+                } else {
+                    status = "false";
+                }
+            }
+
+            if (status == "true") {
+                String stat = sendMessage(txtsenderEmail.getText());
+                if (stat == "success") {
+                    JOptionPane.showMessageDialog(this, "Varification Code has been send to your email...\n"
+                            + " Please type the code below to reset your password ", "Next Step", JOptionPane.INFORMATION_MESSAGE);
+                    searchCode.removeAll(searchCode);
+                    try {
+                        for (randomCode code : Serialization.deserializeRandomCode()) {
+                            searchCode.addCode(code);
+                            code.print();
+                        }
+                    } catch (IOException | ClassNotFoundException ex) {
+                        Logger.getLogger(ForgetPassword.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Seems to be a internet connection error.. try again later... ", "Error", JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Please Register to the system...", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        }
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void btnancSave1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnancSave1MouseClicked
+        // TODO add your handling code here:
+        
+        String status = null;
+        try {
+            status = validateCode(txtsenderEmail.getText(), txtVerificationCode1.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(ForgetPassword.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (status == "success") {
+            resetPassword r = new resetPassword(txtsenderEmail.getText());
+            r.setVisible(true);
+            searchCode.removeAll(searchCode);
+            txtsenderEmail.setText("");
+            txtVerificationCode1.setText("");
+            this.hide();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Varification code not match...", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnancSave1MouseClicked
+
+    
+    public static String validateCode(String email, String code) throws IOException {
+        String status = "";
+        for (randomCode random : searchCode) {
+
+            if (random.getEmail().equals(email) && random.getRandomCode().equals(code)) {
+                status = "success";
+                searchCode.removeCode(random);
+                
+                    Serialization.Serialize(searchCode, FILE_NAME_RandomCodes);
+                
+                break;
+            } else {
+                status = "error";
+
+            }
+        }
+
+        return status;
+    }
+    
+    
+    public static String getAlphaNumbericRandom() {
+        String chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        int numberOfCodes = 0;
+        String code = "";
+        while (numberOfCodes < 7) {
+            char c = chars.charAt((int) (Math.random() * chars.length()));
+            code += c;
+            numberOfCodes++;
+        }
+        return code;
+    }
+    
+    
+    
+    public static String sendMessage(String email) {
+        String verifyCode = getAlphaNumbericRandom();
+        String status = "";
+        try {
+            SendEmail mailSender;
+            mailSender = new SendEmail(email, "Verification Message", "Your Verification Code is : " + verifyCode);
+
+            new randomCode.SingletonBuilder(email, verifyCode).build();
+            searchCode.addCode(randomCode.getInstance());
+            try {
+                Serialization.Serialize(searchCode, FILE_NAME_RandomCodes);
+                status = "success";
+            } catch (Exception ex) {
+                status = "fail";
+                System.out.println(ex.getMessage());
+            }
+
+        } catch (Exception ex) {
+            status = "error";
+        }
+        return status;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -80,5 +373,14 @@ public class ForgetPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnancSave;
+    private javax.swing.JButton btnancSave1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txtVerificationCode1;
+    private javax.swing.JTextField txtsenderEmail;
     // End of variables declaration//GEN-END:variables
 }

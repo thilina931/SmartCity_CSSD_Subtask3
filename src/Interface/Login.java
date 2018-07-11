@@ -72,11 +72,6 @@ public class Login extends javax.swing.JFrame {
                 LoginMouseClicked(evt);
             }
         });
-        Login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginActionPerformed(evt);
-            }
-        });
 
         clear.setText("Cancel");
         clear.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,10 +218,6 @@ public class Login extends javax.swing.JFrame {
         r.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jLabel12MouseClicked
-
-    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LoginActionPerformed
       public void clear() {
         userName.setText("");
         password.setText("");

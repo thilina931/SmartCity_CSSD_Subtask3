@@ -5,17 +5,20 @@
  */
 package Class.Serialization;
 
-import Class.Station.SetOfStation;
+import Class.user.SetOfRandomCode;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Vector;
 import Class.user.SetOfUsers;
+import Class.user.User;
 
 /**
  *
- * @author Lakmal
+ * @author Uthpala Jayawardena
  */
 public class Serialization {
      
@@ -29,18 +32,6 @@ public class Serialization {
         System.out.println(filename + " Serialized !");
     }
     
-    public static SetOfStation deserializeStation() throws IOException, ClassNotFoundException {
-
-        SetOfStation station;
-        try (FileInputStream in = new FileInputStream("DataFiles/station.txt")) 
-        {
-            ObjectInputStream ois = new ObjectInputStream(in);
-            station = (SetOfStation) ois.readObject();
-        }
-
-        return station;
-    }
-
 
          public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
 
@@ -52,5 +43,19 @@ public class Serialization {
         }
 
         return users;
+    }
+         
+         
+         
+       public static SetOfRandomCode deserializeRandomCode() throws IOException, ClassNotFoundException {
+
+        SetOfRandomCode codes;
+        try (FileInputStream in = new FileInputStream("DataFiles/RandomCodes.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            codes = (SetOfRandomCode) ois
+                    .readObject();
+        }
+
+        return codes;
     }
 }
