@@ -32,29 +32,40 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelCPassword" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelPassword" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelMNumber" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCity" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelLName" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelFName" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="162" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jButtonSignup" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jButtonReset" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelCPassword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPassword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelMNumber" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCity" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelLName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelFName" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="162" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jButtonSignup" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jButtonReset" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lastName" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="firstName" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="city" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="email" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="mobile" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="password" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="password1" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldLName" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                              <Component id="jTextFieldFname" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                              <Component id="jTextFieldCity" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                              <Component id="jTextFieldEmail" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                              <Component id="jTextFieldMNumber" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                              <Component id="jTextFieldPassword" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                              <Component id="jTextFieldCPassword" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="jLabel13" min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="176" max="32767" attributes="0"/>
@@ -71,44 +82,49 @@
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelFName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldFname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="firstName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelLName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldLName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lastName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelCity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="city" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="email" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelMNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldMNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="mobile" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="password" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelCPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldCPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="password1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonSignup" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonReset" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
+                  <Component id="jLabel13" alignment="3" pref="17" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -134,37 +150,37 @@
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldFname">
+    <Component class="javax.swing.JTextField" name="firstName">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldLName">
+    <Component class="javax.swing.JTextField" name="lastName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLNameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lastNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCity">
+    <Component class="javax.swing.JTextField" name="city">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldEmail">
+    <Component class="javax.swing.JTextField" name="email">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelMNumber">
       <Properties>
         <Property name="text" type="java.lang.String" value="Mobile Number"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldMNumber">
+    <Component class="javax.swing.JTextField" name="mobile">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldPassword">
+    <Component class="javax.swing.JTextField" name="password">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelCPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirm Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCPassword">
+    <Component class="javax.swing.JTextField" name="password1">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -178,11 +194,30 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="SignUp"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSignupMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonReset">
       <Properties>
         <Property name="text" type="java.lang.String" value="Reset"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonResetMouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Already a member ?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel13">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Login"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel13MouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

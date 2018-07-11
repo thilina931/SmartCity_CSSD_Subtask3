@@ -4,9 +4,12 @@
  * and open the template in the editor.
  */
 package Interface;
-
+import Class.Serialization.Serialization;
+import Class.user.SetOfUsers;
+import Class.user.User;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 /**
- *
  * @author Uthpala Jayawardena
  */
 public class Login extends javax.swing.JFrame {
@@ -14,8 +17,21 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    SetOfUsers userList = new SetOfUsers();
+    public static final String FILE_NAME_Users = "DataFiles/Users.txt";
+    
+    
     public Login() {
         initComponents();
+        
+        
+        try {
+            for (User user : Serialization.deserializeUsers()) {
+                userList.addUser(user);
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
     }
 
     /**
@@ -27,22 +43,185 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        userName = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        Login = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("User Name :");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("Password :");
+
+        password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordActionPerformed(evt);
+            }
+        });
+
+        Login.setText("Login");
+        Login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LoginMouseClicked(evt);
+            }
+        });
+
+        clear.setText("Cancel");
+        clear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearMouseClicked(evt);
+            }
+        });
+
+        jLabel12.setText("Create new account");
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
+            }
+        });
+
+        jLabel11.setText("Forgot password");
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(241, 241, 241)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(userName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Login)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(clear, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Login)
+                    .addComponent(clear))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
+        // TODO add your handling code here:
+        if (!userName.getText().isEmpty() && !password.getText().isEmpty()) {
+            String username = userName.getText().trim();
+            String Password = password.getText().trim();
+            try {
+                String userLevels = "", userID = "", email = "";
+
+                String str = userList.userAuthontication(username, Password);
+                String[] splited = str.split("\\s+");
+                userLevels = splited[0];
+                userID = splited[1];
+                email = splited[2];
+
+                System.out.println(userLevels);
+                if (userLevels.equals("PasswordIncorrect")) {
+                    JOptionPane.showMessageDialog(this, "Password incorrect... Please try again later", "Error", JOptionPane.ERROR_MESSAGE);
+
+                } else if (userLevels.equals("UsernameIncorrect")) {
+                    JOptionPane.showMessageDialog(this, "Username incorrect... Please try again with correct username", "Error", JOptionPane.ERROR_MESSAGE);
+                } else if (userLevels.equals("user")) {
+                    UserHome u = new UserHome (userID, userLevels, email);
+                    u.setVisible(true);
+                    this.hide();
+
+                    userList.removeAll(userList);
+                    
+                } 
+                else if (userLevels.equals("admin")) {
+                    AdminHome a = new AdminHome (userID, userLevels, email);
+                    a.setVisible(true);
+                    this.hide();
+
+                    userList.removeAll(userList);
+
+                }
+
+            } catch (Exception ex) {
+
+                System.out.println(ex.getMessage());
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Username or password not given... Please try again with correct username and password", "Error", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_LoginMouseClicked
+
+    private void clearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearMouseClicked
+        // TODO add your handling code here:
+        clear();
+    }//GEN-LAST:event_clearMouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+         new Forget_Password().setVisible(true);
+        this.hide();
+        
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        // TODO add your handling code here:
+          Register r = new Register();
+        r.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jLabel12MouseClicked
+      public void clear() {
+        userName.setText("");
+        password.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -79,5 +258,13 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Login;
+    private javax.swing.JButton clear;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField password;
+    private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }

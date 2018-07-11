@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Class.Serialization;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -11,32 +12,56 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Vector;
+import Class.user.SetOfUsers;
+import Class.user.User;
+
 /**
  *
  * @author Uthpala Jayawardena
  */
 public class Serialization {
      
-    public static void serialize(Vector input, String title) throws IOException{
-    
-    
-        FileOutputStream fos = new FileOutputStream(new File(title));
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(input);
-        oos.flush();
-        oos.close();
-        
-    
-    
+    public static void Serialize(Object object, String filename) throws IOException {
+
+        try (FileOutputStream out = new FileOutputStream(filename)) {
+            ObjectOutputStream oos = new ObjectOutputStream(out);
+            oos.writeObject(object);
+            oos.flush();
+        }
+        System.out.println(filename + " Serialized !");
     }
     
-     public  static Vector  deSerialize(String title)throws IOException, ClassNotFoundException{
-    
-        FileInputStream fis = new FileInputStream(new File(title));
-        ObjectInputStream ois = new ObjectInputStream(fis);
-        Vector vecc = (Vector)ois.readObject();
-        ois.close();
-        return  vecc;
-    
+//     public  static Vector  deSerialize(String title)throws IOException, ClassNotFoundException{
+//    
+//        FileInputStream fis = new FileInputStream(new File(title));
+//        ObjectInputStream ois = new ObjectInputStream(fis);
+//        Vector vecc = (Vector)ois.readObject();
+//        ois.close();
+//        return  vecc;
+//    
+//    }
+     /*
+        public static SetOfSensors deserializeSensors() throws IOException, ClassNotFoundException {
+
+        SetOfSensors sensors;
+        try (FileInputStream in = new FileInputStream("DataFiles/Sensors.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            sensors = (SetOfSensors) ois
+                    .readObject();
+        }
+
+        return sensors;
+    }
+        */
+         public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
+
+        SetOfUsers users;
+        try (FileInputStream in = new FileInputStream("DataFiles/Users.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            users = (SetOfUsers) ois
+                    .readObject();
+        }
+
+        return users;
     }
 }
