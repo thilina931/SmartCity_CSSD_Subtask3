@@ -99,6 +99,11 @@ public class Register extends javax.swing.JFrame {
                 jButtonSignupMouseClicked(evt);
             }
         });
+        jButtonSignup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSignupActionPerformed(evt);
+            }
+        });
 
         jButtonReset.setText("Reset");
         jButtonReset.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -302,6 +307,10 @@ public class Register extends javax.swing.JFrame {
         l.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jButtonSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSignupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSignupActionPerformed
 
      public void clear() {
         firstName.setText("");
