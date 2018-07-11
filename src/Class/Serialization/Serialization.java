@@ -5,19 +5,17 @@
  */
 package Class.Serialization;
 
-import java.io.File;
+import Class.Station.SetOfStation;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Vector;
 import Class.user.SetOfUsers;
-import Class.user.User;
 
 /**
  *
- * @author Uthpala Jayawardena
+ * @author Lakmal
  */
 public class Serialization {
      
@@ -31,28 +29,19 @@ public class Serialization {
         System.out.println(filename + " Serialized !");
     }
     
-//     public  static Vector  deSerialize(String title)throws IOException, ClassNotFoundException{
-//    
-//        FileInputStream fis = new FileInputStream(new File(title));
-//        ObjectInputStream ois = new ObjectInputStream(fis);
-//        Vector vecc = (Vector)ois.readObject();
-//        ois.close();
-//        return  vecc;
-//    
-//    }
-     /*
-        public static SetOfSensors deserializeSensors() throws IOException, ClassNotFoundException {
+    public static SetOfStation deserializeStation() throws IOException, ClassNotFoundException {
 
-        SetOfSensors sensors;
-        try (FileInputStream in = new FileInputStream("DataFiles/Sensors.txt")) {
+        SetOfStation station;
+        try (FileInputStream in = new FileInputStream("DataFiles/station.txt")) 
+        {
             ObjectInputStream ois = new ObjectInputStream(in);
-            sensors = (SetOfSensors) ois
-                    .readObject();
+            station = (SetOfStation) ois.readObject();
         }
 
-        return sensors;
+        return station;
     }
-        */
+
+
          public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
 
         SetOfUsers users;

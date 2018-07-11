@@ -207,7 +207,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
-         new Forget_Password().setVisible(true);
+         new ForgetPassword().setVisible(true);
         this.hide();
         
     }//GEN-LAST:event_jLabel11MouseClicked
