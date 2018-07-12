@@ -9,6 +9,19 @@ package Class.Sensor;
  *
  * @author Uthpala Jayawardena
  */
-public class TrafficSensor {
-    
+public class TrafficSensor implements ISensor{
+     @Override
+    public String distribute (double sensorValue){
+    String status = "";
+     if (sensorValue < 50) {
+            status = "Low Traffic ...";        
+            } else if (sensorValue >= 50 && sensorValue < 75) {
+            status = "Moderate Traffic ...";
+        } else {
+            status = "Heavy Traffic ...";
+        }
+
+        return status;
+    }
+        
 }

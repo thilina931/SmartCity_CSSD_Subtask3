@@ -9,6 +9,20 @@ package Class.Sensor;
  *
  * @author Uthpala Jayawardena
  */
-public class BinSensor {
+public class BinSensor implements ISensor{
+     @Override
+    public String distribute(double sensorValue){
     
+        String status = "";
+        if (sensorValue < 50) {
+            status = "Garbage Level is Low ...";
+
+        } else if (sensorValue >= 50 && sensorValue < 90) {
+            status = "Garbage Level is Moderate ...";
+        } else {
+            status = "Garbage Level is Moderate ...";
+        }
+
+        return status;
+    }
 }

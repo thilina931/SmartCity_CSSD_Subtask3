@@ -9,6 +9,20 @@ package Class.Sensor;
  *
  * @author Uthpala Jayawardena
  */
-public class FloodSensor {
+public class FloodSensor implements ISensor{
     
+    @Override
+    public String distribute (double sensorValue){
+    
+        String status = "";
+        if (sensorValue < 1000) {
+            status = "No Flooding Issue...";
+
+        } else {
+            status = "Be aware of any signs of heavy rain..... ";
+        }
+
+        return status;
+    
+    }
 }
