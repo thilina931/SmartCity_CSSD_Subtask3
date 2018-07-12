@@ -34,8 +34,8 @@ public class SensorDetails implements Serializable{
     }
     
     
-    public SensorDetails(String dateTime, String stationNumber, double Flood, double Bin, double Traffic) {
-        this.dateTime = dateTime;
+    public SensorDetails( String stationNumber, double Flood, double Bin, double Traffic) {
+        
         this.stationNumber = stationNumber;
         this.Flood = Flood;
         this.Bin = Bin;
@@ -59,7 +59,7 @@ public class SensorDetails implements Serializable{
     }
       
       
-    public void setfieldID(String fieldID) {
+    public void setstationNumber(String stationNumber) {
         this.stationNumber = stationNumber;
     }
        
@@ -76,6 +76,10 @@ public class SensorDetails implements Serializable{
      @Override
     public String toString() {
         return Integer.toString(sensorNumber);
+    }
+
+    public void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 
