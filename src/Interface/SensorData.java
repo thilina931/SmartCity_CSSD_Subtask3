@@ -5,6 +5,9 @@
  */
 package Interface;
 
+
+
+import Class.Sensor.SetOfSensors;
 import Class.Station.SetOfStation;
 import Class.Station.Station;
 import Validations.validations;
@@ -27,8 +30,8 @@ public class SensorData extends javax.swing.JFrame {
     /**
      * Creates new form AdminPanel
      */
-      public static SetOfStation thestation = new SetOfStation();
-     public static SetOfSensors theSensors = new SetOfSensors();
+    public static SetOfStation thestation = new SetOfStation();
+    public static SetOfSensors theSensors = new SetOfSensors();
     public static SetOfSensors searchSensors = new SetOfSensors();
     public SensorData() {
         initComponents();
@@ -139,6 +142,11 @@ public class SensorData extends javax.swing.JFrame {
         });
 
         jButton9.setText("Check for Flood");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -165,7 +173,7 @@ public class SensorData extends javax.swing.JFrame {
             }
         });
 
-        comboSTID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSTID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select an option" }));
         comboSTID.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 comboSTIDMouseClicked(evt);
@@ -347,17 +355,38 @@ public class SensorData extends javax.swing.JFrame {
 
         for (Station station : thestation) {
 
-            if (station.getlocation().equals(comboLocation.getSelectedItem().toString()) && farm.getfarmername().equals(comboFarmer.getSelectedItem().toString()) && !values.contains("" + farm.getfarmNumber())) {
-                values = values + "\n" + farm.getfarmNumber();
+            if (!values.contains("" + station.getstationNumber())) {
+                values = values + "\n" + station.getstationNumber();
             }
         }
         String[] splited = values.split("\\n+");
         for (int i = 0; i < splited.length; i++) {
             System.out.println(splited[i]);
         }
-        loadCombo(comboFieldID, splited);
+        loadCombo(comboSTID, splited);
     }//GEN-LAST:event_comboSTIDMouseClicked
 
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        
+        if (comboSTID.getSelectedItem().toString().equals("Select an option")){
+            JOptionPane.showMessageDialog(this, "Please Provide a station number", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+        
+        }
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    
+    
+    
+    
+    public void loadCombo(JComboBox combobox, String[] values) {
+        combobox.removeAllItems();
+        combobox.addItem("Select an option");
+        for (int i = 2; i < values.length; i++) {
+            combobox.addItem(values[i]);
+        }
+    }
     /**
      * @param args the command line arguments
      */
