@@ -5,6 +5,19 @@
  */
 package Interface;
 
+import Class.Station.SetOfStation;
+import Class.Station.Station;
+import Validations.validations;
+import java.awt.HeadlessException;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import Class.Serialization.Serialization;
+import Class.Station.SetOfStation;
+import Class.Station.Station;
 /**
  *
  * @author Spartan Lakmal
@@ -14,6 +27,9 @@ public class SensorData extends javax.swing.JFrame {
     /**
      * Creates new form AdminPanel
      */
+      public static SetOfStation thestation = new SetOfStation();
+     public static SetOfSensors theSensors = new SetOfSensors();
+    public static SetOfSensors searchSensors = new SetOfSensors();
     public SensorData() {
         initComponents();
     }
@@ -45,8 +61,8 @@ public class SensorData extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        comboSTID = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -149,9 +165,10 @@ public class SensorData extends javax.swing.JFrame {
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+        comboSTID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSTID.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboSTIDMouseClicked(evt);
             }
         });
 
@@ -171,8 +188,8 @@ public class SensorData extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
-                                .addGap(30, 30, 30)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboSTID, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -230,7 +247,7 @@ public class SensorData extends javax.swing.JFrame {
                         .addGap(0, 186, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboSTID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -317,16 +334,29 @@ public class SensorData extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         
         SensorData sda = new SensorData();
         sda.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void comboSTIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboSTIDMouseClicked
+        // TODO add your handling code here:
+           String values = "\na\n";
+
+        for (Station station : thestation) {
+
+            if (station.getlocation().equals(comboLocation.getSelectedItem().toString()) && farm.getfarmername().equals(comboFarmer.getSelectedItem().toString()) && !values.contains("" + farm.getfarmNumber())) {
+                values = values + "\n" + farm.getfarmNumber();
+            }
+        }
+        String[] splited = values.split("\\n+");
+        for (int i = 0; i < splited.length; i++) {
+            System.out.println(splited[i]);
+        }
+        loadCombo(comboFieldID, splited);
+    }//GEN-LAST:event_comboSTIDMouseClicked
 
     /**
      * @param args the command line arguments
@@ -371,6 +401,7 @@ public class SensorData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboSTID;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -390,6 +421,5 @@ public class SensorData extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
