@@ -15,6 +15,8 @@ import java.io.ObjectOutputStream;
 import java.util.Vector;
 import Class.user.SetOfUsers;
 import Class.user.User;
+import Class.Station.SetOfStation;
+import Class.Station.Station;
 
 /**
  *
@@ -58,4 +60,17 @@ public class Serialization {
 
         return codes;
     }
+       
+       public static SetOfStation deserializeFarm() throws IOException, ClassNotFoundException {
+
+        SetOfStation farm;
+        try (FileInputStream in = new FileInputStream("DataFiles/station.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            farm = (SetOfStation) ois
+                    .readObject();
+        }
+
+        return farm;
+    } 
+       
 }
