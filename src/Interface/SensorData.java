@@ -255,10 +255,9 @@ public class SensorData extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        SensorData spms = new SensorData();
+        AdminPanelManageSensor spms = new AdminPanelManageSensor();
         spms.setVisible(true);
         this.hide();
-        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
