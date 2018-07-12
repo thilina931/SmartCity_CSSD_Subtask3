@@ -5,6 +5,7 @@
  */
 package Class.Serialization;
 
+import Class.Sensor.SetOfSensors;
 import Class.user.SetOfRandomCode;
 import java.io.File;
 import java.io.FileInputStream;
@@ -73,4 +74,16 @@ public class Serialization {
         return farm;
     } 
        
+       
+       public static SetOfSensors deserializeSensors() throws IOException, ClassNotFoundException {
+
+        SetOfSensors sensors;
+        try (FileInputStream in = new FileInputStream("DataFiles/Sensors.txt")) {
+            ObjectInputStream ois = new ObjectInputStream(in);
+            sensors = (SetOfSensors) ois
+                    .readObject();
+        }
+
+        return sensors;
+    }
 }
