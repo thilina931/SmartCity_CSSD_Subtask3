@@ -88,7 +88,7 @@ public class UserHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
+        
         View_Profile v = new View_Profile (username, userLevel, logedUser1.getText());
         v.setVisible(true);
         this.hide();

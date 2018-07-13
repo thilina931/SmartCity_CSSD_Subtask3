@@ -16,12 +16,12 @@ import Class.Serialization.Serialization;
 
 /**
  *
- * @author Thilina
+ * @author ThilinaLB
  */
 public class View_Profile extends javax.swing.JFrame {
 
     /**
-     * Creates new form View_Profile
+     * Creates new form ViewProfile
      */
     String username, userLevel;
     public static SetOfUsers theUsers = new SetOfUsers();
