@@ -12,12 +12,12 @@ import java.util.Vector;
  *
  * @author Uthpala Jayawardena
  */
-public class SetOfSensors  extends Vector<SensorDetails> implements Serializable {
+public class MotherShip  extends Vector<SensorDetails> implements Serializable {
      private static final long serialVersionUID = 2428035439452881234L;
 
-    SetOfSensors sensorList;
+    MotherShip sensorList;
     
-    public SetOfSensors() {
+    public MotherShip() {
         super();
     }
     
@@ -27,8 +27,8 @@ public class SetOfSensors  extends Vector<SensorDetails> implements Serializable
     }
     
     
-    public SetOfSensors getSensorDetailsFromStationID(int stationNumber) {
-        sensorList = new SetOfSensors();
+    public MotherShip getSensorDetailsFromStationID(int stationNumber) {
+        sensorList = new MotherShip();
         for (SensorDetails csensorDetails : this) {
             if (Integer.parseInt(csensorDetails.getstationNumber()) == stationNumber) {
                 sensorList.addSensorDetails(csensorDetails);

@@ -9,7 +9,7 @@ package Interface;
 
 import Class.Sensor.BinSensor;
 import Class.Sensor.FloodSensor;
-import Class.Sensor.SetOfSensors;
+import Class.Sensor.MotherShip;
 import Class.Sensor.SensorDetails;
 import Class.Sensor.TrafficSensor;
 import Class.Station.SetOfStation;
@@ -47,8 +47,8 @@ public class SensorData extends javax.swing.JFrame {
      * Creates new form AdminPanel
      */
     public static SetOfStation thestation = new SetOfStation();
-    public static SetOfSensors theSensors = new SetOfSensors();
-    public static SetOfSensors searchSensors = new SetOfSensors();
+    public static MotherShip theSensors = new MotherShip();
+    public static MotherShip searchSensors = new MotherShip();
     public SensorData() {
         initComponents();
     }

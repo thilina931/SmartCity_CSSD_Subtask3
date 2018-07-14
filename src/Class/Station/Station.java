@@ -103,13 +103,13 @@ public class Station implements Serializable {
 
     }
        ///////////////////////////////////////////////////////
-       //return Station type
-      public String getstationtype() {
+       //return sensor type
+      public String getsensortype() {
         return cmb_stationtype;
     }
 
       //setting Station type
-    public void setstationtype(String station_type) {
+    public void setsensortype(String station_type) {
         this.cmb_stationtype = station_type;
     }
 

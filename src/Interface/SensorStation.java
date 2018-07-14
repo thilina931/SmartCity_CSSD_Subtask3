@@ -47,7 +47,7 @@ public class SensorStation extends javax.swing.JFrame {
         logedUser.setText(email);
 
         try {
-            for (Station station : Serialization.deserializeFarm()) {
+            for (Station station : Serialization.deserializeStation()) {
                 thestation.addStation(station);
                 station.print();
             }
@@ -100,7 +100,7 @@ public class SensorStation extends javax.swing.JFrame {
     public void loadMap(String locations) {
 
         try {
-            for (Station station : Serialization.deserializeFarm()) {
+            for (Station station : Serialization.deserializeStation()) {
                 thestation.addStation(station);
                 station.print();
             }

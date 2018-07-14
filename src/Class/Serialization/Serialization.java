@@ -5,7 +5,7 @@
  */
 package Class.Serialization;
 
-import Class.Sensor.SetOfSensors;
+import Class.Sensor.MotherShip;
 import Class.user.SetOfRandomCode;
 import java.io.File;
 import java.io.FileInputStream;
@@ -62,7 +62,7 @@ public class Serialization {
         return codes;
     }
        
-       public static SetOfStation deserializeFarm() throws IOException, ClassNotFoundException {
+       public static SetOfStation deserializeStation() throws IOException, ClassNotFoundException {
 
         SetOfStation farm;
         try (FileInputStream in = new FileInputStream("DataFiles/station.txt")) {
@@ -75,12 +75,12 @@ public class Serialization {
     } 
        
        
-       public static SetOfSensors deserializeSensors() throws IOException, ClassNotFoundException {
+       public static MotherShip deserializeSensors() throws IOException, ClassNotFoundException {
 
-        SetOfSensors sensors;
+        MotherShip sensors;
         try (FileInputStream in = new FileInputStream("DataFiles/Sensors.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
-            sensors = (SetOfSensors) ois
+            sensors = (MotherShip) ois
                     .readObject();
         }
 

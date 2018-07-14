@@ -17,24 +17,26 @@ public class SetOfStation extends Vector <Station> implements Serializable {
        
         SetOfStation StationList;
     
-         public SetOfStation() {
-                    super();
-               }
+        
+        
+ public SetOfStation() {
+        super();
+ }
          
-         public void addStation(Station aStation) {
-         super.add(aStation);
-    }
+public void addStation(Station aStation) {
+        super.add(aStation);
+ }
          
-          public boolean removeStation(Station rstation) {
+public boolean removeStation(Station rstation) {
         return super.remove(rstation);
-    }
-        public String updatedetails(Station station, String station_type, String station_name, String location, String longitude, String latitude, byte[] image) {
+}
+
+public String updatedetails(Station station, String sensor_type, String station_name, String location, String longitude, String latitude) {
         String status = "";
         try {
-            this.elementAt(this.indexOf(station)).setstationtype(station_type);
+            this.elementAt(this.indexOf(station)).setsensortype(sensor_type);
             this.elementAt(this.indexOf(station)).setstation_name(station_name);
             this.elementAt(this.indexOf(station)).setlocation(location);
-            this.elementAt(this.indexOf(station)).setimage(image);
             this.elementAt(this.indexOf(station)).setlongitude(longitude);
             this.elementAt(this.indexOf(station)).setlatitude(latitude);
 
@@ -44,8 +46,10 @@ public class SetOfStation extends Vector <Station> implements Serializable {
         }
         return status;
     }  
-        //rturn Station name
-         public SetOfStation getstationFromStationName(String StationName) {
+
+        
+//rturn Station name
+public SetOfStation getstationFromStationName(String StationName) {
         StationList = new SetOfStation();
 
         for (Station station : this) {
@@ -58,8 +62,8 @@ public class SetOfStation extends Vector <Station> implements Serializable {
         
     }
          
-         //return number
-         public SetOfStation getstationFromNumber(int number) {
+//return number
+public SetOfStation getstationFromNumber(int number) {
         StationList = new SetOfStation();
         for (Station station : this) {
             if (station.getstationNumber() == number) {

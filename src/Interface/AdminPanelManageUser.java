@@ -256,7 +256,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
         jLabel8.setText("User Level :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "User", "Admin" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "user", "admin" }));
 
         jLabel9.setText("ID :");
 
@@ -556,8 +556,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
           String firstname, lastname, City, Email, Mobile, Password, Password1;
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || city.getText().isEmpty()
-                || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
+        if (firstName.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
@@ -571,10 +570,10 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                 String Levels = jComboBox1.getSelectedItem().toString();
                 String userLevels;
 
-                if (Levels.equals("User")) {
-                    userLevels = "User";
+                if (Levels.equals("user")) {
+                    userLevels = "user";
                 } else {
-                    userLevels = "Admin";
+                    userLevels = "admin";
                 }
 
                 String status = registerUser(firstname, lastname, City, Email, Mobile, Password, userLevels);
@@ -629,9 +628,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         String userLevels = user.getUserLevel();
 
         if (userLevels.equals("user")) {
-            jComboBox1.setSelectedItem("User");
+            jComboBox1.setSelectedItem("user");
         } else {
-            jComboBox1.setSelectedItem("Admin");
+            jComboBox1.setSelectedItem("admin");
         }
 
     }//GEN-LAST:event_jTable2MouseClicked
@@ -640,8 +639,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         String firstname, lastname, City, Email, Mobile, Password, Password1;
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || city.getText().isEmpty()
-                || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
+        if (firstName.getText().isEmpty() ||email.getText().isEmpty() || password.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
@@ -656,9 +654,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             String userLevels;
 
             if (Levels.equals("user")) {
-                userLevels = "User";
+                userLevels = "user";
             } else {
-                userLevels = "Admin";
+                userLevels = "admin";
             }
 
             User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
