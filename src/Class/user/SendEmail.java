@@ -16,8 +16,8 @@ import java.util.*;
  * @author Uthpala Jayawardena
  */
 public class SendEmail {
-    final String senderEmailID = "uthpala.n.jayawardena@gmail.com@gmail.com";
-    final String senderPassword = "swaraj123";
+    final String senderEmailID = "csmart183@gmail.com";
+    final String senderPassword = "1qaz2wsx@smartcity";
     final String emailSMTPserver = "smtp.gmail.com";
     final String emailServerPort = "465";
     String receiverEmailID = null;
