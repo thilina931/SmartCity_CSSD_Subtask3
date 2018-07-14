@@ -281,10 +281,9 @@ public class SensorData extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        SensorDetails sdd = new SensorDetails();
-        sdd.setVisible(true);
+        SensorDetails sd = new SensorDetails();
+        sd.setVisible(true);
         this.hide();
-        
         
     }//GEN-LAST:event_jButton6ActionPerformed
 
