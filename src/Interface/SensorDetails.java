@@ -159,7 +159,7 @@ public class SensorDetails extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        SensorStation ss = new SensorStation();
+        SenorStation ss = new SenorStation();
         ss.setVisible(true);
         this.hide();
         
