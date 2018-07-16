@@ -11,7 +11,7 @@ package Class.Sensor;
  */
 public class BinSensor implements ISensor{
      @Override
-    public String distribute(double sensorValue){
+    public String alt(double sensorValue){
     
         String status = "";
         if (sensorValue < 50) {

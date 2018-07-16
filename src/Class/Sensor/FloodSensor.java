@@ -12,7 +12,7 @@ package Class.Sensor;
 public class FloodSensor implements ISensor{
     
     @Override
-    public String distribute (double sensorValue){
+    public String alt (double sensorValue){
     
         String status = "";
         if (sensorValue < 1000) {
