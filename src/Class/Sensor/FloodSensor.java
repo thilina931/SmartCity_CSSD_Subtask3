@@ -13,6 +13,11 @@ package Class.Sensor;
 //Flood Sensor Class
 public class FloodSensor implements ISensor{
     
+    /**
+     * 
+     * @param sensorValue
+     * @return 
+     */
     @Override
     public String alt (double sensorValue){
     

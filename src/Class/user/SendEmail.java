@@ -25,7 +25,12 @@ public class SendEmail {
     static String emailBody = ":)";
     
     
-    
+    /**
+     * 
+     * @param receiverEmailID
+     * @param emailSubject
+     * @param emailBody 
+     */
     public SendEmail(String receiverEmailID, String emailSubject, String emailBody) {
         this.receiverEmailID = receiverEmailID;
         this.emailSubject = emailSubject;
@@ -57,7 +62,7 @@ public class SendEmail {
     
     
     
-     public class SMTPAuthenticator extends javax.mail.Authenticator {
+    public class SMTPAuthenticator extends javax.mail.Authenticator {
 
         /**
          *

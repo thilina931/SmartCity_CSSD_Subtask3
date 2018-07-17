@@ -33,6 +33,12 @@ public class SetOfRandomCode extends Vector<randomCode> implements Serializable{
         return super.remove(aCode);
     }
     
+    /**
+     * 
+     * @param email
+     * @param code
+     * @return 
+     */
     //verify random code
     public String verifyRandomCode(String email, String code) {
         codeList = new SetOfRandomCode();

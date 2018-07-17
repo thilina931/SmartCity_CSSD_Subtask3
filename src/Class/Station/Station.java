@@ -19,8 +19,7 @@ public class Station implements Serializable {
      private static volatile Station instance;
        private int stationNumber;
     private String cmb_stationtype, txt_station_name, txt_fieldid, txt_location, txt_longitude, txt_latitude;
-    private byte[] image;
-    private double minTemp, maxTemp, saturationVapourPressure;//eddit
+    
 
     private static int Station_Count = 0;
 
@@ -30,16 +29,12 @@ public class Station implements Serializable {
         this.txt_location = builder.txt_location;
         this.txt_longitude = builder.txt_longitude;
         this.txt_latitude = builder.txt_latitude;
-        this.image = builder.image;
-        this.minTemp = builder.minTemp;
-        this.maxTemp = builder.maxTemp;
-        this.saturationVapourPressure = builder.saturationVapourPressure;
-        stationNumber = ++Station_Count;
+       
     
     
 }
     //get instance
-     public static Station getInstance() {
+    public static Station getInstance() {
         if (instance == null) {
             synchronized (Station.class) {
                 if (instance == null) {
@@ -50,20 +45,18 @@ public class Station implements Serializable {
         return instance;
     }
      
-      public void print() {
-        System.out.println(Integer.toString(stationNumber) + " Station Type " + cmb_stationtype + " Station Name " + txt_station_name + ",Location " + txt_location + ",Longitude " + txt_longitude + ",Latitude " + txt_latitude + ", Image " + image+", Pressure"+saturationVapourPressure);
+    public void print() {
+        System.out.println(Integer.toString(stationNumber) + " Station Type " + cmb_stationtype + " Station Name " + txt_station_name + ",Location " + txt_location + ",Longitude " + txt_longitude + ",Latitude " + txt_latitude );
     }
      
-      public static class SingletonBuilder {
+    public static class SingletonBuilder {
 
         private final String cmb_stationtype; // Mandatory
         private final String txt_station_name;
         private final String txt_location;
         private final String txt_longitude;
         private final String txt_latitude;
-        private final double minTemp;
-        private final double maxTemp;
-        private final double saturationVapourPressure;
+        
 
         private byte[] image;
 
@@ -73,142 +66,112 @@ public class Station implements Serializable {
             txt_location = null;
             txt_longitude = null;
             txt_latitude = null;
-            minTemp = 0.0;
-            maxTemp = 0.0;
-            saturationVapourPressure = 0.0;
+           
 
         }
-      public SingletonBuilder(String station_type, String station_name, String location, String longitude, String latitude) {
+        
+    /**
+     * 
+     * @param station_type
+     * @param station_name
+     * @param location
+     * @param longitude
+     * @param latitude 
+     */
+    public SingletonBuilder(String station_type, String station_name, String location, String longitude, String latitude) {
             this.cmb_stationtype = station_type;
             this.txt_station_name = station_name;
             this.txt_location = location;
             this.txt_longitude = longitude;
             this.txt_latitude = latitude;
-            minTemp = 0.0;
-            maxTemp = 0.0;
-            saturationVapourPressure = 0.0;
+            
         }
 
-          public Station.SingletonBuilder image(byte[] image) {
-            this.image = image;
-            return this;
-        }
-         public void build() {
+    public void build() {
           Station.getInstance().build(this);
-        }
-      
+        } 
       
       }
       
-       Station() {
+     Station() {
 
     }
-       ///////////////////////////////////////////////////////
-       //return sensor type
-      public String getsensortype() {
+    
+    //return sensor type
+    public String getsensortype() {
         return cmb_stationtype;
     }
-
-      //setting Station type
+    /**
+     * 
+     * @param station_type 
+     */
+    //set Station type
     public void setsensortype(String station_type) {
         this.cmb_stationtype = station_type;
     }
 
-     //return Station name
+    //return Station name
     public String getstation_name() {
         return txt_station_name;
     }
 
-     //setting  Station name
+    /**
+     * 
+     * @param station_name 
+     */
+    //set sttion name
     public void setstation_name(String station_name) {
         this.txt_station_name = station_name;
     }
 
-    //setting and getting  station Number
-   
+    //get station number
     public int getstationNumber() {
         return stationNumber;
     }
 
-    
+    /**
+     * 
+     * @param stationNumber 
+     */
+    //set station number
     public void setstationNumber(int stationNumber) {
         this.stationNumber = stationNumber;
     }
 
-    
-    public byte[] getimage() {
-        return image;
-    }
-
-    
-    public void setimage(byte[] image) {
-        this.image = image;
-    }
-
-    //setting getting location
-    /**
-     *
-     * @return
-     */
+    //get location
     public String getlocation() {
         return txt_location;
     }
 
-    
+    //set location
     public void setlocation(String location) {
         this.txt_location = location;
     }
 
-    //setting getting firsstname
-   
+    //get longitude
     public String getlongitude() {
         return txt_longitude;
     }
 
-    
+    /**
+     * 
+     * @param longitude 
+     */
+    //set longitude
     public void setlongitude(String longitude) {
         this.txt_longitude = longitude;
     }
 
-    //setting getting latitude
-   
+    //get latitude
     public String getlatitude() {
         return txt_latitude;
     }
     
-   
-    public double getSaturationVapourPressure()
-    {
-        return saturationVapourPressure;
-    }
-    
-   
-    public void setSaturationVapourPressure(double saturationVapourPressure)
-    {
-        this.saturationVapourPressure=saturationVapourPressure;
-    }
-
-   
-    public void setMinTemp(double minTemp) {
-        this.minTemp = minTemp;
-    }
-
-   
-    public double getMinTemp() {
-        return minTemp;
-    }
-
-    
-    public void setMaxTemp(double maxTemp) {
-        this.maxTemp = maxTemp;
-    }
-
-    
-    public double getMaxTemp() {
-        return maxTemp;
-    }
-
-  
+    /**
+     * 
+     * @param latitude 
+     */
+    //set latitude
     public void setlatitude(String latitude) {
         this.txt_latitude = latitude;
     }

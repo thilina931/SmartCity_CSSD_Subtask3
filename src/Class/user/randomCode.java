@@ -15,10 +15,10 @@ import java.io.Serializable;
  * @author Uthpala Jayawardena
  */
 public class randomCode implements Serializable{
-     private static final long serialVersionUID = -47594027994670654L;
+    private static final long serialVersionUID = -47594027994670654L;
      
      
-     private static volatile randomCode instance;
+    private static volatile randomCode instance;
 
     private int recodeNumber;
     private String email;
@@ -87,6 +87,10 @@ public class randomCode implements Serializable{
         return email;
     }
     
+    /**
+     * 
+     * @param email 
+     */
     //set email
      public void setEmail(String email) {
         this.email = email;
@@ -97,6 +101,10 @@ public class randomCode implements Serializable{
         return randomNumber;
     }
     
+    /**
+     * 
+     * @param randomNumber 
+     */
     //set random code
     public void setRandomCode(String randomNumber) {
         this.randomNumber = randomNumber;
@@ -107,6 +115,10 @@ public class randomCode implements Serializable{
         return recodeNumber;
     }
     
+    /**
+     * 
+     * @param memberNumber 
+     */
     //set random number
     public void setRandomNumber(int memberNumber) {
         this.recodeNumber = memberNumber;

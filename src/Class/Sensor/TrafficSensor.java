@@ -11,6 +11,11 @@ package Class.Sensor;
  */
 //Traffic sensor class
 public class TrafficSensor implements ISensor{
+    /**
+     * 
+     * @param sensorValue
+     * @return 
+     */
      @Override
     public String alt (double sensorValue){
     String status = "";

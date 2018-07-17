@@ -11,5 +11,10 @@ package Class.Sensor;
  */
 //ISensor class 
 public interface ISensor {
+    /**
+     * 
+     * @param sensorValue
+     * @return 
+     */
     public String alt(double sensorValue);
 }

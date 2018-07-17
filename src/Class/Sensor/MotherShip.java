@@ -27,6 +27,11 @@ public class MotherShip  extends Vector<SensorDetails> implements Serializable {
         super.add(csensorDetails);
     }
     
+    /**
+     * 
+     * @param stationNumber
+     * @return 
+     */
     //get sensor details from sensorID
     public MotherShip getSensorDetailsFromStationID(int stationNumber) {
         sensorList = new MotherShip();

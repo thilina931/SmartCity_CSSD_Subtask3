@@ -13,6 +13,7 @@ import java.io.Serializable;
  *
  * @author Uthpala Jayawardena
  */
+
 //Sensor detail class
 public class SensorDetails implements Serializable{
      private ISensor behaviour;
@@ -29,6 +30,16 @@ public class SensorDetails implements Serializable{
 
     }
 
+    /**
+     * 
+     * @param dateTime
+     * @param stationLocation
+     * @param stationNumber
+     * @param Flood
+     * @param Bin
+     * @param Traffic 
+     */
+    //sensor details
     public SensorDetails(String dateTime, String stationLocation, String stationNumber, double Flood, double Bin, double Traffic) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -39,6 +50,14 @@ public class SensorDetails implements Serializable{
     }
     
     
+    /**
+     * 
+     * @param stationNumber
+     * @param stationLocation
+     * @param Flood
+     * @param Bin
+     * @param Traffic 
+     */
     public SensorDetails( String stationNumber, String stationLocation, double Flood, double Bin, double Traffic) {
         
         this.stationLocation=stationLocation;
@@ -54,17 +73,25 @@ public class SensorDetails implements Serializable{
         return dateTime;
     }
     
+    /**
+     * 
+     * @param dateTime 
+     */
     //set date
     public void setDate(String dateTime) {
         this.dateTime = dateTime;
     }
-     
-     //get station number
+
+    //get station number
     public String getstationNumber() {
         return stationNumber;
     }
       
-      //set station number
+    /**
+     * 
+     * @param stationNumber 
+     */
+    //set station number
     public void setstationNumber(String stationNumber) {
         this.stationNumber = stationNumber;
     }
@@ -73,7 +100,12 @@ public class SensorDetails implements Serializable{
     public ISensor getBehaviour() {
         return behaviour;
     }
-       //set behaviour
+    
+    /**
+     * 
+     * @param behaviour 
+     */
+    //set behaviour
     public void setBehaviour(ISensor behaviour) {
         this.behaviour = behaviour;
     }
@@ -84,13 +116,19 @@ public class SensorDetails implements Serializable{
         return stationLocation;
     }
       
+    /**
+     * 
+     * @param stationLocation 
+     */
     //set station location
     public void setstationLocation(String stationLocation) {
         this.stationNumber = stationLocation;
     }
     
-   
-
+    /**
+     * 
+     * @param b 
+     */   
     public void setVisible(boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -100,7 +138,12 @@ public class SensorDetails implements Serializable{
      * @param behaviour
      */
 
-    
+    /**
+     * 
+     * @param sensorValue
+     * @return 
+     */
+    //check solution method
     public String checkSolution(double sensorValue) {
         String alert = behaviour.alt(sensorValue);
         return alert;

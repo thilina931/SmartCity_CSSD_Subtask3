@@ -12,6 +12,12 @@ package Class.Sensor;
 
 //Bin Senor Class
 public class BinSensor implements ISensor{
+    
+    /**
+     * 
+     * @param sensorValue
+     * @return 
+     */
      @Override
     public String alt(double sensorValue){
     

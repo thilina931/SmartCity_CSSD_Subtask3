@@ -67,14 +67,14 @@ public class Serialization implements Serializable{
        //deserialization station
        public static SetOfStation deserializeStation() throws IOException, ClassNotFoundException {
 
-        SetOfStation Station;
+        SetOfStation farm;
         try (FileInputStream in = new FileInputStream("DataFiles/Station.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
-            Station = (SetOfStation) ois
+            farm = (SetOfStation) ois
                     .readObject();
         }
 
-        return Station;
+        return farm;
     } 
        
        //deserialization sensors

@@ -16,7 +16,7 @@ import java.util.Observer;
  */
 
 public class sensorStation implements Serializable,Observer{
-      private static final long serialVersionUID = 4515658257338350132L;
+    private static final long serialVersionUID = 4515658257338350132L;
 
     private String sensorStation_ID;
     private  String Station_Type;
@@ -25,6 +25,15 @@ public class sensorStation implements Serializable,Observer{
     private  String Longitude;
     private  String Latitude ;
 
+    /**
+     * 
+     * @param sensorStation_ID
+     * @param Station_Type
+     * @param Station_Name
+     * @param Location
+     * @param Longitude
+     * @param Latitude 
+     */
     public sensorStation(String sensorStation_ID, String Station_Type, String Station_Name, String Location, String Longitude, String Latitude) {
         this.sensorStation_ID = sensorStation_ID;
         this.Station_Type = Station_Type;
@@ -39,6 +48,10 @@ public class sensorStation implements Serializable,Observer{
         return sensorStation_ID;
     }
 
+    /**
+     * 
+     * @param sensorStation_ID 
+     */
     //set station ID
     public void setSensorStation_ID(String sensorStation_ID) {
         this.sensorStation_ID = sensorStation_ID;
@@ -49,6 +62,10 @@ public class sensorStation implements Serializable,Observer{
         return Station_Type;
     }
 
+    /**
+     * 
+     * @param Station_Type 
+     */
     //set station type
     public void setStation_Type(String Station_Type) {
         this.Station_Type = Station_Type;
@@ -59,6 +76,10 @@ public class sensorStation implements Serializable,Observer{
         return Station_Name;
     }
 
+    /**
+     * 
+     * @param Station_Name 
+     */
     //set station name
     public void setStation_Name(String Station_Name) {
         this.Station_Name = Station_Name;
@@ -69,6 +90,10 @@ public class sensorStation implements Serializable,Observer{
         return Location;
     }
 
+    /**
+     * 
+     * @param Location 
+     */
     //set location
     public void setLocation(String Location) {
         this.Location = Location;
@@ -79,6 +104,10 @@ public class sensorStation implements Serializable,Observer{
         return Longitude;
     }
 
+    /**
+     * 
+     * @param Longitude 
+     */
     //set longitude
     public void setLongitude(String Longitude) {
         this.Longitude = Longitude;
@@ -89,6 +118,10 @@ public class sensorStation implements Serializable,Observer{
         return Latitude;
     }
 
+    /**
+     * 
+     * @param Latitude 
+     */
     //set latitude
     public void setLatitude(String Latitude) {
         this.Latitude = Latitude;

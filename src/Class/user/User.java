@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @author Thilina
  */
 public class User implements Serializable{
-     private static final long serialVersionUID = -47594027994670654L;
+    private static final long serialVersionUID = -47594027994670654L;
 
     private static volatile User instance;
 
@@ -36,12 +36,7 @@ public class User implements Serializable{
     }
     
     
-    
-    
-    /////////////////////////////////////////////////////////////////////////////
-    
-    
-      public static User getInstance() {
+    public static User getInstance() {
         if (instance == null) {
             synchronized (User.class) {
                 if (instance == null) {
@@ -52,24 +47,22 @@ public class User implements Serializable{
         return instance;
     }
     
-    //////////////////////////////////////
-      public void print() {
+
+    public void print() {
         System.out.println(Integer.toString(memberNumber) + " Name " + name + ",username " + username + ",password " + password + ",userLevel " + userLevel);
     }
       
-      
-      
-      //////////////////////////////////////////////
-       public static class SingletonBuilder {
 
-        private final String name; // Mandatory
+    public static class SingletonBuilder {
+
+        private final String name;
         private final String username;
         private final String lastName;
         private final String userLevel;
         private final String mobile;
         private final String password;
 
-        private String city = "";// Not Mandatory
+        private String city = "";
 
         private SingletonBuilder() {
             name = null;
@@ -81,7 +74,7 @@ public class User implements Serializable{
             userLevel = null;
         }
         
-         public SingletonBuilder(String firstName, String lastName, String userLevel, String email, String mobile, String password) {
+        public SingletonBuilder(String firstName, String lastName, String userLevel, String email, String mobile, String password) {
             this.name = firstName;
             this.lastName = lastName;
             this.mobile = mobile;
@@ -92,105 +85,153 @@ public class User implements Serializable{
         }
        
        
-       public SingletonBuilder city(String city) {
+        public SingletonBuilder city(String city) {
             this.city = city;
             return this;
         }
 
-       ///////////////////////////////////////////////////////////////
+ 
         public void build() {
             User.getInstance().build(this);
-    }
-       
+        }
        
        
        }
         private User() {
 
-    }
-         //get user name
-          public String getUsername() {
-        return username;
-    }
-        //set user name
-          public void setUsername(String username) {
-        this.username = username;
-    }
-          //get password
-           public String getPassword() {
-        return password;
-    }
+        }
         
-           //set password
-            public void setPassword(String password) {
+        
+         //get user name
+        public String getUsername() {
+        return username;
+        }
+        
+        /**
+         * 
+         * @param username 
+         */
+        //set user name
+        public void setUsername(String username) {
+        this.username = username;
+        }
+        
+        //get password
+        public String getPassword() {
+        return password;
+        }
+        
+        /**
+         * 
+         * @param password 
+         */
+        //set password
+        public void setPassword(String password) {
         this.password = password;
-    }
+        }
      
-            //get user level
-            public String getUserLevel() {
+        //get user level
+        public String getUserLevel() {
         return userLevel;
-    }
-            //set user level  
-            public void setUserLevel(String userLevel) {
+        }
+        
+        /**
+         * 
+         * @param userLevel 
+         */
+        //set user level  
+        public void setUserLevel(String userLevel) {
         this.userLevel = userLevel;
-    }
-            //get member number
-            public int getMemberNumber() {
+        }
+        
+        //get member number
+        public int getMemberNumber() {
         return memberNumber;
-    }
-            //set member number
-            public void setMemberNumber(int memberNumber) {
+        }
+        
+        /**
+         * 
+         * @param memberNumber 
+         */
+        //set member number
+        public void setMemberNumber(int memberNumber) {
         this.memberNumber = memberNumber;
-    }
-            //get name
-            public String getName() {
+        }
+        
+        
+        //get name
+        public String getName() {
         return name;
-    }
-            //set name
-            public void setName(String name) {
+        }
+        
+        /**
+         * 
+         * @param name 
+         */
+        //set name
+        public void setName(String name) {
         this.name = name;
-    }
-            //get last name
-           public String getLastName() {
+        }
+        
+        
+        //get last name
+        public String getLastName() {
         return lastName;
-    }
-           //set last name
-           public void setLastName(String lastName) {
+        }
+        
+        /**
+         * 
+         * @param lastName 
+         */
+        //set last name
+        public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
+        }
            
-          //get city
-          public String getCity() {
+        //get city
+        public String getCity() {
         return city;
-    }
-          //set city
-          public void setCity(String city) {
+        }
+        
+        /**
+         * 
+         * @param city 
+         */
+        //set city
+        public void setCity(String city) {
         this.city = city;
-    }   
-          //get mobile
-          public String getMobile() {
+        }   
+        
+        
+        //get mobile
+        public String getMobile() {
         return mobile;
-    }
-         //set mobile            
-          public void setMobile(String mobile) {
+        }
+        
+        /**
+         * 
+         * @param mobile 
+         */
+        //set mobile            
+        public void setMobile(String mobile) {
         this.mobile = mobile;
-    }
+        }
 
-            
-            ////////////////////////////////////////////////////
-             @Override
-    public String toString() {
+
+        @Override
+        public String toString() {
         return Integer.toString(memberNumber) + " " + name;
-    }
-    ////////////////////////////
-     //transient and static fields are write and read
-    private void writeObject(ObjectOutputStream oos)
-            throws IOException {
+        }
+   
+        
+        
+        private void writeObject(ObjectOutputStream oos)
+        throws IOException {
         oos.defaultWriteObject();
         oos.writeObject(memberCount);
 
     }
-    //////////////////////////
+    
     
      private void readObject(ObjectInputStream ois)
             throws ClassNotFoundException, IOException {

@@ -33,6 +33,16 @@ public boolean removeStation(Station rstation) {
         return super.remove(rstation);
 }
 
+/**
+ * 
+ * @param station
+ * @param sensor_type
+ * @param station_name
+ * @param location
+ * @param longitude
+ * @param latitude
+ * @return 
+ */
 //update station details
 public String updatedetails(Station station, String sensor_type, String station_name, String location, String longitude, String latitude) {
         String status = "";
@@ -50,7 +60,11 @@ public String updatedetails(Station station, String sensor_type, String station_
         return status;
     }  
 
-        
+/**
+ * 
+ * @param StationName
+ * @return 
+ */       
 //rturn Station name
 public SetOfStation getstationFromStationName(String StationName) {
         StationList = new SetOfStation();
@@ -64,7 +78,12 @@ public SetOfStation getstationFromStationName(String StationName) {
         return StationList;
         
     }
-         
+
+/**
+ * 
+ * @param number
+ * @return 
+ */
 //return number
 public SetOfStation getstationFromNumber(int number) {
         StationList = new SetOfStation();

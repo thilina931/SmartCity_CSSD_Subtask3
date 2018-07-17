@@ -12,25 +12,38 @@ import java.util.Vector;
  * @author Thilina
  */
 public class SetOfUsers extends  Vector<User> implements Serializable {
-      private static final long serialVersionUID = 2428035439452881234L;
+    private static final long serialVersionUID = 2428035439452881234L;
 
     SetOfUsers userList;
     
-      public SetOfUsers() {
+    public SetOfUsers() {
         super();
     }
       
-       //add user
-       public void addUser(User aUser) {
+    //add user
+    public void addUser(User aUser) {
         super.add(aUser);
     }
     
-       //remove user
-        public boolean removeUser(User user) {
+    //remove user
+    public boolean removeUser(User user) {
         return super.remove(user);
     }
-        //update user details
-         public String updatedetails(User user, String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
+    
+    /**
+     * 
+     * @param user
+     * @param firstName
+     * @param lastName
+     * @param city
+     * @param email
+     * @param mobile
+     * @param password
+     * @param userLevels
+     * @return 
+     */
+    //update user details
+    public String updatedetails(User user, String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
         String status = "";
         try {
             this.elementAt(this.indexOf(user)).setName(firstName);
@@ -56,6 +69,12 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @return
      */
          
+    /**
+     * 
+     * @param username
+     * @param Password
+     * @return 
+     */
      //user authentication
     public String userAuthontication(String username, String Password) {
         userList = new SetOfUsers();
@@ -84,6 +103,11 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @return
      */
     
+    /**
+     * 
+     * @param name
+     * @return 
+     */
     //get member by name
     public SetOfUsers getMemberFromName(String name) {
         userList = new SetOfUsers();
@@ -102,7 +126,6 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @param number
      * @return
      */
-    
     //get member by number
     public SetOfUsers getMemberFromNumber(int number) {
         userList = new SetOfUsers();
@@ -121,7 +144,6 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @param email
      * @return
      */
-    
     //get member from email
     public SetOfUsers getMemberFromEmail(String email) {
         userList = new SetOfUsers();

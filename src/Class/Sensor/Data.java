@@ -25,6 +25,12 @@ public class Data implements Serializable{
    
     }
 
+    /**
+     * 
+     * @param FloodSol
+     * @param BinSol
+     * @param TrafficSol 
+     */
     public Data(String FloodSol, String BinSol, String TrafficSol) {
         this.FloodSol= FloodSol;
         this.BinSol =BinSol;
@@ -40,6 +46,10 @@ public class Data implements Serializable{
         return FloodSol;
     }
 
+    /**
+     * 
+     * @param FloodSol 
+     */
     public void setFloodSol(String FloodSol) {
         this.FloodSol = FloodSol;
     }
@@ -48,6 +58,10 @@ public class Data implements Serializable{
         return BinSol;
     }
 
+    /**
+     * 
+     * @param BinSol 
+     */
     public void setBinSol(String BinSol) {
         this.BinSol = BinSol;
     }
@@ -56,6 +70,10 @@ public class Data implements Serializable{
         return TrafficSol;
     }
 
+    /**
+     * 
+     * @param TrafficSol 
+     */
     public void setTrafficSol(String TrafficSol) {
         this.TrafficSol = TrafficSol;
     }
@@ -78,6 +96,12 @@ public class Data implements Serializable{
      
 
 
+    /**
+     * 
+     * @param FloodSol
+     * @param BinSol
+     * @param TrafficSol 
+     */
     public void addData(String FloodSol,String BinSol,String TrafficSol) {
         this.FloodSol= FloodSol;
         System.out.println(FloodSol);

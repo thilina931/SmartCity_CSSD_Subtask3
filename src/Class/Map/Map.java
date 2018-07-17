@@ -52,7 +52,12 @@ public class Map  {
         return internalFrame;
      
 }
-        public static JButton createButton(String title){
+    /**
+     * 
+     * @param title
+     * @return 
+     */
+    public static JButton createButton(String title){
         
             JButton setMarkerButton = new JButton("Set Marker");
             setMarkerButton.addActionListener(new ActionListener() {
@@ -70,63 +75,6 @@ public class Map  {
      
     
          }
-//    internalFrame.MouseInfo.getPointerInfo().getLocation();
-    
-//public void Map(){
-//
-//        Browser jInternalFrame1 = new Browser();
-//        BrowserView browserView = new BrowserView(jInternalFrame1);
-//
-//        JButton setMarkerButton = new JButton("Set Marker");
-//        setMarkerButton.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//              
-////                jInternalFrame1.executeJavaScriptAndReturnValue(
-////                        "map.addListener('click', function(e) {\n"
-////                        + "placeMarker(e.latLng, map);\n"
-////                        + "});\n"
-////                        + "\n"
-////                        + "function placeMarker(position, map) {\n"
-////                        + "        var marker = new google.maps.Marker({\n"
-////                        + "        position: position,\n"
-////                        + "        map: map,\n"
-////                        + "        title:'test point',\n "
-////                        + "    });\n"
-////                        + "    map.panTo(position);\n"
-////                        + "    window.java.onMarkerAdded(position);"
-////                        + "}");
-////                jInternalFrame1.addScriptContextListener(new ScriptContextAdapter() {
-////                    @Override
-////                    public void onScriptContextCreated(ScriptContextEvent event) {
-////                        jInternalFrame1.executeJavaScriptAndReturnValue("window").asObject().setProperty("java", new JavaCallback());
-////                    }
-////                });
-//                
-//            }
-//        });
-//
-//        JPanel toolBar = new JPanel();
-//        toolBar.add(setMarkerButton);
-//
-//       
-//        jInternalFrame1.addStatusListener(new StatusListener() {
-//                    public void onStatusChange(StatusEvent event) {
-//                        System.out.println("Text = " + event.toString());
-//                    }
-//                });
-//
-////        int index = jInternalFrame1.getCurrentNavigationEntryIndex();
-////        System.out.println(index);
-//    }
-//    
-//    public static class JavaCallback {
-//
-//        public void onMarkerAdded(JSObject position) {
-//            double lat = position.getProperty("lat").asFunction().invoke(position).asNumber().getDouble();
-//            double lng = position.getProperty("lng").asFunction().invoke(position).asNumber().getDouble();
-//            System.out.println("lat = " + lat + ", lng = " + lng);
-//        }
-//    }
 
 
 
