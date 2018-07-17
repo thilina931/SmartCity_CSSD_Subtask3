@@ -7,23 +7,23 @@ package Class.Serialization;
 
 import Class.Sensor.MotherShip;
 import Class.user.SetOfRandomCode;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Vector;
 import Class.user.SetOfUsers;
-import Class.user.User;
 import Class.Station.SetOfStation;
-import Class.Station.Station;
+import java.util.ArrayList;
+import Class.Station.sensorStation;
+import java.io.Serializable;
+
 
 /**
  *
  * @author Uthpala Jayawardena
  */
-public class Serialization {
+public class Serialization implements Serializable{
      
     public static void Serialize(Object object, String filename) throws IOException {
 
@@ -65,7 +65,7 @@ public class Serialization {
        public static SetOfStation deserializeStation() throws IOException, ClassNotFoundException {
 
         SetOfStation farm;
-        try (FileInputStream in = new FileInputStream("DataFiles/station.txt")) {
+        try (FileInputStream in = new FileInputStream("DataFiles/Station.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             farm = (SetOfStation) ois
                     .readObject();
@@ -86,4 +86,50 @@ public class Serialization {
 
         return sensors;
     }
+       
+        public static boolean write(String filename, Object obj){
+            
+        try {
+            FileOutputStream fil=new FileOutputStream(filename);
+            ObjectOutputStream oo=new ObjectOutputStream(fil);
+            oo.writeObject(obj);
+           
+            fil.flush();
+            oo.close();
+            fil.close();
+           return true;
+        } catch (Exception e) {
+            System.out.println("write "+ e);
+        }
+    return false;
+    }
+       
+       
+       
+       
+       public static ArrayList<sensorStation> getAllSensorStations(){
+          try {
+            FileInputStream fil=new FileInputStream("DataFiles/sensorstation.txt");
+                     
+                if(fil.available()>0){
+                    ObjectInputStream oo=new ObjectInputStream(fil);
+                 ArrayList<sensorStation> sr = (ArrayList<sensorStation>) oo.readObject();
+                 oo.close();
+                 fil.close();
+                 return sr;
+                }
+                else{
+                     ArrayList<sensorStation>sr  = new ArrayList<>();
+
+                     fil.close();
+                     return sr;
+                }
+            
+        } catch (Exception e) {
+            System.out.println("read "+ e);
+        }
+
+            
+        return null;
+      }
 }

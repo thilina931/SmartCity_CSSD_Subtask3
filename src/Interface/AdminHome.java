@@ -29,25 +29,21 @@ public class AdminHome extends javax.swing.JFrame {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
-        logedUser1.setText(email);
+        logedUser.setText(email);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        logedUser1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        logedUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        logedUser1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
-        logedUser1.setForeground(new java.awt.Color(102, 102, 102));
-        logedUser1.setText("logged User");
 
         jButton3.setText("Sensor Station");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -91,20 +87,23 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
 
+        logedUser.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        logedUser.setForeground(new java.awt.Color(102, 102, 102));
+        logedUser.setText("logged User");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(logedUser, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(logedUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 91, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addGap(39, 39, 39)
                         .addComponent(jButton4)
@@ -123,9 +122,9 @@ public class AdminHome extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logedUser1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                    .addComponent(jButton1)
+                    .addComponent(logedUser))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
@@ -141,7 +140,7 @@ public class AdminHome extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        SensorStation ss = new SensorStation();
+        SensorStation ss = new SensorStation(username,userLevel,logedUser.getText());
         ss.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -227,6 +226,6 @@ public class AdminHome extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel logedUser1;
+    private javax.swing.JLabel logedUser;
     // End of variables declaration//GEN-END:variables
 }

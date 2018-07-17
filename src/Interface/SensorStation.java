@@ -37,64 +37,16 @@ public class SensorStation extends javax.swing.JFrame {
         initComponents();
     }
     
-    
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    
-    public SensorStation(String username, String userLevel, String email) {
+      public SensorStation(String username, String userLevel, String email) {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
         logedUser.setText(email);
-
-        try {
-            for (Station station : Serialization.deserializeStation()) {
-                thestation.addStation(station);
-                station.print();
-            }
-        } catch (IOException | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
-
-        try {
-
-            String location = "Badulla";
-            String url = "http://maps.googleapis.com/maps/api/staticmap?center=" + location + "&size=670x330&maptype=roadmap&";
-
-            double longi = 0.00, lati = 0.00;
-            String color;
-            final String[] proper_noun = {"red", "brown", "#347C17", "#56A5EC", "purple", "#347C17"};
-            Random random = new Random();
-            for (Station station : thestation) {
-                longi = Double.parseDouble(station.getlongitude());
-                lati = Double.parseDouble(station.getlatitude());
-                int index = random.nextInt(proper_noun.length);
-                color = proper_noun[index];
-                url = url + "markers=color:" + color + "%7Clabel:" + station.getstationNumber() + "%7C" + longi + "," + lati + "&";
-            }
-            url = url + "sensor=false&zoom=3";
-
-            String destinationFile = "src\\Images\\googleImage.jpg";
-            String str = destinationFile;
-            URL urls = new URL(url);
-            OutputStream os;
-            try (InputStream is = urls.openStream()) {
-                os = new FileOutputStream(destinationFile);
-                byte[] b = new byte[2048];
-                int length;
-                while ((length = is.read(b)) != -1) {
-                    os.write(b, 0, length);
-                }
-            }
-            os.close();
-
-            Image map = ImageIO.read(new File("src\\Images\\googleImage.jpg"));
-            googleMap.setText("");
-            googleMap.setIcon(new ImageIcon(map.getScaledInstance(670, 330, Image.SCALE_SMOOTH)));
-
-        } catch (NumberFormatException | IOException e) {
-        }
     }
-    ///////////////////////////////////////////////////////////////////////////////////////
+    
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    
+       ///////////////////////////////////////////////////////////////////////////////////////
     
     
     public void loadMap(String locations) {
@@ -356,7 +308,7 @@ public class SensorStation extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        AdminPanelManageSensor spms = new AdminPanelManageSensor();
+        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,userLevel,logedUser.getText());
         spms.setVisible(true);
         this.hide();
         
@@ -364,7 +316,7 @@ public class SensorStation extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        SensorStation ss = new SensorStation();
+        SensorStation ss = new SensorStation(username,userLevel,logedUser.getText());
         ss.setVisible(true);
         this.hide();
         

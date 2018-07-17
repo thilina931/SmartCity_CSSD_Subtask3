@@ -8,8 +8,12 @@ package Interface;
 import Class.Serialization.Serialization;
 import Class.Station.SetOfStation;
 import Class.Station.Station;
+import Class.Station.sensorStation;
+import Class.user.User;
+import static Interface.AdminPanelManageUser.theUsers;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -21,25 +25,50 @@ import javax.swing.table.TableRowSorter;
 
 /**
  *
- * @author Spartan Lakmal
+ * @author Uthpala Jayawardena
  */
 public class AdminPanelManageSensor extends javax.swing.JFrame {
-
+    
+    String username, userLevel;
     
     public static SetOfStation thestation = new SetOfStation();
     public static SetOfStation searchstation = new SetOfStation();
-    public static final String FILE_NAME_stations = "DataFiles/station.txt";
+    public static final String FILE_NAME_station = "DataFiles/Station.txt";
     JFileChooser chooser;
     FileNameExtensionFilter filter;
     FileInputStream fis;
-
     /**
-     * Creates new form AdminPanel
+     * Creates new form AdminPanelManageSensor
      */
+    
+    
+    
+    String workingDir = System.getProperty("user.dir");
+    
+    
     public AdminPanelManageSensor() {
         initComponents();
+      //  TableLoad();
+           
     }
 
+     public AdminPanelManageSensor(String username, String userLevel, String email) {
+        initComponents();
+        this.username = username;
+        this.userLevel = userLevel;
+        logedUser.setText(email);
+
+     try {
+            for (Station station : Serialization.deserializeStation()) {
+                thestation.addStation(station);
+                station.print();
+            }
+        } catch (IOException | ClassNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+        TableLoad();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,254 +78,221 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton9 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        Deletebtn = new javax.swing.JButton();
+        txt_stationid = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        stationtable = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jLabel7 = new javax.swing.JLabel();
+        logedUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton5.setText("Admin Panel");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        jButton1.setText("Sensor Station");
+
+        jButton2.setText("Emergency");
+
+        jButton3.setText("Admin Panel");
+
+        jButton4.setText("Sensor Details");
+
+        jButton5.setText("Sensor Data");
+
+        jButton6.setText("Manage Sensor");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
             }
         });
 
-        jButton6.setText("Sensor Details");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        jButton7.setText("Manage User");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
             }
         });
 
-        jLabel2.setText("Admin Panel");
+        jLabel1.setText("Station No :");
 
-        jButton3.setText("Sensor Station");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jLabel2.setText("Station Type :");
 
-        jButton4.setText("Emergency");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Manage User");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Manage Sensor");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jButton7.setText("Update Sensor Station");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Station Name :");
-
-        jLabel3.setText("Sensor Type : ");
+        jLabel3.setText("Station Name :");
 
         jLabel4.setText("Location :");
 
-        jButton8.setText("Delete Sensor Station");
+        jLabel5.setText("Longitude :");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Sensor No", "Sensor Type", "Sensor Status"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
+        jLabel6.setText("Latitude :");
 
-        jButton9.setText("Add Sensor Station");
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton8.setText("Add");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
+                jButton8MouseClicked(evt);
             }
         });
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Update");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Station No :");
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        Deletebtn.setText("Delete");
+        Deletebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                DeletebtnActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Longitude  :");
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel7.setText("Latitude     :");
+        stationtable.setForeground(new java.awt.Color(153, 153, 153));
+        stationtable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "type", "name", "Location", "log", "lati"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true, true, true
+            };
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Flood", "Bin", "Traffic" }));
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 68, Short.MAX_VALUE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(jLabel1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        stationtable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        stationtable.setFillsViewportHeight(true);
+        stationtable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stationtableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(stationtable);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Flood", "Bin", "Traffic" }));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3)
+                            .addComponent(jTextField4)
+                            .addComponent(jTextField5)
+                            .addComponent(jTextField2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txt_stationid, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel6))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton8)
+                        .addGap(69, 69, 69)
+                        .addComponent(jButton9)
+                        .addGap(58, 58, 58)
+                        .addComponent(Deletebtn))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txt_stationid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
-                    .addComponent(jButton7)
-                    .addComponent(jButton9))
-                .addGap(22, 22, 22))
+                    .addComponent(jButton9)
+                    .addComponent(Deletebtn))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
-        jButton10.setText("Log Out");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
+        jButton11.setText("Log Out");
 
-        jButton11.setText("Sensor Data");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
+        jLabel7.setText("Admin Panel");
+
+        logedUser.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        logedUser.setForeground(new java.awt.Color(102, 102, 102));
+        logedUser.setText("logged User");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -306,225 +302,336 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton5)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton6)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton11)
-                        .addGap(0, 64, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(43, 43, 43)
+                                .addComponent(jButton2)
+                                .addGap(43, 43, 43)
+                                .addComponent(jButton3)
+                                .addGap(55, 55, 55)
+                                .addComponent(jButton4)
+                                .addGap(51, 51, 51)
+                                .addComponent(jButton5)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton6)
+                                    .addComponent(jButton7))
+                                .addGap(29, 29, 29)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(logedUser, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton11)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jButton10))
-                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton11)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logedUser)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton11))
-                .addGap(26, 26, 26)
+                    .addComponent(jButton5))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton6)
+                        .addGap(58, 58, 58)
+                        .addComponent(jButton7)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void stationtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stationtableMouseClicked
 
-        AdminPanelManageSensor spms = new AdminPanelManageSensor();
-        spms.setVisible(true);
-        this.hide();
+        // when user click on tbInfo table, all the information what in user selected row will want to show on Update tab
+        //  load info to update tab
+        DefaultTableModel dtm = (DefaultTableModel) stationtable.getModel();
+
+        int row = stationtable.getSelectedRow();
+
+        txt_stationid.setText(stationtable.getValueAt(row, 0).toString());
+        jComboBox1.setSelectedItem(stationtable.getValueAt(row, 1).toString());
+        jTextField2.setText(stationtable.getValueAt(row, 2).toString());
+        jTextField3.setText(stationtable.getValueAt(row, 3).toString());
+        jTextField4.setText(stationtable.getValueAt(row, 4).toString());
+        jTextField5.setText(stationtable.getValueAt(row, 5).toString());
         
-    }//GEN-LAST:event_jButton5ActionPerformed
+        sensorStation station = findsensor(stationtable.getValueAt(row, 0).toString(), Serialization.getAllSensorStations());
+       
+        String station_type = station.getStation_Type();
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        if (station_type.equals("Select")) {
+              station_type = "Select";
+            }
+        else if(station_type.equals("Flood"))
+                {
+                  station_type = "Flood";
+                }
+        else if(station_type.equals("Bin")) 
+                {
+                    station_type = "Bin";
+                }
+        else{
+            station_type ="Traffic";
+            }
 
-        SensorDetails sd = new SensorDetails();
-        sd.setVisible(true);
-        this.hide();
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
+       
+    }//GEN-LAST:event_stationtableMouseClicked
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        SensorStation ss = new SensorStation();
-        ss.setVisible(true);
-        this.hide();
-        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-        Emergency em = new Emergency();
-        em.setVisible(true);
-        this.hide();
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        AdminPanelManageSensor spms = new AdminPanelManageSensor();
-        spms.setVisible(true);
-        this.hide();
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        AdminPanelManageUser spmu = new AdminPanelManageUser();
-        spmu.setVisible(true);
-        this.hide();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        
-        Login li = new Login();
-        li.setVisible(true);
-        this.hide();
-        
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        
-        SensorData sda = new SensorData();
-        sda.setVisible(true);
-        this.hide();
-        
-    }//GEN-LAST:event_jButton11ActionPerformed
-    // Add sensor station button click
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
         
-        String sensortype, stationname, stationno, location, longitude, latitude;
-        if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField1.getText().isEmpty() || jTextField3.getText().isEmpty()
-                || jTextField5.getText().isEmpty() || jTextField6.getText().isEmpty()) {
+        SensorData a = new SensorData(username, userLevel, logedUser.getText());
+        a.setVisible(true);
+        this.hide();
+        thestation.removeAll(thestation);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        AdminPanelManageUser u = new AdminPanelManageUser(username, userLevel, logedUser.getText());
+        u.setVisible(true);
+        this.hide();
+        thestation.removeAll(thestation);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    //add station
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+//        // TODO add your handling code here:
+//        String station_type, station_name, stationid, location, longitude, latitude;
+//        if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
+//                || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+//
+//        } else {
+//            station_type = jComboBox1.getSelectedItem().toString();
+//            station_name = jTextField2.getText();
+//            location = jTextField3.getText();
+//            longitude = jTextField4.getText();
+//            latitude = jTextField5.getText();
+//
+//                String status = addStation(station_type, station_name, location, longitude, latitude);
+//                if (status.equals("success")) {
+//                    try {
+//                        Serialization.Serialize(thestation, FILE_NAME_station);
+//                    } catch (IOException ex) {
+//                        Logger.getLogger(AdminPanelManageUser.class.getName()).log(Level.SEVERE, null, ex);
+//                    }
+//                    JOptionPane.showMessageDialog(this, "You have added the station successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+//                    reset();
+//                    TableLoad(stationtable, thestation);
+//
+//                } else {
+//                    JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+//                }
+//             
+//        }
+        
+    }//GEN-LAST:event_jButton8MouseClicked
+//add btn
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
+        String station_type, station_name, stationid, location, longitude, latitude;
+        if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
+                || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
-            sensortype = jComboBox1.getSelectedItem().toString();
-            stationname = jTextField1.getText();
+            station_type = jComboBox1.getSelectedItem().toString();
+            station_name = jTextField2.getText();
             location = jTextField3.getText();
-            longitude = jTextField5.getText();
-            latitude = jTextField6.getText();
+            longitude = jTextField4.getText();
+            latitude = jTextField5.getText();
+             String stationtype;
+             
+        if (station_type.equals("Select")) {
+              stationtype = "Select";
+            }
+        else if(station_type.equals("Flood"))
+                {
+                  stationtype = "Flood";
+                }
+        else if(station_type.equals("Bin")) 
+                {
+                    stationtype = "Bin";
+                }
+        else{
+            stationtype ="Traffic";
+            }
             
-                String status = addstation(sensortype, stationname, location, longitude, latitude);
-                if (status.equals("success")) {
-                    try {
-                        Serialization.Serialize(thestation, FILE_NAME_stations);
-                    } catch (IOException ex) {
-                        Logger.getLogger(AdminPanelManageSensor.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    JOptionPane.showMessageDialog(this, "You have added the Station successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
-                    reset();
-                    TableLoad(jTable2, thestation);
-
-                } else {
-                    JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-                }            
+          
+        ArrayList<sensorStation> stat=new ArrayList<>();
+       stat=Serialization.getAllSensorStations();
+        sensorStation st =new sensorStation(txt_stationid.getText(),station_type,station_name,location,longitude,latitude);
+        stat.add(st);
+        boolean cheak=Serialization.write( "DataFiles/sensorstation.txt",stat);
+        if (cheak){
+            JOptionPane.showMessageDialog(this, "Sucessfully Added ");
         }
-    }//GEN-LAST:event_jButton9MouseClicked
-    //reset fields method
-    public void reset() {
-        jTextField4.setText("");
+       
+        
+        
+   TableLoad();
+             
+        }
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+     //update 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String station_type, station_name, location, longitude, latitude;
+        if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
+                || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            station_type = jComboBox1.getSelectedItem().toString();
+            station_name = jTextField2.getText();
+            location = jTextField3.getText();
+            longitude = jTextField4.getText();
+            latitude = jTextField5.getText();
+             String stationtype;
+             
+        if (station_type.equals("Select")) {
+              stationtype = "Select";
+            }
+        else if(station_type.equals("Flood"))
+                {
+                  stationtype = "Flood";
+                }
+        else if(station_type.equals("Bin")) 
+                {
+                    stationtype = "Bin";
+                }
+        else{
+            stationtype ="Traffic";
+            }
+        
+             sensorStation st =new sensorStation(txt_stationid.getText(),station_type,station_name,location,longitude,latitude);
+             ArrayList<sensorStation> updatestat=new ArrayList<sensorStation>();
+       updatestat=Serialization.getAllSensorStations();
+            sensorStation sen =findsensor(txt_stationid.getText(),updatestat);
+            System.out.println("asda"+sen.getStation_Name());
+            updatestat.remove(sen);
+            updatestat.add(st);
+         boolean cheak=  Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
+     
+        if (cheak){
+            JOptionPane.showMessageDialog(this, "Sucessfully Updated ");
+        }
+        }
+     TableLoad();
+     
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    public sensorStation findsensor(String id,ArrayList<sensorStation> updatestat){
+     for(sensorStation station :updatestat){
+            if(id.equals(station.getSensorStation_ID())){
+              
+              return station;
+              
+            }
+        }
+     return null;
+    }
+    
+    
+    private void DeletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebtnActionPerformed
+        // TODO add your handling code here:
+         int stationNum;
+        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this farm?", "Confirm", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (confirm == 0) {
+            if (txt_stationid.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please select a farm to delete...", "Error", JOptionPane.ERROR_MESSAGE);
+                
+            } 
+            else{
+            
+             ArrayList<sensorStation> updatestat=new ArrayList<sensorStation>();
+       updatestat=Serialization.getAllSensorStations();
+            sensorStation sen =findsensor(txt_stationid.getText(),updatestat);
+            System.out.println("asda"+sen.getStation_Name());
+            updatestat.remove(sen);
+           
+           boolean cheak=Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
+           
+        if (cheak){
+            JOptionPane.showMessageDialog(this, "Sucessfully Deleted ");
+        }
+            }
+        }
+        TableLoad();
+    }//GEN-LAST:event_DeletebtnActionPerformed
+
+    //reset method
+     public void reset() {
+        txt_stationid.setText("");
         jComboBox1.setSelectedIndex(0);
-        jTextField1.setText(" ");
+        jTextField2.setText(" ");
         jTextField3.setText(" ");
+        jTextField4.setText(" ");
         jTextField5.setText(" ");
-        jTextField6.setText(" ");
+        
         thestation.removeAll(thestation);
         try {
             for (Station station : Serialization.deserializeStation()) {
-                thestation.add(station);
+                thestation.addStation(station);
             }
         } catch (IOException | ClassNotFoundException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }
     
-    //Table Load method
-    public void TableLoad(JTable table, SetOfStation searchList) {
-        String[] colName = {"Station No", "Sensor Type", "Station Name", "Location ", "Longitude", "Latitude"};
-        Object[][] object = new Object[searchList.size()][6];
-        int i = 0;
-        if (searchList.size() != 0) {
-            for (Station station : searchList) {
-                object[i][0] = station.getstationNumber();
-                object[i][1] = station.getsensortype();
-                object[i][2] = station.getstation_name();
-                object[i][3] = station.getlocation();
-                object[i][4] = station.getlongitude();
-                object[i][5] = station.getlatitude();
-                i++;
-
-            }
-        }
-
-        DefaultTableModel model = new DefaultTableModel(object, colName) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;//This causes all cells to be not editable
-            }
-        };
-        table.setModel(model);
-        table.setRowSorter(new TableRowSorter<>(model));
-        table.setAutoscrolls(true);
-        table.getTableHeader().setReorderingAllowed(false);
+     
+     
+     
+     //table load method
+     public void TableLoad() {
+         
+        
+        DefaultTableModel model = (DefaultTableModel) stationtable.getModel();
+        model.setRowCount(0);
+         for(sensorStation station :Serialization.getAllSensorStations()){
+         model.addRow(new Object[]{
+         station.getSensorStation_ID(),
+         station.getStation_Type(),
+         station.getStation_Name(),
+         station.getLocation(),
+         station.getLatitude(),
+         station.getLongitude()
+         });
+         }
     }
-    
-    
-    
-    //add station method
-     public String addstation(String sensortype, String stationname, String location, String longitude, String latitude) {
+     
+     
+     
+     public String addStation(String station_type, String station_name, String location, String longitude, String latitude) {
         String status = "";
-        new Station.SingletonBuilder(sensortype, stationname, location, longitude, latitude);
+        Station st= Station.getInstance();
+        
+        new Station.SingletonBuilder(station_type, station_name, location, longitude, latitude);
         thestation.addStation(Station.getInstance());
         try {
-            Serialization.Serialize(thestation, FILE_NAME_stations);
+            Serialization.Serialize(thestation, FILE_NAME_station);
             status = "success";
         } catch (Exception ex) {
             status = "fail";
@@ -559,9 +666,6 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AdminPanelManageSensor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -572,8 +676,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Deletebtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -591,15 +695,14 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel logedUser;
+    private javax.swing.JTable stationtable;
+    private javax.swing.JTextField txt_stationid;
     // End of variables declaration//GEN-END:variables
 }

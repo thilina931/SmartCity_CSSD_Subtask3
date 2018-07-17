@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 /**
  *
  * @author Spartan Lakmal
@@ -55,17 +56,17 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     
     // Table Load Method
     public void TableLoad(JTable table, SetOfUsers searchList) {
-        String[] colName = {"User ID", "First Name","Email","Mobile Number"};
-        Object[][] object = new Object[searchList.size()][5];
+        String[] colName = {"User ID", "First Name","Last Name","City","Email","Mobile Number"};
+        Object[][] object = new Object[searchList.size()][6];
         int i = 0;
         if (searchList.size() != 0) {
             for (User member : searchList) {
                 object[i][0] = member.getMemberNumber();
                 object[i][1] = member.getName();
-                 //object[i][2] = member.getLastName();
-                 //object[i][3] = member.getCity();               
-                object[i][2] = member.getUsername();
-                object[i][3] = member.getMobile();
+                object[i][2] = member.getLastName();
+                object[i][3] = member.getCity();               
+                object[i][4] = member.getUsername();
+                object[i][5] = member.getMobile();
 
                 i++;
 
@@ -123,11 +124,12 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         userID = new javax.swing.JLabel();
         search1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        comboUserLevel = new javax.swing.JComboBox();
+        ClearBtn = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         logedUser = new javax.swing.JLabel();
@@ -222,6 +224,11 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         jLabel4.setText("City : ");
 
         jButton8.setText("Delete User");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -256,13 +263,11 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
         jLabel8.setText("User Level :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "user", "admin" }));
-
         jLabel9.setText("ID :");
 
         userID.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         userID.setForeground(new java.awt.Color(102, 102, 102));
-        userID.setText("Cus-001");
+        userID.setText("USER-001");
 
         search1.setFont(new java.awt.Font("Segoe UI Semilight", 0, 12)); // NOI18N
         search1.setForeground(new java.awt.Color(153, 153, 153));
@@ -285,6 +290,18 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
         jLabel10.setText("Search :");
 
+        comboUserLevel.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        comboUserLevel.setForeground(new java.awt.Color(102, 102, 102));
+        comboUserLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "user", "admin" }));
+        comboUserLevel.setBorder(null);
+
+        ClearBtn.setText("Reset_ALL");
+        ClearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -293,52 +310,53 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel7)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(password)
-                                    .addComponent(mobile)
-                                    .addComponent(email)
-                                    .addComponent(lastName)
-                                    .addComponent(city)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jLabel9)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(firstName, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                                    .addComponent(userID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(1, 1, 1)))
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel9)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userID, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(309, 309, 309)
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton9)
+                                .addGap(41, 41, 41))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addGap(1, 1, 1)))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(password, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mobile, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(city, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboUserLevel, 0, 157, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 627, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addComponent(jButton9)
+                .addGap(64, 64, 64)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ClearBtn)
+                .addGap(47, 47, 47))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,32 +382,34 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)))
+                            .addComponent(jLabel5))
+                        .addGap(24, 24, 24)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(mobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(comboUserLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
                     .addComponent(jButton7)
-                    .addComponent(jButton9))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(jButton9)
+                    .addComponent(ClearBtn))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         jButton10.setText("Log Out");
@@ -434,11 +454,14 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                         .addComponent(jButton11)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(20, 20, 20)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -468,7 +491,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(30, 30, 30)
                         .addComponent(jButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(296, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -525,9 +548,52 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameActionPerformed
-
+      //Update btn
+   
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        
+          String firstname, lastname, City, Email, Mobile, Password;
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty()  || city.getText().isEmpty()
+                || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            if (validations.isEmail(email.getText())) {
+            firstname = firstName.getText();
+            lastname = lastName.getText();
+            City = city.getText();
+            Email = email.getText();
+            Mobile = mobile.getText();
+            Password = password.getText();
+            String Levels = comboUserLevel.getSelectedItem().toString();
+            String userLevels;
+
+            if (Levels.equals("user")) {
+                userLevels = "user";
+            } else {
+                userLevels = "admin";
+            }
+
+            User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+            String status = theUsers.updatedetails(user, firstname, lastname, City, Email, Mobile, Password, userLevels);
+            if (status.equals("success")) {
+                JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                try {
+                    Serialization.Serialize(theUsers, FILE_NAME_Users);
+                } catch (IOException ex) {
+                    Logger.getLogger(AdminPanelManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                clear();
+                TableLoad(jTable2, theUsers);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Update unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+
+            }
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -553,9 +619,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         this.hide();
         
     }//GEN-LAST:event_jButton11ActionPerformed
-
+   //add user 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-          String firstname, lastname, City, Email, Mobile, Password, Password1;
+          String firstname, lastname, City, Email, Mobile, Password;
         if (firstName.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
 
@@ -567,7 +633,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                 Email = email.getText();
                 Mobile = mobile.getText();
                 Password = password.getText();
-                String Levels = jComboBox1.getSelectedItem().toString();
+                String Levels = comboUserLevel.getSelectedItem().toString();
                 String userLevels;
 
                 if (Levels.equals("user")) {
@@ -618,19 +684,19 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
         userID.setText(jTable2.getValueAt(row, 0).toString());
         firstName.setText(jTable2.getValueAt(row, 1).toString());
-        email.setText(jTable2.getValueAt(row, 2).toString());
+        lastName.setText(jTable2.getValueAt(row, 2).toString());
+        city.setText(jTable2.getValueAt(row, 3).toString());
+        email.setText(jTable2.getValueAt(row, 4).toString());
+        mobile.setText(jTable2.getValueAt(row, 5).toString());
         
         User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
         password.setText(user.getPassword());
-        city.setText(user.getCity());
-        lastName.setText(user.getLastName());
-        mobile.setText(jTable2.getValueAt(row, 3).toString());
         String userLevels = user.getUserLevel();
 
         if (userLevels.equals("user")) {
-            jComboBox1.setSelectedItem("user");
+            comboUserLevel.setSelectedItem("user");
         } else {
-            jComboBox1.setSelectedItem("admin");
+            comboUserLevel.setSelectedItem("admin");
         }
 
     }//GEN-LAST:event_jTable2MouseClicked
@@ -638,49 +704,45 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
         
-        String firstname, lastname, City, Email, Mobile, Password, Password1;
-        if (firstName.getText().isEmpty() ||email.getText().isEmpty() || password.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
-
-        } else {
-            if (validations.isEmail(email.getText())) {
-            firstname = firstName.getText();
-            lastname = lastName.getText();
-            City = city.getText();
-            Email = email.getText();
-            Mobile = mobile.getText();
-            Password = password.getText();
-            String Levels = jComboBox1.getSelectedItem().toString();
-            String userLevels;
-
-            if (Levels.equals("user")) {
-                userLevels = "user";
-            } else {
-                userLevels = "admin";
-            }
-
-            User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-            String status = theUsers.updatedetails(user, firstname, lastname, City, Email, Mobile, Password, userLevels);
-            if (status.equals("success")) {
-                JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
-                try {
-                    Serialization.Serialize(theUsers, FILE_NAME_Users);
-                } catch (IOException ex) {
-                    Logger.getLogger(AdminPanelManageUser.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                clear();
-                TableLoad(jTable2, theUsers);
-
-            } else {
-                JOptionPane.showMessageDialog(this, "Update unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            } else {
-                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
-
-            }
-        }
+      
 
     }//GEN-LAST:event_jButton7MouseClicked
+     //delete btn
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        int userNum;
+        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this user?", "Confirm", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+        if (confirm == 0) {
+            if (userID.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please select a user to delete...", "Error", JOptionPane.ERROR_MESSAGE);
+
+            } else {
+                userNum = Integer.parseInt(userID.getText());
+
+                User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                boolean status = theUsers.removeUser(user);
+                if (status) {
+                    try {
+                        Serialization.Serialize(theUsers, FILE_NAME_Users);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AdminPanelManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    clear();
+                    TableLoad(jTable1, theUsers);
+
+                } else {
+                    JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void ClearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtnActionPerformed
+        // TODO add your handling code here:
+        clear();
+    }//GEN-LAST:event_ClearBtnActionPerformed
 
     public String registerUser(String firstName, String lastName, String city, String email, String mobile, String password) {
         String status = "";
@@ -698,7 +760,6 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     }
      public void clear() {
         userID.setText("");
-        jComboBox1.setSelectedItem("Customer");
         firstName.setText("");
         lastName.setText("");    
         city.setText("");
@@ -706,7 +767,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         password.setText("");
         mobile.setText("");
         search1.setText("");
-
+        comboUserLevel.setSelectedItem("user");
         theUsers.removeAll(theUsers);
         try {
             for (User user : Serialization.deserializeUsers()) {
@@ -776,7 +837,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ClearBtn;
     private javax.swing.JTextField city;
+    private javax.swing.JComboBox comboUserLevel;
     private javax.swing.JTextField email;
     private javax.swing.JTextField firstName;
     private javax.swing.JButton jButton1;
@@ -790,7 +853,6 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

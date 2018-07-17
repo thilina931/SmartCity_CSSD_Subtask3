@@ -45,15 +45,13 @@
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="jButtonReset" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lastName" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="firstName" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="city" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="email" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="mobile" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="password" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                      <Component id="password1" alignment="1" min="-2" pref="195" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lastName" alignment="0" pref="195" max="32767" attributes="0"/>
+                                  <Component id="firstName" alignment="0" pref="195" max="32767" attributes="0"/>
+                                  <Component id="city" alignment="0" pref="195" max="32767" attributes="0"/>
+                                  <Component id="email" alignment="0" pref="195" max="32767" attributes="0"/>
+                                  <Component id="mobile" alignment="0" pref="195" max="32767" attributes="0"/>
+                                  <Component id="password" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="password1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -179,14 +177,10 @@
         <Property name="text" type="java.lang.String" value="Password"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="password">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabelCPassword">
       <Properties>
         <Property name="text" type="java.lang.String" value="Confirm Password"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="password1">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -236,6 +230,10 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="password">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="password1">
     </Component>
   </SubComponents>
 </Form>

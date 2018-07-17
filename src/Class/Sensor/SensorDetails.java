@@ -18,24 +18,29 @@ public class SensorDetails implements Serializable{
      
      
     private static final long serialVersionUID = -47594027994670654L;
-    public int sensorNumber;
+    //public int sensorNumber;
     public double Flood, Bin, Traffic;
-    private String dateTime, stationNumber;
+    private String dateTime, stationNumber,stationLocation;
     
     
     
     public SensorDetails() {
 
     }
+
+    public SensorDetails(String dateTime, String stationLocation, String stationNumber, double Flood, double Bin, double Traffic) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
      
     
     public void print() {
-        System.out.println(Integer.toString(sensorNumber) + " Name " + dateTime + ",username " + stationNumber);
+        System.out.println(stationLocation + " Name " + dateTime + ",username " + stationNumber);
     }
     
     
-    public SensorDetails( String stationNumber, double Flood, double Bin, double Traffic) {
+    public SensorDetails( String stationNumber, String stationLocation, double Flood, double Bin, double Traffic) {
         
+        this.stationLocation=stationLocation;
         this.stationNumber = stationNumber;
         this.Flood = Flood;
         this.Bin = Bin;
@@ -72,14 +77,30 @@ public class SensorDetails implements Serializable{
         return behaviour;
     }
     
-    
-     @Override
-    public String toString() {
-        return Integer.toString(sensorNumber);
+    public String getstationLocation() {
+        return stationLocation;
     }
+      
+      
+    public void setstationLocation(String stationLocation) {
+        this.stationNumber = stationLocation;
+    }
+    
+   
 
     public void setVisible(boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    /**
+     *
+     * @param behaviour
+     */
+
+    
+    public String checkSolution(double sensorValue) {
+        String alert = behaviour.alt(sensorValue);
+        return alert;
     }
 
 

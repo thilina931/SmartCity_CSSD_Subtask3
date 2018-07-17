@@ -10,5 +10,5 @@ package Class.Sensor;
  * @author Uthpala Jayawardena
  */
 public interface ISensor {
-    public String distribute(double sensorValue);
+    public String alt(double sensorValue);
 }
