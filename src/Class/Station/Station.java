@@ -58,7 +58,6 @@ public class Station implements Serializable {
         private final String txt_latitude;
         
 
-        private byte[] image;
 
         private SingletonBuilder() {
             cmb_stationtype = null;
