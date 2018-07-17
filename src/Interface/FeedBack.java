@@ -58,51 +58,75 @@ public class FeedBack extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(970, 526));
+        getContentPane().setLayout(null);
 
         jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(102, 102, 102));
         jLabel6.setText("Feedback Form");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(306, 11, 290, 48);
 
         jLabel22.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(102, 102, 102));
         jLabel22.setText("Your feedback helps us understand what we do well and where we can improve.");
+        getContentPane().add(jLabel22);
+        jLabel22.setBounds(29, 132, 730, 30);
 
         jLabel15.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Thank you for completing our online feedback form.");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(29, 96, 496, 30);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(102, 102, 102));
         jLabel13.setText("Name               :");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(29, 172, 140, 25);
 
         name.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         name.setForeground(new java.awt.Color(102, 102, 102));
         name.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(name);
+        name.setBounds(173, 172, 350, 26);
 
         email.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
         email.setForeground(new java.awt.Color(102, 102, 102));
         email.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(email);
+        email.setBounds(173, 212, 350, 26);
 
         jLabel23.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(102, 102, 102));
         jLabel23.setText("Email                :");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(29, 212, 140, 25);
 
         jLabel20.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(102, 102, 102));
         jLabel20.setText("Please describe your experience");
+        getContentPane().add(jLabel20);
+        jLabel20.setBounds(29, 271, 275, 30);
 
         comment.setColumns(20);
         comment.setRows(5);
         jScrollPane1.setViewportView(comment);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(256, 333, 400, 96);
+
         jLabel21.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(102, 102, 102));
         jLabel21.setText("Additional Comments");
+        getContentPane().add(jLabel21);
+        jLabel21.setBounds(29, 333, 199, 25);
 
-        Save.setFont(new java.awt.Font("Segoe UI Light", 0, 16)); // NOI18N
-        Save.setForeground(new java.awt.Color(102, 102, 102));
+        Save.setFont(new java.awt.Font("Segoe UI Light", 1, 16)); // NOI18N
         Save.setText("Save");
         Save.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Save.setContentAreaFilled(false);
@@ -116,9 +140,10 @@ public class FeedBack extends javax.swing.JFrame {
                 SaveActionPerformed(evt);
             }
         });
+        getContentPane().add(Save);
+        Save.setBounds(256, 471, 120, 30);
 
-        btnancSave1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        btnancSave1.setForeground(new java.awt.Color(102, 102, 102));
+        btnancSave1.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         btnancSave1.setText("Clear");
         btnancSave1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnancSave1.setContentAreaFilled(false);
@@ -127,123 +152,57 @@ public class FeedBack extends javax.swing.JFrame {
                 btnancSave1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnancSave1);
+        btnancSave1.setBounds(530, 470, 120, 29);
 
         logedUser.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         logedUser.setForeground(new java.awt.Color(102, 102, 102));
         logedUser.setText("logged User");
+        getContentPane().add(logedUser);
+        logedUser.setBounds(0, 15, 300, 50);
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton1.setText("Very Good");
+        getContentPane().add(jRadioButton1);
+        jRadioButton1.setBounds(310, 270, 111, 33);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton2.setText("Good");
+        getContentPane().add(jRadioButton2);
+        jRadioButton2.setBounds(448, 270, 71, 33);
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton3.setText("Neutral");
+        getContentPane().add(jRadioButton3);
+        jRadioButton3.setBounds(537, 270, 83, 33);
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton4.setText("Poor");
+        getContentPane().add(jRadioButton4);
+        jRadioButton4.setBounds(638, 270, 63, 33);
 
         buttonGroup1.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton5.setText("Very Poor");
+        getContentPane().add(jRadioButton5);
+        jRadioButton5.setBounds(719, 270, 103, 33);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20)
-                                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(logedUser, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(btnancSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jRadioButton1)
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jRadioButton2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton3)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton5)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(logedUser, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
-                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnancSave1)
-                    .addComponent(Save, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        jButton1.setText("Log Out");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(889, 11, 71, 23);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-30, 70, 1060, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -272,6 +231,14 @@ public class FeedBack extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_SaveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        Login li = new Login();
+        li.setVisible(true);
+        this.hide();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
       public void clear() {
         name.setText("");
@@ -332,6 +299,8 @@ public class FeedBack extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextArea comment;
     private javax.swing.JTextField email;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel20;

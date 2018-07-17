@@ -55,26 +55,41 @@ public class resetPassword extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        newPWD = new javax.swing.JTextField();
-        confirmPWD = new javax.swing.JTextField();
         btnancSave1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        newPWD = new javax.swing.JPasswordField();
+        confirmPWD = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1020, 554));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Reset your Password here ");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(313, 0, 425, 44);
 
-        jLabel2.setText("New Password                           :");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("New Password             :");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(232, 215, 198, 22);
 
-        jLabel3.setText("Confirm Password                      :");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setText("Confirm Password          :");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(222, 293, 208, 22);
 
+        btnancSave1.setBackground(new java.awt.Color(102, 255, 102));
+        btnancSave1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnancSave1.setText("Reset Password");
         btnancSave1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnancSave1MouseClicked(evt);
             }
         });
+        getContentPane().add(btnancSave1);
+        btnancSave1.setBounds(582, 350, 175, 31);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("Back to Login");
@@ -83,50 +98,16 @@ public class resetPassword extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(821, 8, 175, 37);
+        getContentPane().add(newPWD);
+        newPWD.setBounds(501, 213, 247, 33);
+        getContentPane().add(confirmPWD);
+        confirmPWD.setBounds(501, 280, 247, 33);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnancSave1)
-                .addGap(263, 263, 263))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(167, 167, 167)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(newPWD)
-                    .addComponent(confirmPWD, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(24, 24, 24))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addGap(168, 168, 168)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(newPWD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(confirmPWD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(28, 28, 28)
-                .addComponent(btnancSave1)
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(10, 140, 1020, 550);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,11 +193,12 @@ public class resetPassword extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnancSave1;
-    private javax.swing.JTextField confirmPWD;
+    private javax.swing.JPasswordField confirmPWD;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField newPWD;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPasswordField newPWD;
     // End of variables declaration//GEN-END:variables
 }
