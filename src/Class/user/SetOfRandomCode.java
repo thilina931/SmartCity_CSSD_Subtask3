@@ -23,16 +23,17 @@ public class SetOfRandomCode extends Vector<randomCode> implements Serializable{
         super();
     }
     
-    
+    //add code
     public void addCode(randomCode aCode) {
         super.add(aCode);
     }
     
-    
+    //remove code
     public boolean removeCode(randomCode aCode) {
         return super.remove(aCode);
     }
     
+    //verify random code
     public String verifyRandomCode(String email, String code) {
         codeList = new SetOfRandomCode();
         String status = "";

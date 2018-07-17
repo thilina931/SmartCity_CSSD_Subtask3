@@ -14,7 +14,7 @@ import java.io.Serializable;
  *
  * @author Uthpala Jayawardena
  */
-
+//data class
 public class Data implements Serializable{
     private static final long serialVersionUID = -47594027994670654L;
     private String FloodSol, BinSol,TrafficSol;

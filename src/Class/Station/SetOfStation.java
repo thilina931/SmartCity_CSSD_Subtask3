@@ -22,15 +22,18 @@ public class SetOfStation extends Vector <Station> implements Serializable {
  public SetOfStation() {
         super();
  }
-         
+ 
+//add station
 public void addStation(Station aStation) {
         super.add(aStation);
  }
-         
+ 
+//remove station
 public boolean removeStation(Station rstation) {
         return super.remove(rstation);
 }
 
+//update station details
 public String updatedetails(Station station, String sensor_type, String station_name, String location, String longitude, String latitude) {
         String status = "";
         try {

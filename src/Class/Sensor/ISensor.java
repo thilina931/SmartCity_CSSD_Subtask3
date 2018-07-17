@@ -9,6 +9,7 @@ package Class.Sensor;
  *
  * @author Uthpala Jayawardena
  */
+//ISensor class 
 public interface ISensor {
     public String alt(double sensorValue);
 }

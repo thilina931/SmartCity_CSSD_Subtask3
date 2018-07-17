@@ -13,6 +13,7 @@ import java.io.Serializable;
  *
  * @author Uthpala Jayawardena
  */
+//Sensor detail class
 public class SensorDetails implements Serializable{
      private ISensor behaviour;
      
@@ -48,40 +49,42 @@ public class SensorDetails implements Serializable{
 
     }
     
-    
+    //get date
     public String getDate() {
         return dateTime;
     }
     
-    
+    //set date
     public void setDate(String dateTime) {
         this.dateTime = dateTime;
     }
      
-     
+     //get station number
     public String getstationNumber() {
         return stationNumber;
     }
       
-      
+      //set station number
     public void setstationNumber(String stationNumber) {
         this.stationNumber = stationNumber;
     }
-       
-       
+    
+    //get behaviour
+    public ISensor getBehaviour() {
+        return behaviour;
+    }
+       //set behaviour
     public void setBehaviour(ISensor behaviour) {
         this.behaviour = behaviour;
     }
     
-    public ISensor getBehaviour() {
-        return behaviour;
-    }
     
+    //get station location
     public String getstationLocation() {
         return stationLocation;
     }
       
-      
+    //set station location
     public void setstationLocation(String stationLocation) {
         this.stationNumber = stationLocation;
     }

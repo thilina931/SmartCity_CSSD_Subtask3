@@ -20,13 +20,16 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
         super();
     }
       
+       //add user
        public void addUser(User aUser) {
         super.add(aUser);
     }
     
+       //remove user
         public boolean removeUser(User user) {
         return super.remove(user);
     }
+        //update user details
          public String updatedetails(User user, String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
         String status = "";
         try {
@@ -52,6 +55,8 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @param Password
      * @return
      */
+         
+     //user authentication
     public String userAuthontication(String username, String Password) {
         userList = new SetOfUsers();
         String userLevel = "";
@@ -78,6 +83,8 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @param name
      * @return
      */
+    
+    //get member by name
     public SetOfUsers getMemberFromName(String name) {
         userList = new SetOfUsers();
 
@@ -95,6 +102,8 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @param number
      * @return
      */
+    
+    //get member by number
     public SetOfUsers getMemberFromNumber(int number) {
         userList = new SetOfUsers();
         for (User user : this) {
@@ -112,6 +121,8 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @param email
      * @return
      */
+    
+    //get member from email
     public SetOfUsers getMemberFromEmail(String email) {
         userList = new SetOfUsers();
         for (User user : this) {

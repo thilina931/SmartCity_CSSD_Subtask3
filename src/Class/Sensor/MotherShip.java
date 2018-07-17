@@ -12,6 +12,7 @@ import java.util.Vector;
  *
  * @author Uthpala Jayawardena
  */
+//MotherShip class including setof Sensors
 public class MotherShip  extends Vector<SensorDetails> implements Serializable {
      private static final long serialVersionUID = 2428035439452881234L;
 
@@ -21,12 +22,12 @@ public class MotherShip  extends Vector<SensorDetails> implements Serializable {
         super();
     }
     
-    
+    //Add sensor details
     public void addSensorDetails(SensorDetails csensorDetails) {
         super.add(csensorDetails);
     }
     
-    
+    //get sensor details from sensorID
     public MotherShip getSensorDetailsFromStationID(int stationNumber) {
         sensorList = new MotherShip();
         for (SensorDetails csensorDetails : this) {
