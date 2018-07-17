@@ -23,9 +23,11 @@ import java.io.Serializable;
  *
  * @author Uthpala Jayawardena
  */
+
+//Serialization class
 public class Serialization implements Serializable{
      
-    public static void Serialize(Object object, String filename) throws IOException {
+        public static void Serialize(Object object, String filename) throws IOException {
 
         try (FileOutputStream out = new FileOutputStream(filename)) {
             ObjectOutputStream oos = new ObjectOutputStream(out);
@@ -35,8 +37,8 @@ public class Serialization implements Serializable{
         System.out.println(filename + " Serialized !");
     }
     
-
-         public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
+        //deserialization users
+        public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
 
         SetOfUsers users;
         try (FileInputStream in = new FileInputStream("DataFiles/Users.txt")) {
@@ -49,7 +51,7 @@ public class Serialization implements Serializable{
     }
          
          
-         
+       //deserialization randomcode
        public static SetOfRandomCode deserializeRandomCode() throws IOException, ClassNotFoundException {
 
         SetOfRandomCode codes;
@@ -62,6 +64,7 @@ public class Serialization implements Serializable{
         return codes;
     }
        
+       //deserialization station
        public static SetOfStation deserializeStation() throws IOException, ClassNotFoundException {
 
         SetOfStation farm;
@@ -74,7 +77,7 @@ public class Serialization implements Serializable{
         return farm;
     } 
        
-       
+       //deserialization sensors
        public static MotherShip deserializeSensors() throws IOException, ClassNotFoundException {
 
         MotherShip sensors;

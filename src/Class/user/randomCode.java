@@ -82,29 +82,32 @@ public class randomCode implements Serializable{
 
     }
         
-    
+    //get email
     public String getEmail() {
         return email;
     }
     
+    //set email
      public void setEmail(String email) {
         this.email = email;
     }
      
-     
+    //get random code
     public String getRandomCode() {
         return randomNumber;
     }
     
+    //set random code
     public void setRandomCode(String randomNumber) {
         this.randomNumber = randomNumber;
     }
     
-    
+    //get random number
     public int getRandomNumber() {
         return recodeNumber;
     }
     
+    //set random number
     public void setRandomNumber(int memberNumber) {
         this.recodeNumber = memberNumber;
     }

@@ -9,6 +9,7 @@ package Class.Sensor;
  *
  * @author Uthpala Jayawardena
  */
+//Traffic sensor class
 public class TrafficSensor implements ISensor{
      @Override
     public String alt (double sensorValue){

@@ -9,6 +9,8 @@ package Class.Sensor;
  *
  * @author Uthpala Jayawardena
  */
+
+//Flood Sensor Class
 public class FloodSensor implements ISensor{
     
     @Override

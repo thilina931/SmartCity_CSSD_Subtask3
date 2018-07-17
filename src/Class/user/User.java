@@ -108,65 +108,71 @@ public class User implements Serializable{
         private User() {
 
     }
-      
-       public String getUsername() {
+         //get user name
+          public String getUsername() {
         return username;
     }
-        
+        //set user name
           public void setUsername(String username) {
         this.username = username;
     }
-          
+          //get password
            public String getPassword() {
         return password;
     }
         
+           //set password
             public void setPassword(String password) {
         this.password = password;
     }
      
-              public String getUserLevel() {
+            //get user level
+            public String getUserLevel() {
         return userLevel;
     }
-              
-              public void setUserLevel(String userLevel) {
+            //set user level  
+            public void setUserLevel(String userLevel) {
         this.userLevel = userLevel;
     }
-               public int getMemberNumber() {
+            //get member number
+            public int getMemberNumber() {
         return memberNumber;
     }
-               public void setMemberNumber(int memberNumber) {
+            //set member number
+            public void setMemberNumber(int memberNumber) {
         this.memberNumber = memberNumber;
     }
-        
-       public String getName() {
+            //get name
+            public String getName() {
         return name;
     }
-          public void setName(String name) {
+            //set name
+            public void setName(String name) {
         this.name = name;
     }
+            //get last name
            public String getLastName() {
         return lastName;
     }
-           
+           //set last name
            public void setLastName(String lastName) {
         this.lastName = lastName;
     }
            
-       
-            
-         
-
-            public String getCity() {
+          //get city
+          public String getCity() {
         return city;
     }
-            public void setCity(String city) {
+          //set city
+          public void setCity(String city) {
         this.city = city;
-    }
-            public String getMobile() {
+    }   
+          //get mobile
+          public String getMobile() {
         return mobile;
     }
-            public void setMobile(String mobile) {
+         //set mobile            
+          public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 

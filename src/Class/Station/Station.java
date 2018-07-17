@@ -38,6 +38,7 @@ public class Station implements Serializable {
     
     
 }
+    //get instance
      public static Station getInstance() {
         if (instance == null) {
             synchronized (Station.class) {

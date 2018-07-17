@@ -31,6 +31,8 @@ import javax.swing.event.InternalFrameListener;
  *
  * @author udy
  */
+
+//map class
 public class Map  {
 
     public static JInternalFrame createInternalFrame(String title, String url) {

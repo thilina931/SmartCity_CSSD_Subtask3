@@ -14,6 +14,7 @@ import java.util.Observer;
  *
  * @author Thilina
  */
+
 public class sensorStation implements Serializable,Observer{
       private static final long serialVersionUID = 4515658257338350132L;
 
@@ -33,50 +34,62 @@ public class sensorStation implements Serializable,Observer{
         this.Latitude = Latitude;
     }
 
+    //get station ID
     public String getSensorStation_ID() {
         return sensorStation_ID;
     }
 
+    //set station ID
     public void setSensorStation_ID(String sensorStation_ID) {
         this.sensorStation_ID = sensorStation_ID;
     }
 
+    //get station type
     public String getStation_Type() {
         return Station_Type;
     }
 
+    //set station type
     public void setStation_Type(String Station_Type) {
         this.Station_Type = Station_Type;
     }
 
+    //get station name
     public String getStation_Name() {
         return Station_Name;
     }
 
+    //set station name
     public void setStation_Name(String Station_Name) {
         this.Station_Name = Station_Name;
     }
 
+    //get location
     public String getLocation() {
         return Location;
     }
 
+    //set location
     public void setLocation(String Location) {
         this.Location = Location;
     }
 
+    //get longitude
     public String getLongitude() {
         return Longitude;
     }
 
+    //set longitude
     public void setLongitude(String Longitude) {
         this.Longitude = Longitude;
     }
 
+    //get latitude
     public String getLatitude() {
         return Latitude;
     }
 
+    //set latitude
     public void setLatitude(String Latitude) {
         this.Latitude = Latitude;
     }
