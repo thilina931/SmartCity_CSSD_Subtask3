@@ -414,7 +414,7 @@ public class SensorData extends javax.swing.JFrame {
         }     
     }//GEN-LAST:event_jButton9MouseClicked
 
-    
+    //new
     
     private void comboSTIDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboSTIDMouseReleased
         // TODO add your handling code here:
