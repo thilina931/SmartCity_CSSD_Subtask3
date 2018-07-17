@@ -65,7 +65,7 @@ public String updatedetails(Station station, String sensor_type, String station_
  * @param StationName
  * @return 
  */       
-//rturn Station name
+//return Station name
 public SetOfStation getstationFromStationName(String StationName) {
         StationList = new SetOfStation();
 

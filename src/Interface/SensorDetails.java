@@ -130,7 +130,7 @@ public class SensorDetails extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(930, 33, 71, 23);
+        jButton1.setBounds(930, 33, 77, 25);
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton8.setText("Sensor Data");
