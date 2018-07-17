@@ -20,7 +20,7 @@ public class BinSensor implements ISensor{
         } else if (sensorValue >= 50 && sensorValue < 90) {
             status = "Garbage Level is Moderate ...";
         } else {
-            status = "Garbage Level is Moderate ...";
+            status = "Garbage Level is High ...";
         }
 
         return status;
