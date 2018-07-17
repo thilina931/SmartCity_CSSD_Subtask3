@@ -9,7 +9,7 @@ import static Class.Map.Map.createInternalFrame;
 
 /**
  *
- * @author Spartan Lakmal
+ * @author thili
  */
 public class Emergency extends javax.swing.JFrame {
 
