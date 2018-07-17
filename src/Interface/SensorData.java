@@ -53,43 +53,19 @@ public class SensorData extends javax.swing.JFrame {
         initComponents();
     }
     
-    
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param email 
+     */
+    //sensor data
     public SensorData(String username, String userLevel, String email) {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
         logedUser.setText(email);
 
-//        try {
-//            for (Station station : Serialization.deserializeStation()) {
-//                thestation.addStation(station);
-//                station.print();
-//            }
-//        } catch (IOException | ClassNotFoundException ex) {
-//            JOptionPane.showMessageDialog(this, ex.getMessage());
-//        }
-
-//        try {
-//            for (SensorDetails sensorDetails : Serialization.deserializeSensors()) {
-//                theSensors.addSensorDetails(sensorDetails);
-//                sensorDetails.print();
-//            }
-//        } catch (IOException | ClassNotFoundException ex) {
-//            JOptionPane.showMessageDialog(this, ex.getMessage());
-//        }
-//
-//        String values = "";
-
-//       for (Station station : thestation) {
-//            if (!values.contains(station.getlocation())) {
-//                values = values + " " + station.getlocation();
-//            }
-//        }
-//        String[] splited = values.split("\\s+");
-//        for (int i = 0; i < splited.length; i++) {
-//            System.out.println(splited[i]);
-//        }
-//        loadCombo(jComboBox1, splited);
     }
 
     /**
@@ -346,19 +322,6 @@ public class SensorData extends javax.swing.JFrame {
     //Get Station ID s in to Station No dropdown
     private void comboSTIDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboSTIDMouseClicked
         // TODO add your handling code here:
-//         String values = "\na\n";
-//
-//        for (Station station : thestation) {
-//
-//            if (station.getlocation().equals(jComboBox1.getSelectedItem().toString()) && !values.contains("" + station.getstationNumber())) {
-//                values = values + "\n" + station.getstationNumber();
-//            }
-//        }
-//        String[] splited = values.split("\\n+");
-//        for (int i = 0; i < splited.length; i++) {
-//            System.out.println(splited[i]);
-//        }
-//        loadCombo(comboSTID, splited);
     }//GEN-LAST:event_comboSTIDMouseClicked
 
     
@@ -371,16 +334,7 @@ public class SensorData extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please Provide all the necessary Details", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
 
-//            for (SensorDetails sensor : theSensors) {
-//                if (sensor.getstationNumber().equals(comboSTID.getSelectedItem().toString())) {
-//                    searchSensors.addSensorDetails(sensor);
-//                    sensor.print();
-//                }
-//
-//            } 
-                getDetails();
-              
-               
+               getDetails();             
         }     
     }//GEN-LAST:event_jButton9MouseClicked
 
@@ -414,7 +368,7 @@ public class SensorData extends javax.swing.JFrame {
         jTextField2.setText("");
         jTextField3.setText("");
         comboSTID.setSelectedItem("Select an option");
-       // jComboBox1.setSelectedItem("Select an option");
+      
 
         theSensors.removeAll(theSensors);
 
@@ -437,8 +391,15 @@ public class SensorData extends javax.swing.JFrame {
         }
     }
     
-    
-    
+    /**
+     * 
+     * @param stationNumber
+     * @param Flood
+     * @param Bin
+     * @param Traffic
+     * @return status
+     */
+    //add data
      public String addDetails(String stationNumber, double Flood, double Bin, double Traffic) {
         String status = "";
 

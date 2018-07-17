@@ -23,6 +23,13 @@ public class UserHome extends javax.swing.JFrame {
         
     }
     
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param email 
+     */
+    //user home
     public UserHome(String username, String userLevel, String email) {
         initComponents();
         this.username = username;

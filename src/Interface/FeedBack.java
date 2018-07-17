@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  * @author Thilina
  */
 public class FeedBack extends javax.swing.JFrame {
-      String username, userLevel;
+    String username, userLevel;
     /**
      * Creates new form FeedBack
      */
@@ -22,6 +22,13 @@ public class FeedBack extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param email 
+     */
+    //feedback
     public FeedBack(String username, String userLevel, String email) {
         initComponents();
         this.username = username;
@@ -215,6 +222,8 @@ public class FeedBack extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_btnancSave1ActionPerformed
 
+    
+    //save button click
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
           if (name.getText().isEmpty() || email.getText().isEmpty() || comment.getText().isEmpty()) {
@@ -240,14 +249,20 @@ public class FeedBack extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-      public void clear() {
+    //clear method
+    public void clear() {
         name.setText("");
         email.setText("");
         jRadioButton1.setSelected(true);
         comment.setText("");
     }
-      
-         public void sendEmail(String content) {
+    
+    /**
+     * 
+     * @param content 
+     */
+    //send email method
+    public void sendEmail(String content) {
         try {
             SendEmail mailSender;
             mailSender = new SendEmail("sujiphoneekadeepanlamayekuta@gmail.com", "Feedback for Agriculture System", content);

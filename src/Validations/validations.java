@@ -19,6 +19,7 @@ public class validations {
      * @param textField
      * @param evt
      */
+    //validate number
     public static void validateNumber(JTextField textField, KeyEvent evt) {
         char vChar = evt.getKeyChar();
         if (textField.getText().equals("")) {
@@ -48,6 +49,7 @@ public class validations {
      * @param date2
      * @return
      */
+    //validate year
     public static boolean getYear(Date date1, Date date2) {
         SimpleDateFormat simpleDateformat = new SimpleDateFormat("yyyy");
         Integer.parseInt(simpleDateformat.format(date1));
@@ -62,6 +64,7 @@ public class validations {
      * @param email
      * @return
      */
+    //validate email
     public static boolean isEmail(String email) {
         String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(EMAIL_REGEX);

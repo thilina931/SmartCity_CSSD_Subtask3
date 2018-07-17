@@ -20,7 +20,7 @@ import Class.Serialization.Serialization;
  */
 public class Register extends javax.swing.JFrame {
   
-     private static SetOfUsers theUsers = new SetOfUsers();
+    private static SetOfUsers theUsers = new SetOfUsers();
 
     private static final String FILE_NAME_Users = "DataFiles/Users.txt";
     
@@ -195,6 +195,7 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameActionPerformed
 
+    //signup button click
     private void jButtonSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSignupMouseClicked
         // TODO add your handling code here:
         String firstname, lastname, Address, City, Email, Mobile, Password, Password1;
@@ -256,8 +257,9 @@ public class Register extends javax.swing.JFrame {
      * @param email
      * @param mobile
      * @param password
-     * @return
+     * @return status
      */
+    //user registration
     public String registerUser(String firstName, String lastName, String userLevel, String city, String email, String mobile, String password) {
         String status = "";
         new User.SingletonBuilder(firstName, lastName, "user", email, mobile, password).city(city).build();
@@ -283,7 +285,7 @@ public class Register extends javax.swing.JFrame {
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
         
-          Login l = new Login();
+        Login l = new Login();
         l.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jLabel13MouseClicked
@@ -294,11 +296,12 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-           Login L = new Login();
+        Login L = new Login();
         L.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //clear method
      public void clear() {
         firstName.setText("");
         lastName.setText("");

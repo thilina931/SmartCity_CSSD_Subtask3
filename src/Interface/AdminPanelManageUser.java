@@ -33,8 +33,14 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     public AdminPanelManageUser() {
         initComponents();
     }
-    
- public AdminPanelManageUser(String username, String userLevel, String email) {
+
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param email 
+     */
+    public AdminPanelManageUser(String username, String userLevel, String email) {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
@@ -513,11 +519,11 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     private void lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameActionPerformed
-      //Update btn
-   
+     
+    //update button click
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         
-          String firstname, lastname, City, Email, Mobile, Password;
+        String firstname, lastname, City, Email, Mobile, Password;
         if (firstName.getText().isEmpty() || lastName.getText().isEmpty()  || city.getText().isEmpty()
                 || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
@@ -584,10 +590,12 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         this.hide();
         
     }//GEN-LAST:event_jButton11ActionPerformed
-   //add user 
+   
+
+    //add user button click 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
           String firstname, lastname, City, Email, Mobile, Password;
-        if (firstName.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
+            if (firstName.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
@@ -672,7 +680,8 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
       
 
     }//GEN-LAST:event_jButton7MouseClicked
-     //delete btn
+    
+    //delete button click
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         int userNum;
@@ -709,6 +718,17 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_ClearBtnActionPerformed
 
+    /**
+     * 
+     * @param firstName
+     * @param lastName
+     * @param city
+     * @param email
+     * @param mobile
+     * @param password
+     * @return status
+     */
+    //register user 
     public String registerUser(String firstName, String lastName, String city, String email, String mobile, String password) {
         String status = "";
         new User.SingletonBuilder(firstName, lastName, "user", email, mobile, password).city(city).build();
@@ -723,7 +743,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
         return status;
     }
-     public void clear() {
+    
+    //clear method
+    public void clear() {
         userID.setText("");
         firstName.setText("");
         lastName.setText("");    
@@ -743,8 +765,20 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }
-     
-      public String registerUser(String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
+    
+    /**
+     * 
+     * @param firstName
+     * @param lastName
+     * @param city
+     * @param email
+     * @param mobile
+     * @param password
+     * @param userLevels
+     * @return status
+     */
+    //register user 
+    public String registerUser(String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
         String status = "";
         new User.SingletonBuilder(firstName, lastName,userLevels, email, mobile, password).city(city).build();
         theUsers.addUser(User.getInstance());

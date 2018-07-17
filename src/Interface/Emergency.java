@@ -16,14 +16,21 @@ public class Emergency extends javax.swing.JFrame {
     /**
      * Creates new form Emergency
      */
-     Map map = new Map();
+    Map map = new Map();
     String FloodSol,BinSol,TrafficSol;
-   public Emergency() {
+    public Emergency() {
         initComponents();
         
     }
+    
+    /**
+     * 
+     * @param FloodSol
+     * @param BinSol
+     * @param TrafficSol 
+     */
     public Emergency(String FloodSol,String BinSol,String TrafficSol) {
-        initComponents();
+       initComponents();
       
        this.FloodSol=FloodSol;
        this.BinSol=BinSol;

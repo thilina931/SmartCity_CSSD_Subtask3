@@ -40,7 +40,7 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @param mobile
      * @param password
      * @param userLevels
-     * @return 
+     * @return status
      */
     //update user details
     public String updatedetails(User user, String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
@@ -61,19 +61,12 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
         return status;
     }
 
-    //validate login
-    /**
-     *
-     * @param username
-     * @param Password
-     * @return
-     */
-         
+    //validate login     
     /**
      * 
      * @param username
      * @param Password
-     * @return 
+     * @return userLevel
      */
      //user authentication
     public String userAuthontication(String username, String Password) {

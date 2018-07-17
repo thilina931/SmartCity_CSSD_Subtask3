@@ -37,18 +37,21 @@ public class SensorStation extends javax.swing.JFrame {
         initComponents();
     }
     
-      public SensorStation(String username, String userLevel, String email) {
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param email 
+     */
+    //sensor station
+    public SensorStation(String username, String userLevel, String email) {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
         logedUser.setText(email);
     }
     
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    
-       ///////////////////////////////////////////////////////////////////////////////////////
-    
-    
+    //map load
     public void loadMap(String locations) {
 
         try {

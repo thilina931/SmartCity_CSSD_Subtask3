@@ -31,6 +31,14 @@ public class View_Profile extends javax.swing.JFrame {
     public View_Profile() {
         initComponents();
     }
+    
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param emails 
+     */
+    //view profile
     public View_Profile(String username, String userLevel, String emails) {
         initComponents();
         
@@ -228,6 +236,7 @@ public class View_Profile extends javax.swing.JFrame {
         clear();
     }//GEN-LAST:event_resetMouseClicked
 
+    //update details
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
         String firstname, lastname,City, Email, Mobile, Password;
@@ -291,7 +300,8 @@ public class View_Profile extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-     public void setDetails() {
+    //set details
+    public void setDetails() {
         clear();
         try {
             for (User member : Serialization.deserializeUsers()) {
@@ -312,7 +322,8 @@ public class View_Profile extends javax.swing.JFrame {
         }
     }
     
-      public void clear() {
+    //clear method
+    public void clear() {
         firstName.setText("");
         lastName.setText("");
         city.setText("");

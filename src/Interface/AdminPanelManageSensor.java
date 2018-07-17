@@ -41,18 +41,22 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
      * Creates new form AdminPanelManageSensor
      */
     
-    
-    
     String workingDir = System.getProperty("user.dir");
     
     
     public AdminPanelManageSensor() {
         initComponents();
-      //  TableLoad();
+    
            
     }
-
-     public AdminPanelManageSensor(String username, String userLevel, String email) {
+    
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param email 
+     */
+    public AdminPanelManageSensor(String username, String userLevel, String email) {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
@@ -376,6 +380,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //table mouse click
     private void stationtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stationtableMouseClicked
 
         // when user click on tbInfo table, all the information what in user selected row will want to show on Update tab
@@ -430,40 +435,12 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
         thestation.removeAll(thestation);
     }//GEN-LAST:event_jButton7MouseClicked
 
-    //add station
+    
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
-//        // TODO add your handling code here:
-//        String station_type, station_name, stationid, location, longitude, latitude;
-//        if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
-//                || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
-//
-//        } else {
-//            station_type = jComboBox1.getSelectedItem().toString();
-//            station_name = jTextField2.getText();
-//            location = jTextField3.getText();
-//            longitude = jTextField4.getText();
-//            latitude = jTextField5.getText();
-//
-//                String status = addStation(station_type, station_name, location, longitude, latitude);
-//                if (status.equals("success")) {
-//                    try {
-//                        Serialization.Serialize(thestation, FILE_NAME_station);
-//                    } catch (IOException ex) {
-//                        Logger.getLogger(AdminPanelManageUser.class.getName()).log(Level.SEVERE, null, ex);
-//                    }
-//                    JOptionPane.showMessageDialog(this, "You have added the station successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
-//                    reset();
-//                    TableLoad(stationtable, thestation);
-//
-//                } else {
-//                    JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
-//                }
-//             
-//        }
+        // TODO add your handling code here:
         
     }//GEN-LAST:event_jButton8MouseClicked
-//add btn
+    //add button click
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         
         String station_type, station_name, stationid, location, longitude, latitude;
@@ -496,7 +473,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             
           
         ArrayList<sensorStation> stat=new ArrayList<>();
-       stat=Serialization.getAllSensorStations();
+        stat=Serialization.getAllSensorStations();
         sensorStation st =new sensorStation(txt_stationid.getText(),station_type,station_name,location,longitude,latitude);
         stat.add(st);
         boolean cheak=Serialization.write( "DataFiles/sensorstation.txt",stat);
@@ -506,12 +483,14 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
        
         
         
-   TableLoad();
+        TableLoad();
              
         }
         
     }//GEN-LAST:event_jButton8ActionPerformed
-     //update 
+     
+
+    //update button click 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         String station_type, station_name, location, longitude, latitude;
         if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
@@ -524,7 +503,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             location = jTextField3.getText();
             longitude = jTextField4.getText();
             latitude = jTextField5.getText();
-             String stationtype;
+            String stationtype;
              
         if (station_type.equals("Select")) {
               stationtype = "Select";
@@ -541,23 +520,30 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             stationtype ="Traffic";
             }
         
-             sensorStation st =new sensorStation(txt_stationid.getText(),station_type,station_name,location,longitude,latitude);
-             ArrayList<sensorStation> updatestat=new ArrayList<sensorStation>();
-       updatestat=Serialization.getAllSensorStations();
+            sensorStation st =new sensorStation(txt_stationid.getText(),station_type,station_name,location,longitude,latitude);
+            ArrayList<sensorStation> updatestat=new ArrayList<sensorStation>();
+            updatestat=Serialization.getAllSensorStations();
             sensorStation sen =findsensor(txt_stationid.getText(),updatestat);
             System.out.println("asda"+sen.getStation_Name());
             updatestat.remove(sen);
             updatestat.add(st);
-         boolean cheak=  Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
+            boolean cheak=  Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
      
         if (cheak){
             JOptionPane.showMessageDialog(this, "Sucessfully Updated ");
         }
         }
-     TableLoad();
+        TableLoad();
      
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    /**
+     * 
+     * @param id
+     * @param updatestat
+     * @return station
+     */
+    //search sensor
     public sensorStation findsensor(String id,ArrayList<sensorStation> updatestat){
      for(sensorStation station :updatestat){
             if(id.equals(station.getSensorStation_ID())){
@@ -570,9 +556,10 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     }
     
     
+    //delete station button click
     private void DeletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebtnActionPerformed
         // TODO add your handling code here:
-         int stationNum;
+        int stationNum;
         int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this farm?", "Confirm", JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
         if (confirm == 0) {
@@ -582,13 +569,13 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             } 
             else{
             
-             ArrayList<sensorStation> updatestat=new ArrayList<sensorStation>();
-       updatestat=Serialization.getAllSensorStations();
+            ArrayList<sensorStation> updatestat=new ArrayList<sensorStation>();
+            updatestat=Serialization.getAllSensorStations();
             sensorStation sen =findsensor(txt_stationid.getText(),updatestat);
             System.out.println("asda"+sen.getStation_Name());
             updatestat.remove(sen);
            
-           boolean cheak=Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
+            boolean cheak=Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
            
         if (cheak){
             JOptionPane.showMessageDialog(this, "Sucessfully Deleted ");
@@ -621,7 +608,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-          Login Us = new Login();
+        Login Us = new Login();
         Us.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton11ActionPerformed
@@ -671,9 +658,17 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
          }
     }
      
-     
-     
-     public String addStation(String station_type, String station_name, String location, String longitude, String latitude) {
+     /**
+      * 
+      * @param station_type
+      * @param station_name
+      * @param location
+      * @param longitude
+      * @param latitude
+      * @return status
+      */
+    //add station method
+    public String addStation(String station_type, String station_name, String location, String longitude, String latitude) {
         String status = "";
         Station st= Station.getInstance();
         

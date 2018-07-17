@@ -127,6 +127,7 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //login 
     private void LoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginMouseClicked
         // TODO add your handling code here:
         if (!userName.getText().isEmpty() && !password.getText().isEmpty()) {
@@ -195,11 +196,13 @@ public class Login extends javax.swing.JFrame {
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         // TODO add your handling code here:
-          Register r = new Register();
+        Register r = new Register();
         r.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jLabel12MouseClicked
-      public void clear() {
+      
+    //clear method
+    public void clear() {
         userName.setText("");
         password.setText("");
     }

@@ -64,6 +64,11 @@ public class randomCode implements Serializable{
         }
 
 
+    /**
+     * 
+     * @param email
+     * @param randomNumber 
+     */
     public SingletonBuilder(String email, String randomNumber) {
 
             this.email = email;

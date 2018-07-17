@@ -74,6 +74,15 @@ public class User implements Serializable{
             userLevel = null;
         }
         
+        /**
+         * 
+         * @param firstName
+         * @param lastName
+         * @param userLevel
+         * @param email
+         * @param mobile
+         * @param password 
+         */
         public SingletonBuilder(String firstName, String lastName, String userLevel, String email, String mobile, String password) {
             this.name = firstName;
             this.lastName = lastName;

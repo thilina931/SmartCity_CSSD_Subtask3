@@ -29,7 +29,11 @@ public class resetPassword extends javax.swing.JFrame {
         initComponents();
     }
 
-    
+    /**
+     * 
+     * @param email 
+     */
+    //reset password
     public resetPassword(String email) {
         initComponents();
         this.email = email;
@@ -112,6 +116,7 @@ public class resetPassword extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //save button click
     private void btnancSave1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnancSave1MouseClicked
         // TODO add your handling code here:
         
@@ -137,7 +142,13 @@ public class resetPassword extends javax.swing.JFrame {
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
+    /**
+     * 
+     * @param email
+     * @param password
+     * @return status
+     */
+    //update password
     public String updatePassword(String email, String password) {
         String status = "";
         for (User member : searchUsers) {

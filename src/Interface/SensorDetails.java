@@ -17,8 +17,15 @@ public class SensorDetails extends javax.swing.JFrame {
     public SensorDetails() {
         initComponents();
     }
-     
-     public SensorDetails(String username, String userLevel, String email) {
+    
+    /**
+     * 
+     * @param username
+     * @param userLevel
+     * @param email 
+     */
+    //sensor details
+    public SensorDetails(String username, String userLevel, String email) {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;

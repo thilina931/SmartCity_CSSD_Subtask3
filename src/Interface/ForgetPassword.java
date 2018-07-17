@@ -152,6 +152,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtsenderEmailActionPerformed
 
+    //email save button click
     private void btnancSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnancSaveMouseClicked
         // TODO add your handling code here:
          if (txtsenderEmail.getText().isEmpty()) {
@@ -198,6 +199,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnancSaveMouseClicked
 
+    //resend verification code
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
         
@@ -243,6 +245,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel9MouseClicked
 
+    //save button click
     private void btnancSave1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnancSave1MouseClicked
         // TODO add your handling code here:
         
@@ -268,12 +271,20 @@ public class ForgetPassword extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-           Login L = new Login();
+        Login L = new Login();
         L.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
+    /**
+     * 
+     * @param email
+     * @param code
+     * @return status
+     * @throws IOException 
+     */
+    //validate code
     public static String validateCode(String email, String code) throws IOException {
         String status = "";
         for (randomCode random : searchCode) {
@@ -294,7 +305,7 @@ public class ForgetPassword extends javax.swing.JFrame {
         return status;
     }
     
-    
+    //get code
     public static String getAlphaNumbericRandom() {
         String chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -308,8 +319,12 @@ public class ForgetPassword extends javax.swing.JFrame {
         return code;
     }
     
-    
-    
+    /**
+     * 
+     * @param email
+     * @return status
+     */
+    //send email method
     public static String sendMessage(String email) {
         String verifyCode = getAlphaNumbericRandom();
         String status = "";

@@ -37,7 +37,7 @@ public class SetOfRandomCode extends Vector<randomCode> implements Serializable{
      * 
      * @param email
      * @param code
-     * @return 
+     * @return status
      */
     //verify random code
     public String verifyRandomCode(String email, String code) {
