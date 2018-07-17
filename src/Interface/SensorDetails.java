@@ -5,6 +5,13 @@
  */
 package Interface;
 
+import Class.Map.Map;
+import static Class.Map.Map.createInternalFrame;
+import Class.Serialization.Serialization;
+import Class.Station.sensorStation;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author Spartan Lakmal
@@ -14,10 +21,26 @@ public class SensorDetails extends javax.swing.JFrame {
     /**
      * Creates new form SensorDetails
      */
+    Map map = new Map();
     public SensorDetails() {
         initComponents();
+        TableLoad();
     }
-    
+  
+     //table load method
+     public void TableLoad() {
+         
+        
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+         for(sensorStation station :Serialization.getAllSensorStations()){
+         model.addRow(new Object[]{
+         station.getSensorStation_ID(),
+         station.getStation_Type(),
+         station.getStation_Name(),
+         });
+         }
+    }
     /**
      * 
      * @param username
@@ -44,13 +67,13 @@ public class SensorDetails extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         logedUser = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,10 +121,6 @@ public class SensorDetails extends javax.swing.JFrame {
         getContentPane().add(jButton6);
         jButton6.setBounds(614, 101, 183, 37);
 
-        jLabel1.setText("Map with all the sensors ");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(600, 196, 288, 254);
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -113,6 +132,11 @@ public class SensorDetails extends javax.swing.JFrame {
                 "Sensor No", "Sensor Type", "Sensor Status"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
@@ -130,7 +154,7 @@ public class SensorDetails extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(930, 33, 77, 25);
+        jButton1.setBounds(930, 33, 71, 23);
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton8.setText("Sensor Data");
@@ -147,10 +171,12 @@ public class SensorDetails extends javax.swing.JFrame {
         logedUser.setText("logged User");
         getContentPane().add(logedUser);
         logedUser.setBounds(0, 31, 192, 32);
+        getContentPane().add(jDesktopPane1);
+        jDesktopPane1.setBounds(545, 196, 364, 254);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 140, 1010, 620);
+        jLabel3.setBounds(20, 280, 1010, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,6 +229,11 @@ public class SensorDetails extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        jDesktopPane1.add(createInternalFrame("Select Destination", "https://www.google.com/maps/place/Malabe/@6.9043629,79.9479226,14z/data=!4m5!3m4!1s0x3ae256d59601df81:0x31a1dd96e8d49ba!8m2!3d6.9060787!4d79.9696277"));
+    }//GEN-LAST:event_jTable1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -245,7 +276,7 @@ public class SensorDetails extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
