@@ -8,6 +8,7 @@ package Interface;
 
 
 import Class.Sensor.BinSensor;
+import Class.Sensor.Data;
 import Class.Sensor.FloodSensor;
 import Class.Sensor.MotherShip;
 import Class.Sensor.SensorDetails;
@@ -44,6 +45,10 @@ public class SensorData extends javax.swing.JFrame {
     public static SetOfStation thestation = new SetOfStation();
     public static MotherShip theSensors = new MotherShip();
     public static MotherShip searchSensors = new MotherShip();
+    public static Data data = new Data();
+    
+    
+    
     public SensorData() {
         initComponents();
     }
@@ -411,10 +416,12 @@ public class SensorData extends javax.swing.JFrame {
 //
 //            } 
                 getDetails();
+              
+               
         }     
     }//GEN-LAST:event_jButton9MouseClicked
 
-    //new
+    
     
     private void comboSTIDMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboSTIDMouseReleased
         // TODO add your handling code here:
@@ -431,6 +438,7 @@ public class SensorData extends javax.swing.JFrame {
         Traffic = Double.parseDouble(jTextField3.getText().trim());
         String status = addDetails(stationNumber, Flood, Bin, Traffic);
         if (status == "success") {
+             
             clear();
         }
     }
@@ -488,12 +496,14 @@ public class SensorData extends javax.swing.JFrame {
         String dateTime = Calendar.getInstance().getTime().toString();
 
         theSensors.addSensorDetails(new SensorDetails(dateTime, stationNumber, Flood, Bin, Traffic));
+        data.addData(new Data(FloodSol,BinSol,TrafficSol));
         try {
             Serialization.Serialize(theSensors, FILE_NAME_Sensors);
             JOptionPane.showMessageDialog(this, "Please take the below steps : \n \u2022" + FloodSol + "\n \u2022" + BinSol + "\n \u2022"
                     + TrafficSol + "\n Above Solutions may decrease the risk " ,
                     "Information", JOptionPane.INFORMATION_MESSAGE);
             status = "success";
+            
         } catch (IOException | HeadlessException ex) {
             status = "fail";
             System.out.println(ex.getMessage());
@@ -541,7 +551,7 @@ public class SensorData extends javax.swing.JFrame {
             }
         });
     }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboSTID;
     private javax.swing.JButton jButton10;
