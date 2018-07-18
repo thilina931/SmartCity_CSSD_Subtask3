@@ -144,10 +144,14 @@ public class Login extends javax.swing.JFrame {
 
                 System.out.println(userLevels);
                 if (userLevels.equals("PasswordIncorrect")) {
-                    JOptionPane.showMessageDialog(this, "Password incorrect... Please try again later", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Password incorrect... "
+                            + "Please try again later", "Error", 
+                            JOptionPane.ERROR_MESSAGE);
 
                 } else if (userLevels.equals("UsernameIncorrect")) {
-                    JOptionPane.showMessageDialog(this, "Username incorrect... Please try again with correct username", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Username incorrect... "
+                            + "Please try again with correct username", "Error", 
+                            JOptionPane.ERROR_MESSAGE);
                 } else if (userLevels.equals("user")) {
                     UserHome H= new UserHome (userID, userLevels, email);
                     H.setVisible(true);
@@ -171,7 +175,9 @@ public class Login extends javax.swing.JFrame {
             }
         } else {
 
-            JOptionPane.showMessageDialog(this, "Username or password not given... Please try again with correct username and password", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this,"Username or password not given "
+                    + "Please try again with correct username and password", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
 
         }
 

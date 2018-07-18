@@ -58,10 +58,10 @@ public class UserHome extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1015, 552));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Eras Medium ITC", 1, 24)); // NOI18N
         jLabel1.setText("Welcome To User Home");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(338, 11, 239, 54);
+        jLabel1.setBounds(380, 30, 310, 54);
 
         jButton1.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jButton1.setText("My Profile");
@@ -71,7 +71,7 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(338, 299, 111, 33);
+        jButton1.setBounds(460, 240, 111, 33);
 
         logedUser1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         logedUser1.setForeground(new java.awt.Color(102, 102, 102));
@@ -87,7 +87,7 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(111, 297, 127, 37);
+        jButton3.setBounds(230, 240, 127, 37);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton4.setText("Log out");
@@ -97,7 +97,7 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(912, 11, 93, 31);
+        jButton4.setBounds(830, 40, 93, 31);
 
         jButton2.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jButton2.setText("FeedBack");
@@ -107,7 +107,7 @@ public class UserHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(550, 297, 105, 37);
+        jButton2.setBounds(680, 240, 105, 37);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -118,14 +118,16 @@ public class UserHome extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         
-        View_Profile v = new View_Profile (username, userLevel, logedUser1.getText());
+        View_Profile v = new View_Profile (username, userLevel, 
+                logedUser1.getText());
         v.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-             AdminPanelManageUser a = new AdminPanelManageUser(username, userLevel, logedUser1.getText());
+             AdminPanelManageUser a = new AdminPanelManageUser(username, 
+                     userLevel, logedUser1.getText());
         a.setVisible(true);
         this.hide();
         theUsers.removeAll(theUsers);

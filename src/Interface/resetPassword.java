@@ -72,7 +72,7 @@ public class resetPassword extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Reset your Password here ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(313, 0, 425, 44);
+        jLabel1.setBounds(320, 20, 425, 44);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("New Password             :");
@@ -93,17 +93,17 @@ public class resetPassword extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnancSave1);
-        btnancSave1.setBounds(582, 350, 175, 31);
+        btnancSave1.setBounds(570, 350, 175, 31);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jButton1.setText("Back to Login");
+        jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(821, 8, 175, 37);
+        jButton1.setBounds(870, 30, 100, 37);
         getContentPane().add(newPWD);
         newPWD.setBounds(501, 213, 247, 33);
         getContentPane().add(confirmPWD);
@@ -126,10 +126,14 @@ public class resetPassword extends javax.swing.JFrame {
                 new Login().setVisible(true);
                 this.hide();
             } else {
-                JOptionPane.showMessageDialog(this, "Error updating the password...Try again later...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Error updating the password...Try again later...", 
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "New Password and Confirm Password must be same...", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "New Password and Confirm Password must be same...", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
             newPWD.setText("");
             confirmPWD.setText("");
         }
@@ -158,7 +162,6 @@ public class resetPassword extends javax.swing.JFrame {
                     Serialization.Serialize(searchUsers, FILE_NAME_Users);
                     status = "success";
                 } catch (IOException ex) {
-                    //Logger.getLogger(userManagement.class.getName()).log(Level.SEVERE, null, ex);
                     status = "error";
                 }
                 break;

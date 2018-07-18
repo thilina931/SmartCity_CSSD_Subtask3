@@ -40,13 +40,16 @@ public class SensorDetails implements Serializable{
      * @param Traffic 
      */
     //sensor details
-    public SensorDetails(String dateTime, String stationLocation, String stationNumber, double Flood, double Bin, double Traffic) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public SensorDetails(String dateTime, String stationLocation, 
+            String stationNumber, double Flood, double Bin, double Traffic) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+        //To change body of generated methods, choose Tools | Templates.
     }
      
     
     public void print() {
-        System.out.println(stationLocation + " Name " + dateTime + ",username " + stationNumber);
+        System.out.println(stationLocation + " Name " + dateTime + ",username " 
+                + stationNumber);
     }
     
     
@@ -58,7 +61,8 @@ public class SensorDetails implements Serializable{
      * @param Bin
      * @param Traffic 
      */
-    public SensorDetails( String stationNumber, String stationLocation, double Flood, double Bin, double Traffic) {
+    public SensorDetails( String stationNumber, String stationLocation, 
+            double Flood, double Bin, double Traffic) {
         
         this.stationLocation=stationLocation;
         this.stationNumber = stationNumber;
@@ -130,7 +134,8 @@ public class SensorDetails implements Serializable{
      * @param b 
      */   
     public void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
+        //To change body of generated methods, choose Tools | Templates.
     }
     
     /**

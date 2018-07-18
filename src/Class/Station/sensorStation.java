@@ -34,7 +34,9 @@ public class sensorStation implements Serializable,Observer{
      * @param Longitude
      * @param Latitude 
      */
-    public sensorStation(String sensorStation_ID, String Station_Type, String Station_Name, String Location, String Longitude, String Latitude) {
+    public sensorStation(String sensorStation_ID, String Station_Type, 
+            String Station_Name, String Location, String Longitude, 
+            String Latitude) {
         this.sensorStation_ID = sensorStation_ID;
         this.Station_Type = Station_Type;
         this.Station_Name = Station_Name;
@@ -129,7 +131,8 @@ public class sensorStation implements Serializable,Observer{
 
     @Override
     public void update(Observable o, Object o1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
+        //To change body of generated methods, choose Tools | Templates.
     }
 
     

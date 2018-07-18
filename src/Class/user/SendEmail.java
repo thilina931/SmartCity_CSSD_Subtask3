@@ -31,7 +31,8 @@ public class SendEmail {
      * @param emailSubject
      * @param emailBody 
      */
-    public SendEmail(String receiverEmailID, String emailSubject, String emailBody) {
+    public SendEmail(String receiverEmailID, String emailSubject, 
+            String emailBody) {
         this.receiverEmailID = receiverEmailID;
         this.emailSubject = emailSubject;
         this.emailBody = emailBody;
@@ -42,7 +43,8 @@ public class SendEmail {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.socketFactory.port", emailServerPort);
-        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.class", 
+                "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.socketFactory.fallback", "false");
         SecurityManager security = System.getSecurityManager();
         try {

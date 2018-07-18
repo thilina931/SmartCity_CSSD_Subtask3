@@ -65,18 +65,22 @@ public class SensorStation extends javax.swing.JFrame {
 
         try {
 
-            String url = "http://maps.googleapis.com/maps/api/staticmap?center=" + locations + "&size=670x330&maptype=roadmap&";
+            String url = "http://maps.googleapis.com/maps/api/staticmap?center=" 
+                    + locations + "&size=670x330&maptype=roadmap&";
 
             double longi = 0.00, lati = 0.00;
             String color;
-            final String[] proper_noun = {"red", "brown", "green", "blue", "purple", "yellow"};
+            final String[] proper_noun = {"red", "brown", "green", "blue", 
+                "purple", "yellow"};
             Random random = new Random();
             for (Station station : thestation) {
                 longi = Double.parseDouble(station.getlongitude());
                 lati = Double.parseDouble(station.getlatitude());
                 int index = random.nextInt(proper_noun.length);
                 color = proper_noun[index];
-                url = url + "markers=color:" + color + "%7Clabel:" + station.getstationNumber() + "%7C" + longi + "," + lati + "&";
+                url = url + "markers=color:" + color + "%7Clabel:" + 
+                        station.getstationNumber() + "%7C" + longi + "," + 
+                        lati + "&";
             }
             url = url + "sensor=false&zoom=3";
 
@@ -96,7 +100,8 @@ public class SensorStation extends javax.swing.JFrame {
 
             Image map = ImageIO.read(new File("src\\Images\\googleImage.jpg"));
             googleMap.setText("");
-            googleMap.setIcon(new ImageIcon(map.getScaledInstance(670, 330, Image.SCALE_SMOOTH)));
+            googleMap.setIcon(new ImageIcon(map.getScaledInstance(670, 330, 
+                    Image.SCALE_SMOOTH)));
 
         } catch (NumberFormatException | IOException e) {
         }
@@ -132,10 +137,8 @@ public class SensorStation extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1117, 558));
         getContentPane().setLayout(null);
-
-        googleMap.setText("Map Load");
         getContentPane().add(googleMap);
-        googleMap.setBounds(691, 211, 351, 256);
+        googleMap.setBounds(590, 200, 351, 256);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Enter Location:");
@@ -158,7 +161,7 @@ public class SensorStation extends javax.swing.JFrame {
             }
         });
         getContentPane().add(search1);
-        search1.setBounds(187, 165, 170, 20);
+        search1.setBounds(187, 165, 190, 30);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("View Sensors");
@@ -168,7 +171,7 @@ public class SensorStation extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(147, 373, 213, 31);
+        jButton1.setBounds(170, 310, 213, 31);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Add Sensor Satation");
@@ -178,7 +181,7 @@ public class SensorStation extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(147, 283, 213, 31);
+        jButton2.setBounds(170, 250, 213, 31);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton3.setText("Sensor Station");
@@ -233,7 +236,7 @@ public class SensorStation extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton7);
-        jButton7.setBounds(988, 11, 103, 31);
+        jButton7.setBounds(910, 20, 103, 31);
 
         logedUser.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         logedUser.setForeground(new java.awt.Color(102, 102, 102));
@@ -272,7 +275,8 @@ public class SensorStation extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,userLevel,logedUser.getText());
+        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,
+                userLevel,logedUser.getText());
         spms.setVisible(true);
         this.hide();
         
@@ -280,7 +284,8 @@ public class SensorStation extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         
-        SensorStation ss = new SensorStation(username,userLevel,logedUser.getText());
+        SensorStation ss = new SensorStation(username,userLevel,
+                logedUser.getText());
         ss.setVisible(true);
         this.hide();
         

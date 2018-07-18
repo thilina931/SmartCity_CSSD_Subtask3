@@ -74,7 +74,7 @@ public class Emergency extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(93, 110, 163, 31);
+        jButton3.setBounds(80, 110, 163, 31);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("Emergency");
@@ -84,7 +84,7 @@ public class Emergency extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(262, 110, 133, 31);
+        jButton4.setBounds(270, 110, 133, 31);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton5.setText("Admin Panel");
@@ -94,7 +94,7 @@ public class Emergency extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(413, 110, 145, 31);
+        jButton5.setBounds(430, 110, 145, 31);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton6.setText("Sensor Details");
@@ -104,12 +104,12 @@ public class Emergency extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(570, 110, 161, 31);
+        jButton6.setBounds(600, 110, 161, 31);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Sensor Type : ");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(69, 268, 99, 17);
+        jLabel4.setBounds(70, 210, 99, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(jLabel5);
@@ -118,7 +118,7 @@ public class Emergency extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Sensor Location : ");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(50, 303, 124, 17);
+        jLabel6.setBounds(50, 250, 124, 17);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(jLabel7);
@@ -137,7 +137,7 @@ public class Emergency extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(922, 11, 89, 25);
+        jButton1.setBounds(870, 30, 89, 25);
 
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton8.setText("Sensor Data");
@@ -147,7 +147,7 @@ public class Emergency extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton8);
-        jButton8.setBounds(737, 110, 143, 31);
+        jButton8.setBounds(780, 110, 143, 31);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Load Map");
@@ -157,25 +157,25 @@ public class Emergency extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(217, 387, 99, 25);
+        jButton2.setBounds(60, 330, 99, 25);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+            .addGap(0, 540, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 275, Short.MAX_VALUE)
+            .addGap(0, 310, Short.MAX_VALUE)
         );
 
         getContentPane().add(jDesktopPane1);
-        jDesktopPane1.setBounds(359, 201, 361, 275);
+        jDesktopPane1.setBounds(401, 175, 540, 310);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 130, 1020, 570);
+        jLabel1.setBounds(30, 150, 1020, 570);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -230,7 +230,8 @@ public class Emergency extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        jDesktopPane1.add(createInternalFrame("Select Destination", "http://maps.google.com"));
+        jDesktopPane1.add(createInternalFrame("Select Destination", 
+                "http://maps.google.com"));
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**

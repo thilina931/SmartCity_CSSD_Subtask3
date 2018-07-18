@@ -40,7 +40,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
      * @param userLevel
      * @param email 
      */
-    public AdminPanelManageUser(String username, String userLevel, String email) {
+    public AdminPanelManageUser(String username, String userLevel,String email){
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
@@ -62,7 +62,8 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     
     // Table Load Method
     public void TableLoad(JTable table, SetOfUsers searchList) {
-        String[] colName = {"User ID", "First Name","Last Name","City","Email","Mobile Number"};
+        String[] colName = {"User ID", "First Name","Last Name","City","Email",
+            "Mobile Number"};
         Object[][] object = new Object[searchList.size()][6];
         int i = 0;
         if (searchList.size() != 0) {
@@ -159,6 +160,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(200, 150));
         getContentPane().setLayout(null);
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton5.setText("Admin Panel");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,8 +168,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(271, 108, 91, 23);
+        jButton5.setBounds(410, 110, 145, 31);
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton6.setText("Sensor Details");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,13 +178,14 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(380, 108, 101, 23);
+        jButton6.setBounds(610, 110, 161, 31);
 
-        jLabel2.setFont(new java.awt.Font("Felix Titling", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 36)); // NOI18N
         jLabel2.setText("Admin Panel");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(400, 11, 304, 56);
+        jLabel2.setBounds(400, 11, 260, 56);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setText("Sensor Station");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,8 +193,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(47, 108, 103, 23);
+        jButton3.setBounds(47, 108, 163, 31);
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("Emergency");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,7 +203,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(168, 108, 85, 23);
+        jButton4.setBounds(240, 110, 133, 31);
 
         jButton1.setText("Manage Users");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +212,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(10, 220, 119, 23);
+        jButton1.setBounds(10, 220, 119, 25);
 
         jButton2.setText("Manage Sensor");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -216,7 +221,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(10, 167, 121, 23);
+        jButton2.setBounds(10, 167, 121, 25);
 
         firstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,7 +346,12 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                                 .addComponent(jLabel9)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(userID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(userID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(firstName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
@@ -367,11 +377,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                             .addComponent(lastName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboUserLevel, 0, 157, Short.MAX_VALUE))
                         .addGap(18, 18, 18)))
-                .addGap(35, 35, 35)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                .addGap(379, 379, 379))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(278, 278, 278)
                 .addComponent(jButton9)
@@ -379,9 +385,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(84, 84, 84)
                 .addComponent(ClearBtn)
-                .addGap(47, 47, 47))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -392,12 +398,13 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(userID, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel10))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(search1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -424,10 +431,10 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                             .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
                         .addGap(13, 13, 13)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboUserLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(0, 99, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboUserLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(0, 28, Short.MAX_VALUE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -435,11 +442,11 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                     .addComponent(jButton7)
                     .addComponent(jButton9)
                     .addComponent(ClearBtn))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(141, 151, 1245, 571);
+        jPanel2.setBounds(141, 151, 910, 450);
 
         jButton10.setText("Log Out");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -448,8 +455,9 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton10);
-        jButton10.setBounds(960, 10, 71, 23);
+        jButton10.setBounds(960, 10, 77, 25);
 
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton11.setText("Sensor Data");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,7 +465,7 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton11);
-        jButton11.setBounds(499, 108, 91, 23);
+        jButton11.setBounds(810, 110, 150, 30);
 
         logedUser.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         logedUser.setForeground(new java.awt.Color(102, 102, 102));
@@ -467,14 +475,15 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AD-Events-Logo-Smartcity-dialogues.jpg"))); // NOI18N
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(-80, -50, 1120, 780);
+        jLabel11.setBounds(10, 350, 1060, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,userLevel,logedUser.getText());
+        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,
+                userLevel,logedUser.getText());
         spms.setVisible(true);
         this.hide();
         
@@ -482,7 +491,8 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        SensorDetails sd = new SensorDetails(username,userLevel,logedUser.getText());
+        SensorDetails sd = new SensorDetails(username,userLevel,logedUser.
+                getText());
         sd.setVisible(true);
         this.hide();
         
@@ -490,7 +500,8 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        SensorStation ss = new SensorStation(username,userLevel,logedUser.getText());
+        SensorStation ss = new SensorStation(username,userLevel,logedUser.
+                getText());
         ss.setVisible(true);
         this.hide();
         
@@ -506,7 +517,8 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,userLevel,logedUser.getText());
+        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,
+                userLevel,logedUser.getText());
         spms.setVisible(true);
         this.hide();
         
@@ -524,9 +536,13 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         
         String firstname, lastname, City, Email, Mobile, Password;
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty()  || city.getText().isEmpty()
-                || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty()  || 
+                city.getText().isEmpty()
+                || email.getText().isEmpty() || mobile.getText().isEmpty() || 
+                password.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Please provide all the details...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
             if (validations.isEmail(email.getText())) {
@@ -545,23 +561,30 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                 userLevels = "admin";
             }
 
-            User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
-            String status = theUsers.updatedetails(user, firstname, lastname, City, Email, Mobile, Password, userLevels);
+            User user = theUsers.getMemberFromNumber(Integer.parseInt
+                    (userID.getText())).firstElement();
+            String status = theUsers.updatedetails(user, firstname, lastname, 
+                    City, Email, Mobile, Password, userLevels);
             if (status.equals("success")) {
-                JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this,"You have updated successful",
+                        "Congradulations", JOptionPane.INFORMATION_MESSAGE);
                 try {
                     Serialization.Serialize(theUsers, FILE_NAME_Users);
                 } catch (IOException ex) {
-                    Logger.getLogger(AdminPanelManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AdminPanelManageUser.class.getName()).
+                            log(Level.SEVERE, null, ex);
                 }
                 clear();
                 TableLoad(jTable2, theUsers);
 
             } else {
-                JOptionPane.showMessageDialog(this, "Update unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Update unsuccessful...", 
+                        "Error", JOptionPane.ERROR_MESSAGE);
             }
             } else {
-                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please provide a valied email address...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -595,8 +618,11 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     //add user button click 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
           String firstname, lastname, City, Email, Mobile, Password;
-            if (firstName.getText().isEmpty() || email.getText().isEmpty() || password.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+            if (firstName.getText().isEmpty() || email.getText().isEmpty() || 
+                    password.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Please provide all the details...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
             if (validations.isEmail(email.getText())) {
@@ -615,17 +641,24 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
                     userLevels = "admin";
                 }
 
-                String status = registerUser(firstname, lastname, City, Email, Mobile, Password, userLevels);
+                String status = registerUser(firstname, lastname, City, Email, 
+                        Mobile, Password, userLevels);
                 if (status.equals("success")) {
-                    JOptionPane.showMessageDialog(this, "You have registered successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "You have registered successful", "Congradulations", 
+                            JOptionPane.INFORMATION_MESSAGE);
                     clear();
                     TableLoad(jTable2, theUsers);
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "Registration unsuccessful...", "Error", 
+                            JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please provide a valied email address...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -662,7 +695,8 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
         email.setText(jTable2.getValueAt(row, 4).toString());
         mobile.setText(jTable2.getValueAt(row, 5).toString());
         
-        User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+        User user = theUsers.getMemberFromNumber(Integer.parseInt
+        (userID.getText())).firstElement();
         password.setText(user.getPassword());
         String userLevels = user.getUserLevel();
 
@@ -685,29 +719,38 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         int userNum;
-        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this user?", "Confirm", JOptionPane.YES_NO_OPTION,
+        int confirm = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to delete this user?", "Confirm", 
+                JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
         if (confirm == 0) {
             if (userID.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Please select a user to delete...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please select a user to delete...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
 
             } else {
                 userNum = Integer.parseInt(userID.getText());
 
-                User user = theUsers.getMemberFromNumber(Integer.parseInt(userID.getText())).firstElement();
+                User user = theUsers.getMemberFromNumber(Integer.parseInt
+        (userID.getText())).firstElement();
                 boolean status = theUsers.removeUser(user);
                 if (status) {
                     try {
                         Serialization.Serialize(theUsers, FILE_NAME_Users);
                     } catch (IOException ex) {
-                        Logger.getLogger(AdminPanelManageUser.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(AdminPanelManageUser.class.getName()).
+                                log(Level.SEVERE, null, ex);
                     }
-                    JOptionPane.showMessageDialog(this, "You have deleted successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "You have deleted successful", "Congradulations", 
+                            JOptionPane.INFORMATION_MESSAGE);
                     clear();
                     TableLoad(jTable1, theUsers);
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "Delete unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Delete unsuccessful", 
+                            "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }
@@ -729,9 +772,11 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
      * @return status
      */
     //register user 
-    public String registerUser(String firstName, String lastName, String city, String email, String mobile, String password) {
+    public String registerUser(String firstName, String lastName, String city, 
+            String email, String mobile, String password) {
         String status = "";
-        new User.SingletonBuilder(firstName, lastName, "user", email, mobile, password).city(city).build();
+        new User.SingletonBuilder(firstName, lastName, "user", email, mobile, 
+                password).city(city).build();
         theUsers.addUser(User.getInstance());
         try {
             Serialization.Serialize(theUsers, FILE_NAME_Users);
@@ -778,9 +823,11 @@ public class AdminPanelManageUser extends javax.swing.JFrame {
      * @return status
      */
     //register user 
-    public String registerUser(String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
+    public String registerUser(String firstName, String lastName, String city, 
+            String email, String mobile, String password, String userLevels) {
         String status = "";
-        new User.SingletonBuilder(firstName, lastName,userLevels, email, mobile, password).city(city).build();
+        new User.SingletonBuilder(firstName, lastName,userLevels, email, mobile, 
+                password).city(city).build();
         theUsers.addUser(User.getInstance());
         try {
             Serialization.Serialize(theUsers, FILE_NAME_Users);

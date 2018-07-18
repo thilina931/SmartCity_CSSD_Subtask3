@@ -44,7 +44,8 @@ public boolean removeStation(Station rstation) {
  * @return 
  */
 //update station details
-public String updatedetails(Station station, String sensor_type, String station_name, String location, String longitude, String latitude) {
+public String updatedetails(Station station, String sensor_type, 
+     String station_name, String location, String longitude, String latitude) {
         String status = "";
         try {
             this.elementAt(this.indexOf(station)).setsensortype(sensor_type);
@@ -70,7 +71,8 @@ public SetOfStation getstationFromStationName(String StationName) {
         StationList = new SetOfStation();
 
         for (Station station : this) {
-            if (station.getstation_name().toLowerCase().contains(StationName.toLowerCase())) {
+            if (station.getstation_name().toLowerCase().contains
+        (StationName.toLowerCase())) {
                 StationList.addStation(station);
 
             }

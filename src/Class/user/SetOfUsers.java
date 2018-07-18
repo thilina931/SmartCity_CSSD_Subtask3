@@ -43,7 +43,9 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
      * @return status
      */
     //update user details
-    public String updatedetails(User user, String firstName, String lastName, String city, String email, String mobile, String password, String userLevels) {
+    public String updatedetails(User user, String firstName, String lastName, 
+            String city, String email, String mobile, String password, 
+            String userLevels) {
         String status = "";
         try {
             this.elementAt(this.indexOf(user)).setName(firstName);
@@ -75,9 +77,11 @@ public class SetOfUsers extends  Vector<User> implements Serializable {
 
         for (User user : this) {
 
-            if (user.getUsername().toLowerCase().equals(username.toLowerCase())) {
-                if (user.getPassword().toLowerCase().equals(Password.toLowerCase())) {
-                    userLevel = user.getUserLevel() + " " + user.getMemberNumber() + " " + user.getUsername();
+            if(user.getUsername().toLowerCase().equals(username.toLowerCase())){
+                if (user.getPassword().toLowerCase().equals
+                                        (Password.toLowerCase())) {
+                    userLevel = user.getUserLevel() + " " + 
+                            user.getMemberNumber() + " " + user.getUsername();
                     break;
                 } else {
                     userLevel = "PasswordIncorrect 0 no";

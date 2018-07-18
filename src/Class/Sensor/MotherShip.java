@@ -36,7 +36,8 @@ public class MotherShip  extends Vector<SensorDetails> implements Serializable {
     public MotherShip getSensorDetailsFromStationID(int stationNumber) {
         sensorList = new MotherShip();
         for (SensorDetails csensorDetails : this) {
-            if (Integer.parseInt(csensorDetails.getstationNumber()) == stationNumber) {
+            if (Integer.parseInt(csensorDetails.getstationNumber()) 
+                    == stationNumber) {
                 sensorList.addSensorDetails(csensorDetails);
             }
         }

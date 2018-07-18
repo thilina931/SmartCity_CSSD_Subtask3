@@ -137,7 +137,7 @@ public class SensorData extends javax.swing.JFrame {
         jButton6.setBounds(563, 111, 161, 31);
 
         jLabel2.setFont(new java.awt.Font("High Tower Text", 1, 36)); // NOI18N
-        jLabel2.setText("Admin Panel");
+        jLabel2.setText("Sensor Data");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(373, 11, 249, 43);
 
@@ -161,7 +161,7 @@ public class SensorData extends javax.swing.JFrame {
         getContentPane().add(jButton4);
         jButton4.setBounds(249, 111, 133, 31);
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 2, 18)); // NOI18N
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton10.setText("Log Out");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,7 +169,7 @@ public class SensorData extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton10);
-        jButton10.setBounds(893, 11, 97, 31);
+        jButton10.setBounds(870, 30, 103, 31);
 
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton11.setText("Sensor Data");
@@ -329,9 +329,13 @@ public class SensorData extends javax.swing.JFrame {
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
         
-        if (comboSTID.getSelectedItem().toString().equals("Select an option")||  jTextField1.getText().trim().isEmpty()
-                || jTextField2.getText().trim().isEmpty() || jTextField3.getText().trim().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please Provide all the necessary Details", "Error", JOptionPane.ERROR_MESSAGE);
+        if (comboSTID.getSelectedItem().toString().equals("Select an option")||  
+                jTextField1.getText().trim().isEmpty()
+                || jTextField2.getText().trim().isEmpty() || 
+                jTextField3.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Please Provide all the necessary Details", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
         } else {
 
                getDetails();             
@@ -373,7 +377,8 @@ public class SensorData extends javax.swing.JFrame {
         theSensors.removeAll(theSensors);
 
         try {
-            for (SensorDetails sensorDetails : Serialization.deserializeSensors()) {
+            for(SensorDetails sensorDetails : 
+                    Serialization.deserializeSensors()){
                 theSensors.addSensorDetails(sensorDetails);
                 sensorDetails.print();
             }
@@ -400,7 +405,8 @@ public class SensorData extends javax.swing.JFrame {
      * @return status
      */
     //add data
-     public String addDetails(String stationNumber, double Flood, double Bin, double Traffic) {
+     public String addDetails(String stationNumber, double Flood, double Bin, 
+             double Traffic) {
         String status = "";
 
         SensorDetails s1 = new SensorDetails();
@@ -419,11 +425,13 @@ public class SensorData extends javax.swing.JFrame {
 
         String dateTime = Calendar.getInstance().getTime().toString();
 
-        theSensors.addSensorDetails(new SensorDetails(dateTime, stationNumber, Flood, Bin, Traffic));
+        theSensors.addSensorDetails(new SensorDetails(dateTime, stationNumber, 
+                Flood, Bin, Traffic));
         data.addData(new Data(FloodSol,BinSol,TrafficSol));
         try {
             Serialization.Serialize(theSensors, FILE_NAME_Sensors);
-            JOptionPane.showMessageDialog(this, "Please take the below steps : \n \u2022" + FloodSol + "\n \u2022" + BinSol + "\n \u2022"
+            JOptionPane.showMessageDialog(this, "Please take the below steps : "
+                   + "\n \u2022" + FloodSol + "\n \u2022" + BinSol + "\n \u2022"
                     + TrafficSol + "\n Above Solutions may decrease the risk " ,
                     "Information", JOptionPane.INFORMATION_MESSAGE);
             status = "success";

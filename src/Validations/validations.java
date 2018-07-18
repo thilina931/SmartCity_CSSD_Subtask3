@@ -54,7 +54,8 @@ public class validations {
         SimpleDateFormat simpleDateformat = new SimpleDateFormat("yyyy");
         Integer.parseInt(simpleDateformat.format(date1));
 
-        int diff = Integer.parseInt(simpleDateformat.format(date2)) - Integer.parseInt(simpleDateformat.format(date1));
+        int diff = Integer.parseInt(simpleDateformat.format(date2)) - 
+                Integer.parseInt(simpleDateformat.format(date1));
         return diff > 18;
 
     }
@@ -66,7 +67,7 @@ public class validations {
      */
     //validate email
     public static boolean isEmail(String email) {
-        String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        String EMAIL_REGEX="^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(EMAIL_REGEX);
     }
      

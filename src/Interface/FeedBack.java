@@ -172,31 +172,31 @@ public class FeedBack extends javax.swing.JFrame {
         jRadioButton1.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton1.setText("Very Good");
         getContentPane().add(jRadioButton1);
-        jRadioButton1.setBounds(310, 270, 111, 33);
+        jRadioButton1.setBounds(310, 270, 113, 33);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton2.setText("Good");
         getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(448, 270, 71, 33);
+        jRadioButton2.setBounds(448, 270, 73, 33);
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton3.setText("Neutral");
         getContentPane().add(jRadioButton3);
-        jRadioButton3.setBounds(537, 270, 83, 33);
+        jRadioButton3.setBounds(537, 270, 85, 33);
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton4.setText("Poor");
         getContentPane().add(jRadioButton4);
-        jRadioButton4.setBounds(638, 270, 63, 33);
+        jRadioButton4.setBounds(638, 270, 67, 33);
 
         buttonGroup1.add(jRadioButton5);
         jRadioButton5.setFont(new java.awt.Font("Segoe UI Symbol", 0, 18)); // NOI18N
         jRadioButton5.setText("Very Poor");
         getContentPane().add(jRadioButton5);
-        jRadioButton5.setBounds(719, 270, 103, 33);
+        jRadioButton5.setBounds(719, 270, 107, 33);
 
         jButton1.setText("Log Out");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +205,7 @@ public class FeedBack extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(889, 11, 71, 23);
+        jButton1.setBounds(860, 20, 77, 25);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -226,16 +226,23 @@ public class FeedBack extends javax.swing.JFrame {
     //save button click
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         // TODO add your handling code here:
-          if (name.getText().isEmpty() || email.getText().isEmpty() || comment.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+          if (name.getText().isEmpty() || email.getText().isEmpty() || 
+                  comment.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Please provide all the details...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
             if (validations.isEmail(email.getText())) {
-                String content = "Name : " + name.getText() + "\n Email Address : " + email.getText() + "\n Feedback : "
-                        + buttonGroup1.getSelection() + "\n Additional Comments : " + comment.getText();
+                String content = "Name : " + name.getText() + 
+                        "\nEmail Address : " + email.getText() + "\nFeedback : "
+                        + buttonGroup1.getSelection() + 
+                        "\n Additional Comments : " + comment.getText();
                 sendEmail(content);
             } else {
-                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please provide a valied email address...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
 
             }
         }
@@ -265,12 +272,17 @@ public class FeedBack extends javax.swing.JFrame {
     public void sendEmail(String content) {
         try {
             SendEmail mailSender;
-            mailSender = new SendEmail("sujiphoneekadeepanlamayekuta@gmail.com", "Feedback for Agriculture System", content);
-            JOptionPane.showMessageDialog(this, "Successfully send the feedback...", "Success", JOptionPane.INFORMATION_MESSAGE);
+            mailSender = new SendEmail("sujiphoneekadeepanlamayekuta@gmail.com", 
+                    "Feedback for Agriculture System", content);
+            JOptionPane.showMessageDialog(this, 
+                    "Successfully send the feedback...", "Success", 
+                    JOptionPane.INFORMATION_MESSAGE);
             clear();
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Unsuccessful...Please try again...", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "Unsuccessful...Please try again...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
     /**

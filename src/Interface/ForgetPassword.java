@@ -27,7 +27,7 @@ public class ForgetPassword extends javax.swing.JFrame {
     public static final String FILE_NAME_Users = "DataFiles/Users.txt";
 
     public static SetOfRandomCode searchCode = new SetOfRandomCode();
-    public static final String FILE_NAME_RandomCodes = "DataFiles/RandomCodes.txt";
+    public static final String FILE_NAME_RandomCodes="DataFiles/RandomCodes.txt";
 
     /**
      * Creates new form Forget_Password
@@ -156,7 +156,9 @@ public class ForgetPassword extends javax.swing.JFrame {
     private void btnancSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnancSaveMouseClicked
         // TODO add your handling code here:
          if (txtsenderEmail.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide the email address...", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "Please provide the email address...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
             String status = "";
@@ -173,25 +175,34 @@ public class ForgetPassword extends javax.swing.JFrame {
             if (status == "true") {
                 String stat = sendMessage(txtsenderEmail.getText());
                 if (stat == "success") {
-                    JOptionPane.showMessageDialog(this, "Varification Code has been send to your email...\n"
-                            + " Please type the code below to reset your password ", "Next Step", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "Varification Code has been send to your email...\n"
+                        + " Please type the code below to reset your password ", 
+                            "Next Step", JOptionPane.INFORMATION_MESSAGE);
                     searchCode.removeAll(searchCode);
                     try {
-                        for (randomCode code : Serialization.deserializeRandomCode()) {
+                        for (randomCode code : Serialization.
+                                deserializeRandomCode()) {
                             searchCode.addCode(code);
                             code.print();
                         }
                     } catch (IOException | ClassNotFoundException ex) {
-                        Logger.getLogger(ForgetPassword.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ForgetPassword.class.getName()).
+                                log(Level.SEVERE, null, ex);
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "Seems to be a internet connection error.. try again later... ", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "Seems to be a internet connection error.. "
+                                    + "try again later... ", "Error", 
+                                    JOptionPane.ERROR_MESSAGE);
 
                 }
 
             } else {
-                JOptionPane.showMessageDialog(this, "Please Register to the system...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please Register to the system...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
             }
 
         }
@@ -204,7 +215,9 @@ public class ForgetPassword extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (txtsenderEmail.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide the email address...", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, 
+                    "Please provide the email address...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
             String status = "";
@@ -221,25 +234,34 @@ public class ForgetPassword extends javax.swing.JFrame {
             if (status == "true") {
                 String stat = sendMessage(txtsenderEmail.getText());
                 if (stat == "success") {
-                    JOptionPane.showMessageDialog(this, "Varification Code has been send to your email...\n"
-                            + " Please type the code below to reset your password ", "Next Step", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "Varification Code has been send to your email...\n"
+                        + " Please type the code below to reset your password ", 
+                            "Next Step", JOptionPane.INFORMATION_MESSAGE);
                     searchCode.removeAll(searchCode);
                     try {
-                        for (randomCode code : Serialization.deserializeRandomCode()) {
+                        for (randomCode code : Serialization.
+                                deserializeRandomCode()) {
                             searchCode.addCode(code);
                             code.print();
                         }
                     } catch (IOException | ClassNotFoundException ex) {
-                        Logger.getLogger(ForgetPassword.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ForgetPassword.class.getName()).
+                                log(Level.SEVERE, null, ex);
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "Seems to be a internet connection error.. try again later... ", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "Seems to be a internet connection error.. "
+                                    + "try again later... ", "Error", 
+                                    JOptionPane.ERROR_MESSAGE);
 
                 }
 
             } else {
-                JOptionPane.showMessageDialog(this, "Please Register to the system...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please Register to the system...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
             }
 
         }
@@ -251,9 +273,11 @@ public class ForgetPassword extends javax.swing.JFrame {
         
         String status = null;
         try {
-            status = validateCode(txtsenderEmail.getText(), txtVerificationCode1.getText());
+            status = validateCode(txtsenderEmail.getText(), 
+                    txtVerificationCode1.getText());
         } catch (IOException ex) {
-            Logger.getLogger(ForgetPassword.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ForgetPassword.class.getName()).log(Level.SEVERE, 
+                    null, ex);
         }
         
         if (status == "success") {
@@ -265,7 +289,8 @@ public class ForgetPassword extends javax.swing.JFrame {
             this.hide();
 
         } else {
-            JOptionPane.showMessageDialog(this, "Varification code not match...", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Varification code not match", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btnancSave1MouseClicked
 
@@ -285,11 +310,13 @@ public class ForgetPassword extends javax.swing.JFrame {
      * @throws IOException 
      */
     //validate code
-    public static String validateCode(String email, String code) throws IOException {
+    public static String validateCode(String email, String code) 
+            throws IOException {
         String status = "";
         for (randomCode random : searchCode) {
 
-            if (random.getEmail().equals(email) && random.getRandomCode().equals(code)) {
+            if (random.getEmail().equals(email) && random.getRandomCode().
+                    equals(code)) {
                 status = "success";
                 searchCode.removeCode(random);
                 
@@ -307,7 +334,8 @@ public class ForgetPassword extends javax.swing.JFrame {
     
     //get code
     public static String getAlphaNumbericRandom() {
-        String chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String chars = 
+               "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         int numberOfCodes = 0;
         String code = "";
@@ -330,7 +358,8 @@ public class ForgetPassword extends javax.swing.JFrame {
         String status = "";
         try {
             SendEmail mailSender;
-            mailSender = new SendEmail(email, "Verification Message", "Your Verification Code is : " + verifyCode);
+            mailSender = new SendEmail(email, "Verification Message", 
+                    "Your Verification Code is : " + verifyCode);
 
             new randomCode.SingletonBuilder(email, verifyCode).build();
             searchCode.addCode(randomCode.getInstance());

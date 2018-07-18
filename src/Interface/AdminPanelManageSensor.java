@@ -56,7 +56,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
      * @param userLevel
      * @param email 
      */
-    public AdminPanelManageSensor(String username, String userLevel, String email) {
+    public AdminPanelManageSensor(String username, String userLevel, 
+            String email) {
         initComponents();
         this.username = username;
         this.userLevel = userLevel;
@@ -117,6 +118,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1029, 491));
         getContentPane().setLayout(null);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Sensor Station");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,8 +126,9 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(14, 109, 103, 23);
+        jButton1.setBounds(30, 110, 163, 31);
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Emergency");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,8 +136,9 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(156, 109, 85, 23);
+        jButton2.setBounds(240, 110, 133, 31);
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setText("Admin Panel");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,8 +146,9 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(284, 109, 91, 23);
+        jButton3.setBounds(430, 110, 145, 31);
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("Sensor Details");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,8 +156,9 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(430, 109, 101, 23);
+        jButton4.setBounds(610, 110, 161, 31);
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton5.setText("Sensor Data");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +166,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(582, 109, 91, 23);
+        jButton5.setBounds(810, 110, 150, 30);
 
         jButton6.setText("Manage Sensor");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,8 +174,13 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
                 jButton6MouseClicked(evt);
             }
         });
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6);
-        jButton6.setBounds(10, 176, 107, 23);
+        jButton6.setBounds(10, 190, 121, 25);
 
         jButton7.setText("Manage User");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -178,7 +189,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton7);
-        jButton7.setBounds(10, 257, 95, 23);
+        jButton7.setBounds(10, 257, 120, 25);
 
         jLabel1.setText("Station No :");
 
@@ -313,7 +324,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -346,11 +357,11 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
                     .addComponent(jButton9)
                     .addComponent(Deletebtn)
                     .addComponent(Reset_All))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(146, 138, 873, 342);
+        jPanel1.setBounds(146, 138, 888, 344);
 
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton11.setText("Log Out");
@@ -360,12 +371,12 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton11);
-        jButton11.setBounds(916, 11, 103, 31);
+        jButton11.setBounds(910, 10, 103, 31);
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Semilight", 1, 48)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("High Tower Text", 1, 48)); // NOI18N
         jLabel7.setText("Admin Panel");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(331, 0, 316, 63);
+        jLabel7.setBounds(370, 10, 316, 63);
 
         logedUser.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         logedUser.setForeground(new java.awt.Color(102, 102, 102));
@@ -375,7 +386,7 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AD-Events-Logo-Smartcity-dialogues.jpg"))); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 0, 1030, 490);
+        jLabel8.setBounds(-40, 270, 1200, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -383,7 +394,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     //table mouse click
     private void stationtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stationtableMouseClicked
 
-        // when user click on tbInfo table, all the information what in user selected row will want to show on Update tab
+        // When user click on tbInfo table, all the information what in user 
+        //  selected row will want to show on Update tab
         //  load info to update tab
         DefaultTableModel dtm = (DefaultTableModel) stationtable.getModel();
 
@@ -396,7 +408,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
         jTextField4.setText(stationtable.getValueAt(row, 4).toString());
         jTextField5.setText(stationtable.getValueAt(row, 5).toString());
         
-        sensorStation station = findsensor(stationtable.getValueAt(row, 0).toString(), Serialization.getAllSensorStations());
+        sensorStation station = findsensor(stationtable.getValueAt(row, 0).
+                toString(), Serialization.getAllSensorStations());
        
         String station_type = station.getStation_Type();
 
@@ -429,7 +442,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        AdminPanelManageUser u = new AdminPanelManageUser(username, userLevel, logedUser.getText());
+        AdminPanelManageUser u = new AdminPanelManageUser(username, userLevel, 
+                logedUser.getText());
         u.setVisible(true);
         this.hide();
         thestation.removeAll(thestation);
@@ -443,10 +457,14 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     //add button click
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         
-        String station_type, station_name, stationid, location, longitude, latitude;
-        if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
-                || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+        String station_type, station_name, stationid, location, longitude, 
+                latitude;
+        if (jComboBox1.getSelectedItem().toString().equals("Select") || 
+             jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
+                || jTextField4.getText().isEmpty() || jTextField5.getText().
+                        isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please provide all details...", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
             station_type = jComboBox1.getSelectedItem().toString();
@@ -474,7 +492,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
           
         ArrayList<sensorStation> stat=new ArrayList<>();
         stat=Serialization.getAllSensorStations();
-        sensorStation st =new sensorStation(txt_stationid.getText(),station_type,station_name,location,longitude,latitude);
+        sensorStation st=new sensorStation(txt_stationid.getText(),station_type,
+                station_name,location,longitude,latitude);
         stat.add(st);
         boolean cheak=Serialization.write( "DataFiles/sensorstation.txt",stat);
         if (cheak){
@@ -493,9 +512,12 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     //update button click 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         String station_type, station_name, location, longitude, latitude;
-        if (jComboBox1.getSelectedItem().toString().equals("Select") || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
-                || jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+        if (jComboBox1.getSelectedItem().toString().equals("Select") || 
+              jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty()
+                || jTextField4.getText().isEmpty() || jTextField5.getText().
+                        isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please provide all details...", 
+                    "Error", JOptionPane.ERROR_MESSAGE);
 
         } else {
             station_type = jComboBox1.getSelectedItem().toString();
@@ -520,14 +542,16 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             stationtype ="Traffic";
             }
         
-            sensorStation st =new sensorStation(txt_stationid.getText(),station_type,station_name,location,longitude,latitude);
+            sensorStation st =new sensorStation(txt_stationid.getText(),
+                    station_type,station_name,location,longitude,latitude);
             ArrayList<sensorStation> updatestat=new ArrayList<sensorStation>();
             updatestat=Serialization.getAllSensorStations();
             sensorStation sen =findsensor(txt_stationid.getText(),updatestat);
             System.out.println("asda"+sen.getStation_Name());
             updatestat.remove(sen);
             updatestat.add(st);
-            boolean cheak=  Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
+            boolean cheak=  Serialization.write( "DataFiles/sensorstation.txt" , 
+                    updatestat);
      
         if (cheak){
             JOptionPane.showMessageDialog(this, "Sucessfully Updated ");
@@ -544,7 +568,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
      * @return station
      */
     //search sensor
-    public sensorStation findsensor(String id,ArrayList<sensorStation> updatestat){
+    public sensorStation findsensor(String id,ArrayList<sensorStation> 
+            updatestat){
      for(sensorStation station :updatestat){
             if(id.equals(station.getSensorStation_ID())){
               
@@ -560,11 +585,15 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     private void DeletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletebtnActionPerformed
         // TODO add your handling code here:
         int stationNum;
-        int confirm = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this farm?", "Confirm", JOptionPane.YES_NO_OPTION,
+        int confirm = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to delete this farm?", "Confirm", 
+                JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
         if (confirm == 0) {
             if (txt_stationid.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Please select a farm to delete...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please select a farm to delete...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
                 
             } 
             else{
@@ -575,7 +604,8 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
             System.out.println("asda"+sen.getStation_Name());
             updatestat.remove(sen);
            
-            boolean cheak=Serialization.write( "DataFiles/sensorstation.txt" , updatestat);
+            boolean cheak=Serialization.write( "DataFiles/sensorstation.txt" , 
+                    updatestat);
            
         if (cheak){
             JOptionPane.showMessageDialog(this, "Sucessfully Deleted ");
@@ -586,24 +616,37 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
     }//GEN-LAST:event_DeletebtnActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        SensorStation ss = new SensorStation
+        (username,userLevel,logedUser.getText());
+        ss.setVisible(true);
+        this.hide();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        Emergency em = new Emergency();
+        em.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        AdminPanelManageSensor spms = new AdminPanelManageSensor
+        (username,userLevel,logedUser.getText());
+        spms.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        SensorDetails sd = new SensorDetails
+        (username,userLevel,logedUser.getText());
+        sd.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        SensorData sda = new SensorData(username,userLevel,logedUser.getText());
+        sda.setVisible(true);
+        this.hide();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -617,6 +660,13 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
         // TODO add your handling code here:
         reset();
     }//GEN-LAST:event_Reset_AllActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        AdminPanelManageSensor spms = new AdminPanelManageSensor
+        (username,userLevel,logedUser.getText());
+        spms.setVisible(true);
+        this.hide();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     //reset method
      public void reset() {
@@ -668,11 +718,13 @@ public class AdminPanelManageSensor extends javax.swing.JFrame {
       * @return status
       */
     //add station method
-    public String addStation(String station_type, String station_name, String location, String longitude, String latitude) {
+    public String addStation(String station_type, String station_name, 
+            String location, String longitude, String latitude) {
         String status = "";
         Station st= Station.getInstance();
         
-        new Station.SingletonBuilder(station_type, station_name, location, longitude, latitude);
+        new Station.SingletonBuilder(station_type, station_name, location, 
+                longitude, latitude);
         thestation.addStation(Station.getInstance());
         try {
             Serialization.Serialize(thestation, FILE_NAME_station);

@@ -27,7 +27,8 @@ import java.io.Serializable;
 //Serialization class
 public class Serialization implements Serializable{
      
-        public static void Serialize(Object object, String filename) throws IOException {
+        public static void Serialize(Object object, String filename) 
+                throws IOException {
 
         try (FileOutputStream out = new FileOutputStream(filename)) {
             ObjectOutputStream oos = new ObjectOutputStream(out);
@@ -38,10 +39,12 @@ public class Serialization implements Serializable{
     }
     
         //deserialization users
-        public static SetOfUsers deserializeUsers() throws IOException, ClassNotFoundException {
+        public static SetOfUsers deserializeUsers() throws IOException, 
+                ClassNotFoundException {
 
         SetOfUsers users;
-        try (FileInputStream in = new FileInputStream("DataFiles/Users.txt")) {
+        try (FileInputStream in = new FileInputStream
+        ("DataFiles/Users.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             users = (SetOfUsers) ois
                     .readObject();
@@ -52,10 +55,12 @@ public class Serialization implements Serializable{
          
          
        //deserialization randomcode
-       public static SetOfRandomCode deserializeRandomCode() throws IOException, ClassNotFoundException {
+       public static SetOfRandomCode deserializeRandomCode() throws IOException, 
+               ClassNotFoundException {
 
         SetOfRandomCode codes;
-        try (FileInputStream in = new FileInputStream("DataFiles/RandomCodes.txt")) {
+        try (FileInputStream in = new FileInputStream
+        ("DataFiles/RandomCodes.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             codes = (SetOfRandomCode) ois
                     .readObject();
@@ -65,10 +70,12 @@ public class Serialization implements Serializable{
     }
        
        //deserialization station
-       public static SetOfStation deserializeStation() throws IOException, ClassNotFoundException {
+       public static SetOfStation deserializeStation() throws IOException, 
+               ClassNotFoundException {
 
         SetOfStation farm;
-        try (FileInputStream in = new FileInputStream("DataFiles/Station.txt")) {
+        try (FileInputStream in = new FileInputStream
+        ("DataFiles/Station.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             farm = (SetOfStation) ois
                     .readObject();
@@ -78,10 +85,12 @@ public class Serialization implements Serializable{
     } 
        
        //deserialization sensors
-       public static MotherShip deserializeSensors() throws IOException, ClassNotFoundException {
+       public static MotherShip deserializeSensors() throws IOException, 
+               ClassNotFoundException {
 
         MotherShip sensors;
-        try (FileInputStream in = new FileInputStream("DataFiles/Sensors.txt")) {
+        try (FileInputStream in = new FileInputStream
+        ("DataFiles/Sensors.txt")) {
             ObjectInputStream ois = new ObjectInputStream(in);
             sensors = (MotherShip) ois
                     .readObject();
@@ -112,11 +121,13 @@ public class Serialization implements Serializable{
        
        public static ArrayList<sensorStation> getAllSensorStations(){
           try {
-            FileInputStream fil=new FileInputStream("DataFiles/sensorstation.txt");
+            FileInputStream fil=new FileInputStream
+        ("DataFiles/sensorstation.txt");
                      
                 if(fil.available()>0){
                     ObjectInputStream oo=new ObjectInputStream(fil);
-                 ArrayList<sensorStation> sr = (ArrayList<sensorStation>) oo.readObject();
+                 ArrayList<sensorStation> sr = (ArrayList<sensorStation>) oo.
+                         readObject();
                  oo.close();
                  fil.close();
                  return sr;

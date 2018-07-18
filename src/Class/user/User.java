@@ -49,7 +49,9 @@ public class User implements Serializable{
     
 
     public void print() {
-        System.out.println(Integer.toString(memberNumber) + " Name " + name + ",username " + username + ",password " + password + ",userLevel " + userLevel);
+        System.out.println(Integer.toString(memberNumber) + " Name " + name + 
+                ",username " + username + ",password " + password + 
+                ",userLevel " + userLevel);
     }
       
 
@@ -83,7 +85,8 @@ public class User implements Serializable{
          * @param mobile
          * @param password 
          */
-        public SingletonBuilder(String firstName, String lastName, String userLevel, String email, String mobile, String password) {
+        public SingletonBuilder(String firstName, String lastName, 
+                String userLevel, String email, String mobile, String password){
             this.name = firstName;
             this.lastName = lastName;
             this.mobile = mobile;

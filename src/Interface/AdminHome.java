@@ -63,7 +63,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(107, 234, 207, 37);
+        jButton3.setBounds(70, 230, 207, 37);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton4.setText("Emergency");
@@ -73,7 +73,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(378, 234, 165, 37);
+        jButton4.setBounds(350, 230, 165, 37);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton5.setText("Admin Panel");
@@ -83,7 +83,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton5);
-        jButton5.setBounds(613, 234, 181, 37);
+        jButton5.setBounds(590, 230, 181, 37);
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton6.setText("Sensor Details");
@@ -93,7 +93,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton6);
-        jButton6.setBounds(881, 234, 203, 37);
+        jButton6.setBounds(830, 230, 203, 37);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Log Out");
@@ -103,7 +103,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(1000, 10, 103, 31);
+        jButton1.setBounds(990, 20, 103, 31);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton2.setText("Sensor Data");
@@ -113,7 +113,7 @@ public class AdminHome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(485, 393, 177, 37);
+        jButton2.setBounds(470, 330, 177, 37);
 
         logedUser.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         logedUser.setForeground(new java.awt.Color(102, 102, 102));
@@ -124,14 +124,15 @@ public class AdminHome extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AD-Events-Logo-Smartcity-dialogues.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-10, 60, 1140, 410);
+        jLabel1.setBounds(0, 70, 1100, 490);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        SensorStation ss = new SensorStation(username,userLevel,logedUser.getText());
+        SensorStation ss = new SensorStation
+        (username,userLevel,logedUser.getText());
         ss.setVisible(true);
         this.hide();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -145,7 +146,8 @@ public class AdminHome extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,userLevel,logedUser.getText());
+        AdminPanelManageSensor spms = new AdminPanelManageSensor
+        (username,userLevel,logedUser.getText());
         spms.setVisible(true);
         this.hide();
 
@@ -153,7 +155,8 @@ public class AdminHome extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        SensorDetails sd = new SensorDetails(username,userLevel,logedUser.getText());
+        SensorDetails sd = new SensorDetails
+        (username,userLevel,logedUser.getText());
         sd.setVisible(true);
         this.hide();
 

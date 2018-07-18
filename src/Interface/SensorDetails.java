@@ -140,7 +140,7 @@ public class SensorDetails extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(63, 196, 291, 254);
+        jScrollPane1.setBounds(63, 196, 291, 170);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel2.setText("Sensor Details");
@@ -154,7 +154,7 @@ public class SensorDetails extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(930, 33, 71, 23);
+        jButton1.setBounds(890, 30, 77, 25);
 
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton8.setText("Sensor Data");
@@ -172,7 +172,7 @@ public class SensorDetails extends javax.swing.JFrame {
         getContentPane().add(logedUser);
         logedUser.setBounds(0, 31, 192, 32);
         getContentPane().add(jDesktopPane1);
-        jDesktopPane1.setBounds(545, 196, 364, 254);
+        jDesktopPane1.setBounds(385, 166, 580, 320);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
         getContentPane().add(jLabel3);
@@ -183,7 +183,8 @@ public class SensorDetails extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        SensorStation ss = new SensorStation(username,userLevel,logedUser.getText());
+        SensorStation ss = new SensorStation(username,userLevel,
+                logedUser.getText());
         ss.setVisible(true);
         this.hide();
         
@@ -199,7 +200,8 @@ public class SensorDetails extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,userLevel,logedUser.getText());
+        AdminPanelManageSensor spms = new AdminPanelManageSensor(username,
+                userLevel,logedUser.getText());
         spms.setVisible(true);
         this.hide();
 
@@ -207,7 +209,8 @@ public class SensorDetails extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        SensorDetails sd = new SensorDetails(username,userLevel,logedUser.getText());
+        SensorDetails sd = new SensorDetails(username,userLevel,
+                logedUser.getText());
         sd.setVisible(true);
         this.hide();
         
@@ -231,7 +234,10 @@ public class SensorDetails extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        jDesktopPane1.add(createInternalFrame("Select Destination", "https://www.google.com/maps/place/Malabe/@6.9043629,79.9479226,14z/data=!4m5!3m4!1s0x3ae256d59601df81:0x31a1dd96e8d49ba!8m2!3d6.9060787!4d79.9696277"));
+        jDesktopPane1.add(createInternalFrame("Select Destination", 
+               "https://www.google.com/maps/place/Malabe/@6.9043629,79.9479226,"
+                   + "14z/data=!4m5!3m4!1s0x3ae256d59601df81:0x31a1dd96e8d49ba!"
+                        + "8m2!3d6.9060787!4d79.9696277"));
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

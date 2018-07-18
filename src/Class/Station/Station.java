@@ -16,9 +16,10 @@ import java.io.Serializable;
  */
 public class Station implements Serializable {
     private static final long serialVersionUID = -47594027994670654L;
-     private static volatile Station instance;
-       private int stationNumber;
-    private String cmb_stationtype, txt_station_name, txt_fieldid, txt_location, txt_longitude, txt_latitude;
+    private static volatile Station instance;
+    private int stationNumber;
+    private String cmb_stationtype, txt_station_name, txt_fieldid, txt_location,
+            txt_longitude, txt_latitude;
     
 
     private static int Station_Count = 0;
@@ -46,7 +47,10 @@ public class Station implements Serializable {
     }
      
     public void print() {
-        System.out.println(Integer.toString(stationNumber) + " Station Type " + cmb_stationtype + " Station Name " + txt_station_name + ",Location " + txt_location + ",Longitude " + txt_longitude + ",Latitude " + txt_latitude );
+        System.out.println(Integer.toString(stationNumber) + " Station Type " + 
+                cmb_stationtype + " Station Name " + txt_station_name + 
+                ",Location " + txt_location + ",Longitude " + txt_longitude + 
+                ",Latitude " + txt_latitude );
     }
      
     public static class SingletonBuilder {
@@ -77,7 +81,8 @@ public class Station implements Serializable {
      * @param longitude
      * @param latitude 
      */
-    public SingletonBuilder(String station_type, String station_name, String location, String longitude, String latitude) {
+    public SingletonBuilder(String station_type, String station_name, 
+            String location, String longitude, String latitude) {
             this.cmb_stationtype = station_type;
             this.txt_station_name = station_name;
             this.txt_location = location;

@@ -47,8 +47,7 @@ public class Map  {
         internalFrame.setSize(1366, 550);
         internalFrame.setVisible(true);
        
-        
-       // internalFrame.addInputMethodListener((InputMethodListener) internalFrame.add(createButton("Set MArker")));
+
         return internalFrame;
      
 }

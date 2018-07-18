@@ -94,7 +94,7 @@ public class Register extends javax.swing.JFrame {
         getContentPane().add(jLabelEmail);
         jLabelEmail.setBounds(322, 277, 70, 17);
         getContentPane().add(firstName);
-        firstName.setBounds(525, 129, 195, 20);
+        firstName.setBounds(525, 129, 195, 30);
 
         lastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,18 +102,18 @@ public class Register extends javax.swing.JFrame {
             }
         });
         getContentPane().add(lastName);
-        lastName.setBounds(525, 177, 195, 20);
+        lastName.setBounds(525, 177, 195, 30);
         getContentPane().add(city);
-        city.setBounds(525, 229, 195, 20);
+        city.setBounds(525, 229, 195, 30);
         getContentPane().add(email);
-        email.setBounds(525, 277, 195, 20);
+        email.setBounds(525, 277, 195, 30);
 
         jLabelMNumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelMNumber.setText("Mobile Number");
         getContentPane().add(jLabelMNumber);
         jLabelMNumber.setBounds(322, 324, 130, 17);
         getContentPane().add(mobile);
-        mobile.setBounds(525, 324, 195, 20);
+        mobile.setBounds(525, 324, 195, 30);
 
         jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelPassword.setText("Password");
@@ -158,9 +158,9 @@ public class Register extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Already a member ?");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(420, 530, 190, 22);
+        jLabel2.setBounds(440, 520, 190, 22);
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setText("Login");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -168,7 +168,7 @@ public class Register extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(660, 530, 120, 30);
+        jLabel13.setBounds(660, 510, 60, 30);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton1.setText("Login");
@@ -178,11 +178,11 @@ public class Register extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(906, 11, 89, 37);
+        jButton1.setBounds(880, 30, 89, 37);
         getContentPane().add(password);
-        password.setBounds(525, 370, 195, 20);
+        password.setBounds(525, 370, 195, 30);
         getContentPane().add(password1);
-        password1.setBounds(525, 418, 195, 20);
+        password1.setBounds(525, 418, 195, 30);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
         getContentPane().add(jLabel3);
@@ -198,10 +198,15 @@ public class Register extends javax.swing.JFrame {
     //signup button click
     private void jButtonSignupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSignupMouseClicked
         // TODO add your handling code here:
-        String firstname, lastname, Address, City, Email, Mobile, Password, Password1;
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() ||  city.getText().isEmpty()
-                || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty() || password1.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+        String firstname, lastname, Address, City, Email, Mobile, Password, 
+                Password1;
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() ||  
+                city.getText().isEmpty()
+                || email.getText().isEmpty() || mobile.getText().isEmpty() || 
+                password.getText().isEmpty() || password1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Please provide all the details...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
             if (validations.isEmail(email.getText())) {
@@ -214,9 +219,13 @@ public class Register extends javax.swing.JFrame {
                 Password1 = password1.getText();
 
                 if (Password.equals(Password1)) {
-                    String status = registerUser(firstname, lastname, "user", City, Email, Mobile, Password);
+                    String status = registerUser(firstname, lastname, "user", 
+                            City, Email, Mobile, Password);
                     if (status.equals("success")) {
-                        JOptionPane.showMessageDialog(this, "You have registered successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(this, 
+                                "You have registered successful", 
+                                "Congradulations", 
+                                JOptionPane.INFORMATION_MESSAGE);
                         clear();
                         try {
                             for (User user : Serialization.deserializeUsers()) {
@@ -224,27 +233,33 @@ public class Register extends javax.swing.JFrame {
 
                             }
                         } catch (IOException | ClassNotFoundException ex) {
-                            Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(Register.class.getName()).
+                                    log(Level.SEVERE, null, ex);
                         }
                         Login l = new Login();
                         l.setVisible(true);
                         this.hide();
 
                     } else {
-                        JOptionPane.showMessageDialog(this, "Registration unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, 
+                                "Registration unsuccessful...", "Error", 
+                                JOptionPane.ERROR_MESSAGE);
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "Confirmation password must be same as the password...", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                           "Confirmation password must be same as the password", 
+                            "Error", JOptionPane.ERROR_MESSAGE);
 
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please provide a valied email address...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
 
             }
         }
         
-        
-        //////////////////////////////////////////////////////////////
+
     }//GEN-LAST:event_jButtonSignupMouseClicked
 
     
@@ -260,9 +275,12 @@ public class Register extends javax.swing.JFrame {
      * @return status
      */
     //user registration
-    public String registerUser(String firstName, String lastName, String userLevel, String city, String email, String mobile, String password) {
+    public String registerUser(String firstName, String lastName, 
+            String userLevel, String city, String email, String mobile, 
+            String password) {
         String status = "";
-        new User.SingletonBuilder(firstName, lastName, "user", email, mobile, password).city(city).build();
+        new User.SingletonBuilder(firstName, lastName, "user", email, mobile, 
+                password).city(city).build();
         theUsers.addUser(User.getInstance());
         try {
             Serialization.Serialize(theUsers, FILE_NAME_Users);

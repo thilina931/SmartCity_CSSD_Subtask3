@@ -81,7 +81,9 @@ public class Data implements Serializable{
     public void  checkAlarts() {
         
         String Alart = "";
-        if (this.FloodSol == "Be aware of any signs of heavy rain..... " ||this.BinSol== "Garbage Level is High ..."||this.TrafficSol == "Heavy Traffic ...") {
+        if (this.FloodSol == "Be aware of any signs of heavy rain..... " ||
+                this.BinSol== "Garbage Level is High ..."||
+                this.TrafficSol == "Heavy Traffic ...") {
             //getFloodSol().equalsIgnoreCase("");
             System.out.println("Class.Sensor.Data.checkAlarts()");
             

@@ -47,7 +47,8 @@ public class randomCode implements Serializable{
     
     
     public void print() {
-        System.out.println(Integer.toString(recodeNumber) + " Email " + email + "Code " + randomNumber);
+        System.out.println(Integer.toString(recodeNumber) + " Email " + email + 
+                "Code " + randomNumber);
     }
         
      

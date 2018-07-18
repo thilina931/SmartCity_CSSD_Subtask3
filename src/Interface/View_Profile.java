@@ -101,60 +101,60 @@ public class View_Profile extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1021, 556));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Constantia", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Constantia", 1, 36)); // NOI18N
         jLabel1.setText("My Profile ");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(272, 11, 248, 60);
+        jLabel1.setBounds(410, 20, 248, 60);
 
         jLabel2.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel2.setText("First Name          :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(255, 152, 136, 26);
+        jLabel2.setBounds(260, 120, 136, 26);
 
         jLabel3.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel3.setText("Last Name          :");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(255, 210, 133, 29);
+        jLabel3.setBounds(260, 170, 133, 29);
 
         jLabel4.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel4.setText("City                   :");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(255, 265, 130, 29);
+        jLabel4.setBounds(260, 230, 130, 29);
 
         jLabel5.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel5.setText("Email                 :");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(255, 326, 136, 29);
+        jLabel5.setBounds(260, 290, 136, 29);
 
         jLabel6.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel6.setText("Password         :");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(255, 385, 133, 29);
+        jLabel6.setBounds(260, 350, 133, 29);
 
         jLabel7.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         jLabel7.setText("Mobile Number   :");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(255, 440, 133, 29);
+        jLabel7.setBounds(260, 400, 133, 29);
 
         firstName.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         getContentPane().add(firstName);
-        firstName.setBounds(395, 148, 213, 35);
+        firstName.setBounds(400, 110, 213, 35);
 
         lastName.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         getContentPane().add(lastName);
-        lastName.setBounds(395, 207, 213, 35);
+        lastName.setBounds(400, 170, 213, 35);
 
         city.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         getContentPane().add(city);
-        city.setBounds(395, 262, 213, 35);
+        city.setBounds(400, 230, 213, 35);
 
         email.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         getContentPane().add(email);
-        email.setBounds(395, 323, 213, 35);
+        email.setBounds(400, 290, 213, 35);
 
         password.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         getContentPane().add(password);
-        password.setBounds(395, 382, 213, 35);
+        password.setBounds(400, 350, 213, 35);
 
         mobile.setFont(new java.awt.Font("Agency FB", 1, 24)); // NOI18N
         mobile.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +163,7 @@ public class View_Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(mobile);
-        mobile.setBounds(395, 437, 213, 35);
+        mobile.setBounds(400, 400, 213, 35);
 
         reset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         reset.setText("Reset");
@@ -178,7 +178,7 @@ public class View_Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(reset);
-        reset.setBounds(525, 514, 83, 31);
+        reset.setBounds(530, 460, 83, 31);
 
         Update.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Update.setText("Update");
@@ -188,7 +188,7 @@ public class View_Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Update);
-        Update.setBounds(395, 514, 97, 31);
+        Update.setBounds(410, 460, 97, 31);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Back To User ");
@@ -218,11 +218,11 @@ public class View_Profile extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(910, 10, 93, 31);
+        jButton3.setBounds(880, 40, 93, 31);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logo-main.png"))); // NOI18N
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 150, 1030, 550);
+        jLabel8.setBounds(0, 170, 1030, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -240,9 +240,13 @@ public class View_Profile extends javax.swing.JFrame {
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
         String firstname, lastname,City, Email, Mobile, Password;
-        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || city.getText().isEmpty()
-            || email.getText().isEmpty() || mobile.getText().isEmpty() || password.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please provide all the details...", "Error", JOptionPane.ERROR_MESSAGE);
+        if (firstName.getText().isEmpty() || lastName.getText().isEmpty() || 
+                city.getText().isEmpty()
+            || email.getText().isEmpty() || mobile.getText().isEmpty() || 
+                password.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Please provide all the details...", "Error", 
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
             if (validations.isEmail(email.getText())) {
@@ -253,23 +257,31 @@ public class View_Profile extends javax.swing.JFrame {
                 Mobile = mobile.getText();
                 Password = password.getText();
 
-                User user = theUsers.getMemberFromNumber(userNumber).firstElement();
+                User user = theUsers.getMemberFromNumber(userNumber).
+                        firstElement();
 
-                String status = theUsers.updatedetails(user, firstname, lastname, City, Email, Mobile, Password, "user");
+                String status = theUsers.updatedetails(user, firstname, 
+                        lastname, City, Email, Mobile, Password, "user");
                 if (status.equals("success")) {
-                    JOptionPane.showMessageDialog(this, "You have updated successful", "Congradulations", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, 
+                            "You have updated successful", "Congradulations", 
+                            JOptionPane.INFORMATION_MESSAGE);
                     try {
                         Serialization.Serialize(theUsers, FILE_NAME_Users);
                     } catch (IOException ex) {
-                        Logger.getLogger(View_Profile.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(View_Profile.class.getName()).
+                                log(Level.SEVERE, null, ex);
                     }
                     setDetails();
 
                 } else {
-                    JOptionPane.showMessageDialog(this, "Update unsuccessful...", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Update unsuccessful", 
+                            "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                JOptionPane.showMessageDialog(this, "Please provide a valied email address...", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, 
+                        "Please provide a valied email address...", "Error", 
+                        JOptionPane.ERROR_MESSAGE);
 
             }
         }
